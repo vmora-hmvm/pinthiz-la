@@ -455,6 +455,21 @@ img{max-width:100%;display:block;}
   .hero-bg{background-attachment:fixed;}
 }
 
+
+/* ===== PRODUCT CAROUSEL ===== */
+.carousel{position:relative;overflow:hidden;padding:20px 0 40px;margin-bottom:20px;}
+.carousel-track{display:flex;gap:20px;animation:slideCarousel 30s linear infinite;width:max-content;}
+.carousel:hover .carousel-track{animation-play-state:paused;}
+.carousel-item{width:180px;flex-shrink:0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden;transition:all .3s;cursor:pointer;}
+.carousel-item:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.3);box-shadow:0 12px 30px rgba(0,0,0,.3);}
+.carousel-img{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(circle at center,rgba(30,144,255,.04),transparent 70%);}
+.carousel-img img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,.3));}
+.carousel-info{padding:12px 16px;text-align:center;}
+.carousel-info .cname{font-size:.78rem;font-weight:600;color:var(--cream);margin-bottom:4px;}
+.carousel-info .ccap{font-size:.62rem;color:var(--muted);line-height:1.4;font-style:italic;}
+.carousel-info .cprice{font-family:'Anton',sans-serif;font-size:1.2rem;color:var(--gold);margin-top:6px;letter-spacing:1px;}
+@keyframes slideCarousel{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 </style>
 </head>
 <body>
@@ -534,9 +549,14 @@ img{max-width:100%;display:block;}
       <button class="filter-btn" data-cat="shirt">Shirts</button>
       <button class="filter-btn" data-cat="patch">Patches</button>
     </div>
+    <!-- Featured Product Carousel -->
+    <div class="carousel" id="featuredCarousel">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
     <div class="product-grid" id="productGrid">
       <!-- Products injected by JS -->
     </div>
+    <div id="paginationControls"></div>
   </div>
 </section>
 
@@ -1150,6 +1170,36 @@ function launchConfetti() {
 let activeFilter = 'all';
 let searchQuery = '';
 
+const PER_PAGE = 15;
+let currentPage = 1;
+
+// ===== CAROUSEL =====
+function initCarousel() {
+  const track = document.getElementById('carouselTrack');
+  if (!track) return;
+  const featured = products.filter(p => p.featured);
+  const items = featured.length > 0 ? [...featured, ...featured] : [...products.slice(0, 10), ...products.slice(0, 10)];
+  track.innerHTML = items.map(p => `
+    <div class="carousel-item" onclick="scrollToShop()">
+      <div class="carousel-img">
+        ${p.img 
+          ? `<img src="${p.img}" alt="${p.name}" loading="lazy">`
+          : `<img src="${p.sprite_url || ''}" alt="${p.name}" loading="lazy" style="object-position:${p.sprite_x||0}px ${p.sprite_y||0}px;width:200px;height:200px;object-fit:none;">`
+        }
+      </div>
+      <div class="carousel-info">
+        <div class="cname">${p.name}</div>
+        <div class="ccap">"${p.caption || ''}"</div>
+        <div class="cprice">$${p.price}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function scrollToShop() {
+  document.getElementById('productGrid').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 function renderProducts() {
   const grid = document.getElementById('productGrid');
   const filtered = products.filter(p => {
@@ -1160,10 +1210,18 @@ function renderProducts() {
   
   if (filtered.length === 0) {
     grid.innerHTML = '<p style="text-align:center;color:var(--muted);grid-column:1/-1;padding:40px;">No designs found. Try a different search.</p>';
+    document.getElementById('paginationControls').innerHTML = '';
     return;
   }
   
-  grid.innerHTML = filtered.map(p => `
+  // Reset page when filter/search changes
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+  if (currentPage > totalPages) currentPage = 1;
+  
+  const start = (currentPage - 1) * PER_PAGE;
+  const pageItems = filtered.slice(start, start + PER_PAGE);
+  
+  grid.innerHTML = pageItems.map(p => `
     <div class="product-card" onclick="openModal(${p.id})">
       ${p.featured ? '<span class="badge-new">Featured</span>' : ''}
       <div class="product-img-wrap">
@@ -1185,6 +1243,27 @@ function renderProducts() {
       </div>
     </div>
   `).join('');
+  
+  // Render pagination controls
+  const pagControls = document.getElementById('paginationControls');
+  if (totalPages <= 1) {
+    pagControls.innerHTML = '';
+  } else {
+    pagControls.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;flex-wrap:wrap;">
+        <button onclick="changePage(-1)" ${currentPage === 1 ? 'disabled' : ''} style="background:rgba(255,255,255,.04);border:1px solid var(--glass-border);color:var(--cream);padding:10px 24px;border-radius:50px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;${currentPage === 1 ? 'opacity:.4;cursor:not-allowed;' : ''}">&larr; Prev</button>
+        <span style="color:var(--muted);font-size:.78rem;letter-spacing:1px;">Page ${currentPage} of ${totalPages} &middot; ${filtered.length} designs</span>
+        <button onclick="changePage(1)" ${currentPage === totalPages ? 'disabled' : ''} style="background:rgba(255,255,255,.04);border:1px solid var(--glass-border);color:var(--cream);padding:10px 24px;border-radius:50px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;${currentPage === totalPages ? 'opacity:.4;cursor:not-allowed;' : ''}">Next &rarr;</button>
+      </div>
+    `;
+  }
+}
+
+function changePage(dir) {
+  currentPage += dir;
+  initCarousel();
+renderProducts();
+  document.getElementById('shop').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 // Filter buttons
@@ -1193,6 +1272,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeFilter = btn.dataset.cat;
+    currentPage = 1;
     renderProducts();
   });
 });
@@ -1200,6 +1280,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // Search
 document.getElementById('searchInput').addEventListener('input', (e) => {
   searchQuery = e.target.value.toLowerCase();
+  currentPage = 1;
   renderProducts();
 });
 
