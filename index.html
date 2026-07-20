@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pinthiz.la | Custom Enamel Pins, Stickers, Shirts & Patches — Los Angeles</title>
+<meta name="description" content="pinthiz.la — custom enamel pins, stickers, shirts & patches born in LA. Dodgers culture, creative crossovers. From LA, for LA. EST. 2018.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pinthiz.la | Custom Pins from LA">
+<meta property="og:description" content="Custom enamel pins, stickers, shirts & patches born in LA. Dodgers culture, creative crossovers. From LA, for LA. EST. 2018.">
+<meta property="og:url" content="https://pinthiz.la">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="pinthiz.la | Custom Pins from LA">
+<meta name="twitter:description" content="Dodgers culture, creative crossovers. From LA, for LA. EST. 2018.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Store",
+  "name":"pinthiz.la",
+  "description":"Custom enamel pins, stickers, shirts & patches. Dodgers culture, creative crossovers. From LA, for LA.",
+  "url":"https://pinthiz.la",
+  "address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},
+  "sameAs":["https://www.instagram.com/pinthiz.la/"]
+}
+
+// Scroll reveal animation
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-header, .product-card, .raffle-container, .gallery-grid, .games-list, .faq-grid, .shipping-grid, .updates-grid, .promo-banner').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#005A9C;
+  --blue-bright:#1E90FF;
+  --navy:#0B1628;
+  --navy-mid:#111E33;
+  --navy-light:#1A2A42;
+  --charcoal:#060D1A;
+  --gold:#CBA135;
+  --gold-bright:#E0B84C;
+  --gold-soft:rgba(203,161,53,.35);
+  --cream:#F5F7FA;
+  --muted:#7A8FA8;
+  --muted-dark:#3D4D63;
+  --glass:rgba(255,255,255,.03);
+  --glass-border:rgba(255,255,255,.06);
+  --field:#1A3D12;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--cream);line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(30,144,255,.04),transparent 50%);pointer-events:none;}
+h1,h2,h3,h4{font-family:'Anton',sans-serif;font-weight:400;line-height:1.1;letter-spacing:1.5px;text-transform:uppercase;}
+.gold{color:var(--gold);}
+.blue{color:var(--blue-bright);}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+section{padding:100px 0;position:relative;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ===== SHIMMER BUTTON ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--blue),var(--blue-bright));color:var(--cream);padding:15px 40px;border-radius:50px;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;font-family:'Outfit',sans-serif;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(30,144,255,.25);transition:all .3s;}
+.btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,var(--gold-soft),transparent);animation:shimmer 2.8s ease-in-out infinite;}
+@keyframes shimmer{0%{left:-100%;}60%,100%{left:180%;}}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(30,144,255,.45);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--navy);box-shadow:0 4px 20px rgba(203,161,53,.25);}
+.btn-gold:hover{box-shadow:0 10px 36px rgba(203,161,53,.45);}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.12);color:var(--cream);box-shadow:none;}
+.btn-outline:hover{background:rgba(30,144,255,.08);border-color:var(--blue-bright);}
+.btn-block{display:flex;width:100%;}
+
+/* ===== NAV — CENTERED TOOLBAR ===== */
+.nav-wrapper{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(11,22,40,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--glass-border);transition:all .3s;}
+.nav-wrapper::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent 5%,var(--gold) 20%,var(--blue-bright) 50%,var(--gold) 80%,transparent 95%);
+  opacity:.4;}
+.nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1200px;margin:0 auto;padding:12px 24px;gap:12px;}
+.nav-left{display:flex;align-items:center;justify-content:flex-start;gap:10px;}
+.nav-logo-circle{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));display:flex;align-items:center;justify-content:center;border:2px solid var(--gold);box-shadow:0 0 16px rgba(203,161,53,.2),0 4px 12px rgba(0,0,0,.4);flex-shrink:0;transition:all .3s;position:relative;overflow:hidden;}
+.nav-logo-circle:hover{transform:scale(1.08)rotate(-5deg);box-shadow:0 0 24px rgba(203,161,53,.35),0 6px 16px rgba(0,0,0,.5);}
+.nav-logo-circle svg{width:24px;height:24px;}
+.nav-logo-circle::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px dashed rgba(203,161,53,.15);animation:spin-slow 20s linear infinite;}
+@keyframes spin-slow{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.nav-links{display:flex;gap:2px;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:40px;padding:5px 8px;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.2);}
+.nav-links a{color:var(--muted);font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
+  padding:9px 16px;border-radius:30px;transition:all .25s;position:relative;font-family:'Outfit',sans-serif;}
+.nav-links a:hover{color:var(--gold);background:rgba(203,161,53,.06);transform:translateY(-1px);}
+.nav-links a.active{color:var(--cream);background:linear-gradient(135deg,rgba(30,144,255,.15),rgba(0,90,156,.1));}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:10px;}
+.nav-search{position:relative;}
+.nav-search input{background:rgba(255,255,255,.05);border:1px solid var(--glass-border);border-radius:24px;padding:8px 16px 8px 36px;color:var(--cream);font-size:.78rem;font-family:'Outfit',sans-serif;width:140px;transition:all .3s;}
+.nav-search input:focus{outline:none;border-color:var(--blue-bright);width:180px;}
+.nav-search input::placeholder{color:var(--muted-dark);}
+.nav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--muted);}
+.cart-btn{position:relative;background:linear-gradient(135deg,var(--blue),var(--blue-bright));border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,90,156,.3);transition:all .3s;}
+.cart-btn:hover{transform:scale(1.08);box-shadow:0 6px 22px rgba(0,90,156,.5);}
+.cart-btn svg{width:18px;height:18px;}
+.cart-count{position:absolute;top:-4px;right:-4px;background:var(--gold);color:var(--navy);font-size:.58rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--navy);}
+.cart-count.hidden{display:none;}
+.menu-btn{display:none;background:transparent;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;padding:8px;}
+@media(max-width:860px){
+  .nav-search{display:none;}
+  .nav-inner{grid-template-columns:auto 1fr auto;}
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;flex-direction:column;background:rgba(11,22,40,.97);padding:16px;gap:4px;border-bottom:1px solid var(--glass-border);border-radius:0;}
+  .nav-links.open{display:flex;border-radius:0;padding:16px;}
+  .menu-btn{display:block;}
+}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 24px 80px;}
+.hero-bg{position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(180deg,rgba(11,22,40,.75) 0%,rgba(11,22,40,.85) 50%,rgba(11,22,40,.95) 100%),
+    url('https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/02387c211_bg_stadium.png') center/cover no-repeat;
+}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 80%,rgba(203,161,53,.08),transparent 60%),
+    radial-gradient(ellipse at 50% 20%,rgba(30,144,255,.06),transparent 50%);
+}
+.hero-stars{position:absolute;inset:0;z-index:0;opacity:.35;
+  background-image:
+    radial-gradient(1px 1px at 15% 20%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 35% 15%,rgba(255,255,255,.3),transparent),
+    radial-gradient(2px 2px at 60% 25%,rgba(203,161,53,.25),transparent),
+    radial-gradient(1px 1px at 80% 18%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 25% 35%,rgba(30,144,255,.3),transparent),
+    radial-gradient(1px 1px at 70% 40%,rgba(255,255,255,.2),transparent),
+    radial-gradient(2px 2px at 90% 30%,rgba(203,161,53,.2),transparent),
+    radial-gradient(1px 1px at 50% 50%,rgba(255,255,255,.15),transparent);
+}
+.hero-sunset{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:900px;height:400px;z-index:1;
+  background:radial-gradient(ellipse at center bottom,rgba(203,161,53,.1) 0%,rgba(203,161,53,.03) 30%,transparent 70%);
+  pointer-events:none;
+}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:500px;height:300px;z-index:1;
+  background:radial-gradient(ellipse,rgba(30,144,255,.08),transparent 70%);pointer-events:none;
+  animation:pulse-glow 4s ease-in-out infinite;
+}
+@keyframes pulse-glow{0%,100%{opacity:.6;}50%{opacity:1;}}
+.hero-content{position:relative;z-index:2;max-width:720px;}
+
+/* Logo placeholder — styled circle */
+.hero-logo-ph{width:140px;height:140px;border-radius:50%;margin:0 auto 24px;
+  background:linear-gradient(135deg,var(--blue),var(--navy-mid));
+  border:3px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 40px rgba(203,161,53,.15),0 8px 32px rgba(0,0,0,.5);
+  position:relative;
+}
+.hero-logo-ph::before{content:'pinthiz';font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:1px;color:var(--gold);text-transform:lowercase;}
+.hero-logo-ph::after{content:'.la';position:absolute;bottom:28px;font-family:'Anton',sans-serif;font-size:.65rem;color:var(--cream);opacity:.6;letter-spacing:1px;}
+
+.hero-est{color:var(--gold);font-size:.72rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.hero h1{font-size:clamp(3rem,8vw,5.5rem);letter-spacing:3px;margin-bottom:8px;line-height:.95;}
+.hero h1 .accent{color:var(--gold);}
+.hero .tagline{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);color:var(--cream);opacity:.95;margin-bottom:20px;}
+.hero .sub{max-width:500px;margin:0 auto 36px;color:var(--cream);opacity:.7;font-size:.9rem;line-height:1.9;}
+.hero-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.hero .locale{margin-top:32px;color:var(--muted-dark);font-size:.62rem;letter-spacing:3.5px;text-transform:uppercase;font-weight:600;}
+.scroll-hint{margin-top:20px;color:var(--gold);font-size:1rem;animation:bounce 2s ease-in-out infinite;opacity:.5;display:block;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+.scroll-baseball{margin-top:20px;animation:bounce 2s ease-in-out infinite;opacity:.4;display:inline-block;}
+
+/* ===== FLOATING BASEBALLS ===== */
+.float-ball{position:absolute;width:36px;height:36px;z-index:1;opacity:.06;pointer-events:none;animation:floatBall 6s ease-in-out infinite;}
+.float-ball:nth-child(1){top:15%;left:8%;animation-delay:0s;}
+.float-ball:nth-child(2){top:25%;right:10%;animation-delay:1.5s;}
+.float-ball:nth-child(3){bottom:20%;left:12%;animation-delay:3s;width:28px;height:28px;}
+.float-ball:nth-child(4){bottom:30%;right:8%;animation-delay:2s;width:32px;height:32px;}
+@keyframes floatBall{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-20px) rotate(15deg);}}
+
+/* ===== STITCH DIVIDER ===== */
+.stitch-divider{height:32px;width:100%;display:flex;align-items:center;overflow:hidden;position:relative;}
+.stitch-divider svg{width:100%;height:32px;}
+.stitch-navy{background:var(--navy);}
+.stitch-mid{background:var(--navy-mid);}
+.stitch-charcoal{background:var(--charcoal);}
+
+/* ===== SECTION TITLE ===== */
+.section-title{text-align:center;margin-bottom:60px;}
+.section-title .label{color:var(--gold);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:block;}
+.section-title h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:2px;}
+.section-title p{color:var(--muted);font-size:.9rem;max-width:540px;margin:14px auto 0;}
+
+/* ===== PRODUCTS ===== */
+.shop{position:relative;background:linear-gradient(180deg,rgba(11,22,40,.92) 0%,rgba(15,28,50,.88) 100%),url('https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/89e61b170_bg_stitch.png') center/cover no-repeat;}
+.shop-filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+.filter-btn{background:rgba(255,255,255,.04);border:1px solid var(--glass-border);color:var(--muted);padding:8px 22px;border-radius:24px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif;}
+.filter-btn:hover{border-color:var(--blue-bright);color:var(--cream);}
+.filter-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue-bright));color:var(--cream);border-color:var(--blue-bright);}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.product-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:20px;overflow:hidden;transition:all .4s;cursor:pointer;position:relative;}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.3);box-shadow:0 20px 50px rgba(0,0,0,.4);}
+.product-img-wrap{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:30px;position:relative;overflow:hidden;background:radial-gradient(circle at center,rgba(30,144,255,.04),transparent 70%);}
+.product-img-wrap img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));transition:transform .4s;z-index:1;}
+.product-card:hover .product-img-wrap img{transform:scale(1.08);}
+/* Placeholder for products without real images */
+.product-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,rgba(0,90,156,.08),rgba(203,161,53,.06));border:1px dashed rgba(203,161,53,.15);}
+.product-placeholder svg{width:48px;height:48px;color:rgba(203,161,53,.2);margin-bottom:8px;}
+.product-placeholder span{font-size:.7rem;color:var(--muted-dark);letter-spacing:1px;text-transform:uppercase;}
+.product-info{padding:20px 24px;border-top:1px solid var(--glass-border);}
+.product-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;text-transform:none;letter-spacing:0;margin-bottom:4px;}
+.product-caption{color:var(--blue-bright);font-size:.78rem;font-style:italic;margin-bottom:8px;line-height:1.6;}
+.product-cat{color:var(--gold);font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
+.product-price{color:var(--cream);font-size:1.15rem;font-weight:700;}
+.product-price .currency{color:var(--muted);font-size:.75rem;font-weight:400;}
+.add-cart-btn{background:linear-gradient(135deg,var(--blue),var(--blue-bright));color:var(--cream);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;}
+.add-cart-btn:hover{transform:scale(1.1);box-shadow:0 4px 16px rgba(30,144,255,.4);}
+.add-cart-btn svg{width:16px;height:16px;}
+.badge-new{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--navy);font-size:.58rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:20px;z-index:2;}
+
+/* ===== COMPARE BUILDS ===== */
+.compare{background:var(--charcoal);}
+.compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;max-width:1000px;margin:0 auto;}
+@media(max-width:780px){.compare-grid{grid-template-columns:1fr;gap:20px;}}
+.compare-card{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:20px;padding:30px;text-align:center;transition:all .3s;}
+.compare-card:hover{border-color:rgba(30,144,255,.2);box-shadow:0 12px 40px rgba(0,0,0,.3);}
+.compare-img{width:160px;height:160px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle,rgba(30,144,255,.06),transparent 70%);}
+.compare-img img{max-width:80%;max-height:80%;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(0,0,0,.4));}
+.compare-name{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:1px;margin-bottom:8px;}
+.compare-caption{color:var(--blue-bright);font-size:.82rem;font-style:italic;margin-bottom:16px;}
+.compare-features{text-align:left;list-style:none;margin-top:16px;}
+.compare-features li{padding:8px 0;border-bottom:1px solid var(--glass-border);font-size:.85rem;color:var(--cream);opacity:.8;display:flex;align-items:center;gap:8px;}
+.compare-features li:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.compare-vs{display:flex;align-items:center;justify-content:center;padding:0 20px;}
+.compare-vs span{font-family:'Anton',sans-serif;font-size:2.5rem;color:var(--gold);text-shadow:0 0 20px rgba(203,161,53,.3);}
+@media(max-width:780px){.compare-vs{padding:0;}.compare-vs span{transform:rotate(90deg);}}
+
+
+/* ===== PROMO + GALLERY ===== */
+.promo-gallery{position:relative;background:linear-gradient(180deg,rgba(11,22,40,.92) 0%,rgba(15,28,50,.85) 100%),url('https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/af121845e_bg_lights.png') center/cover no-repeat;}
+.promo-banner{background:linear-gradient(135deg,rgba(30,144,255,.08),rgba(203,161,53,.06));border:1px solid rgba(203,161,53,.15);border-radius:24px;padding:48px;text-align:center;max-width:800px;margin:0 auto;position:relative;overflow:hidden;}
+.promo-banner::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse,rgba(203,161,53,.04),transparent 60%);pointer-events:none;}
+.promo-content{position:relative;z-index:1;}
+.promo-content .label{color:var(--gold);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:10px;}
+.promo-content h2{font-size:clamp(2rem,5vw,3rem);letter-spacing:2px;margin-bottom:14px;}
+.promo-content p{color:var(--cream);opacity:.7;font-size:.92rem;line-height:1.9;max-width:560px;margin:0 auto 28px;}
+.promo-steps{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.promo-step{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--glass-border);padding:12px 20px;border-radius:50px;}
+.step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.promo-step p{font-size:.82rem;color:var(--cream);opacity:.85;margin:0;}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:780px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+.gallery-item{aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);background:rgba(255,255,255,.02);transition:all .3s;}
+.gallery-item:hover{border-color:rgba(30,144,255,.2);transform:scale(1.02);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;}
+.gallery-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+.gallery-placeholder svg{width:40px;height:40px;color:rgba(203,161,53,.15);}
+.gallery-placeholder span{font-size:.68rem;color:var(--muted-dark);letter-spacing:1px;text-transform:uppercase;}
+.gallery-cta{text-align:center;margin-top:24px;color:var(--muted);font-size:.85rem;}
+.gallery-cta a{color:var(--gold);font-weight:600;}
+
+/* ===== UPCOMING GAMES ===== */
+.games{position:relative;background:linear-gradient(180deg,rgba(11,22,40,.88) 0%,rgba(15,28,50,.82) 100%),url('https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/af121845e_bg_lights.png') center/cover no-repeat;}
+.games-list{max-width:700px;margin:0 auto;}
+
+.team-matchup{display:flex;align-items:center;gap:12px;}
+.team-logo{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:#fff;border:2px solid rgba(255,255,255,.15);padding:3px;}
+.team-home{background:#fff;border:2px solid #CBA135;}
+.team-away{background:#fff;border:2px solid rgba(203,161,53,.3);}
+.game-vs{font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:1px;}
+
+.game-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:16px;margin-bottom:10px;transition:all .3s;}
+.game-card:hover{border-color:rgba(30,144,255,.2);transform:translateX(4px);}
+.game-date{display:flex;flex-direction:column;align-items:center;min-width:60px;padding-right:20px;border-right:1px solid var(--glass-border);}
+.game-month{color:var(--gold);font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.game-day{font-family:'Anton',sans-serif;font-size:1.8rem;color:var(--cream);line-height:1;}
+.game-info{flex:1;}
+.game-teams{font-size:.92rem;font-weight:600;margin-bottom:4px;}
+.game-time{color:var(--muted);font-size:.78rem;margin-top:2px;}
+
+
+
+/* ===== CONFETTI ===== */
+.confetti-container{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:10;}
+.confetti-piece{position:absolute;width:8px;height:8px;top:-10px;opacity:0;animation:confettiFall 3s ease-out forwards;}
+@keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0deg);}100%{opacity:0;transform:translateY(400px) rotate(720deg);}}
+
+/* ===== RAFFLE WHEEL ===== */
+.raffle{position:relative;background:linear-gradient(180deg,rgba(11,22,40,.85) 0%,rgba(11,22,40,.92) 100%),url('https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/af121845e_bg_lights.png') center/cover no-repeat;}
+.raffle-container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto;}
+@media(max-width:860px){.raffle-container{grid-template-columns:1fr;gap:40px;}}
+.wheel-wrap{display:flex;flex-direction:column;align-items:center;position:relative;}
+.wheel-stage{position:relative;width:320px;height:380px;display:flex;align-items:center;justify-content:center;}
+.wheel-base{position:absolute;bottom:0;width:120px;height:24px;background:linear-gradient(135deg,var(--navy-light),var(--navy));border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:0;}
+.wheel-base::before{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:60px;height:8px;background:var(--gold);border-radius:4px 4px 0 0;}
+.wheel-svg{width:300px;height:300px;position:relative;z-index:1;transition:transform 4s cubic-bezier(.17,.67,.32,1);}
+.wheel-svg.spinning{animation:spinWheel 4s cubic-bezier(.17,.67,.32,1) forwards;}
+@keyframes spinWheel{0%{transform:rotate(0deg);}100%{transform:rotate(1440deg);}}
+.bat-pointer{position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(0deg);z-index:3;transform-origin:50% 0%;}
+.bat-pointer svg{width:40px;height:80px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5));}
+.raffle-info{text-align:left;}
+.raffle-info h3{font-size:1.8rem;margin-bottom:12px;letter-spacing:1px;}
+.raffle-prize{color:var(--gold);font-size:1.1rem;font-weight:600;margin-bottom:8px;}
+.raffle-desc{color:var(--cream);opacity:.7;font-size:.9rem;margin-bottom:24px;line-height:1.9;}
+.raffle-stats{display:flex;gap:24px;margin-bottom:28px;}
+.raffle-stat{flex:1;}
+.raffle-stat .num{font-family:'Anton',sans-serif;font-size:1.8rem;color:var(--gold);}
+.raffle-stat .lbl{font-size:.65rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.raffle-form{display:flex;flex-direction:column;gap:12px;max-width:360px;}
+.raffle-form input{background:rgba(255,255,255,.05);border:1px solid var(--glass-border);border-radius:12px;padding:14px 18px;color:var(--cream);font-size:.88rem;font-family:'Outfit',sans-serif;transition:all .3s;}
+.raffle-form input:focus{outline:none;border-color:var(--blue-bright);box-shadow:0 0 0 3px rgba(30,144,255,.1);}
+.raffle-form input::placeholder{color:var(--muted-dark);}
+.raffle-share{display:flex;align-items:center;gap:8px;margin-top:16px;}
+.raffle-share input{flex:1;background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:12px;padding:10px 14px;color:var(--muted);font-size:.78rem;font-family:'Outfit',sans-serif;}
+.raffle-share-btn{background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.3);color:var(--blue-bright);padding:10px 16px;border-radius:12px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;white-space:nowrap;}
+.raffle-share-btn:hover{background:rgba(30,144,255,.2);}
+.raffle-result{margin-top:20px;padding:16px;border-radius:12px;display:none;}
+.raffle-result.show{display:block;animation:fadeIn .5s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== UPDATES ===== */
+.updates{background:transparent;}
+.updates-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:800px;margin:0 auto;}
+.update-card{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:20px;padding:28px;transition:all .3s;position:relative;overflow:hidden;}
+.update-card:hover{border-color:rgba(30,144,255,.2);transform:translateY(-4px);}
+.update-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--gold));}
+.update-badge{display:inline-block;background:rgba(203,161,53,.1);color:var(--gold);font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+.update-badge.raffle{background:rgba(30,144,255,.1);color:var(--blue-bright);}
+.update-badge.giveaway{background:rgba(203,161,53,.1);color:var(--gold);}
+.update-card h3{font-size:1.15rem;margin-bottom:10px;letter-spacing:.5px;}
+.update-card p{color:var(--cream);opacity:.7;font-size:.88rem;line-height:1.8;margin-bottom:16px;}
+.update-date{color:var(--muted-dark);font-size:.72rem;letter-spacing:1px;}
+.updates-grid .update-card:nth-child(3){grid-column:1/-1;max-width:380px;margin:0 auto;}
+
+/* ===== FAQ — COMPACT GRID ===== */
+.faq{position:relative;background:linear-gradient(180deg,rgba(11,22,40,.94) 0%,rgba(20,35,60,.9) 100%),radial-gradient(ellipse at top,rgba(30,144,255,.06) 0%,transparent 70%),var(--navy);}
+.faq-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.faq-item{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:12px;overflow:hidden;transition:all .3s;}
+.faq-item:hover{border-color:rgba(203,161,53,.2);background:rgba(255,255,255,.04);}
+.faq-q{padding:14px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:.82rem;transition:all .3s;gap:8px;}
+.faq-q:hover{color:var(--gold);}
+.faq-q .icon{width:24px;height:24px;border-radius:50%;background:rgba(203,161,53,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;}
+.faq-q .icon svg{width:12px;height:12px;color:var(--gold);transition:transform .3s;}
+.faq-item.open .faq-q .icon svg{transform:rotate(45deg);}
+.faq-item.open .faq-q{color:var(--gold);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:250px;padding:0 18px 14px;}
+.faq-a p{color:var(--cream);opacity:.65;font-size:.78rem;line-height:1.7;}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr;}}
+
+/* ===== SHIPPING (compact) ===== */
+.shipping{background:transparent;}
+.shipping-compact{max-width:800px;margin:0 auto;}
+.ship-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+@media(max-width:680px){.ship-row{grid-template-columns:1fr;}}
+.ship-compact-card{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;transition:all .3s;}
+.ship-compact-card:hover{border-color:rgba(30,144,255,.2);}
+.ship-compact-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;transition:background .3s;}
+.ship-compact-head:hover{background:rgba(255,255,255,.02);}
+.ship-compact-left{display:flex;align-items:center;gap:12px;}
+.ship-icon-sm{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(30,144,255,.1),rgba(203,161,53,.08));display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-border);flex-shrink:0;}
+.ship-icon-sm svg{width:18px;height:18px;color:var(--gold);}
+.ship-compact-head h3{font-size:.92rem;letter-spacing:.5px;}
+.ship-toggle{width:28px;height:28px;border-radius:50%;background:rgba(203,161,53,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;}
+.ship-toggle svg{width:14px;height:14px;color:var(--gold);transition:transform .3s;}
+.ship-compact-card.open .ship-toggle svg{transform:rotate(45deg);}
+.ship-compact-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;}
+.ship-compact-card.open .ship-compact-body{max-height:200px;padding:0 20px 16px;}
+.ship-compact-body p{color:var(--cream);opacity:.65;font-size:.82rem;line-height:1.7;}
+
+/* ===== FOOTER ===== */
+.footer{position:relative;background:linear-gradient(180deg,var(--navy) 0%,var(--charcoal) 100%),url('https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/89e61b170_bg_stitch.png') center/cover no-repeat;background-blend-mode:overlay;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;}
+@media(max-width:780px){.footer-grid{grid-template-columns:1fr;gap:32px;}}
+.footer-logo-row{display:flex;gap:16px;align-items:flex-start;}
+.footer-logo-circle-sm{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold);box-shadow:0 0 16px rgba(30,144,255,.25);}.footer-logo-circle-sm img{width:100%;height:100%;object-fit:cover;}
+.footer-brand span{color:var(--gold);}
+.footer-brand-sub{color:var(--muted);font-size:.85rem;margin-bottom:20px;line-height:1.8;}
+.footer-col h4{font-size:.85rem;letter-spacing:2px;margin-bottom:16px;color:var(--gold);}
+.footer-col p{color:var(--cream);opacity:.6;font-size:.85rem;margin-bottom:8px;line-height:1.7;}
+.footer-col a{color:var(--cream);opacity:.6;font-size:.85rem;transition:color .3s;}
+.footer-col a:hover{color:var(--gold);opacity:1;}
+.footer-checkout-btns{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.footer-pay-link{background:rgba(255,255,255,.05);border:1px solid var(--glass-border);padding:10px 16px;border-radius:12px;font-size:.78rem;font-weight:600;letter-spacing:.5px;color:var(--cream);opacity:.7;transition:all .3s;}
+.footer-pay-link:hover{opacity:1;border-color:rgba(30,144,255,.3);background:rgba(30,144,255,.05);color:var(--gold);}
+.footer-cta{text-align:center;margin:50px auto 30px;max-width:500px;}
+.footer-logo-circle{width:56px;height:56px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:2px solid var(--gold);box-shadow:0 0 20px rgba(203,161,53,.15);}.footer-logo-circle img{width:100%;height:100%;object-fit:cover;}
+.footer-cta h3{font-size:1.8rem;margin-bottom:12px;letter-spacing:1px;}
+.footer-cta p{color:var(--muted);font-size:.88rem;margin-bottom:24px;}
+.ig-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCB045);color:#fff;padding:14px 36px;border-radius:50px;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 20px rgba(131,58,180,.3);}
+.ig-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(131,58,180,.5);}
+.ig-btn svg{width:18px;height:18px;}
+.footer-bottom{text-align:center;padding-top:40px;border-top:1px solid var(--glass-border);margin-top:40px;}
+.footer-bottom p{color:var(--muted-dark);font-size:.75rem;letter-spacing:1px;}
+
+/* ===== CART DRAWER ===== */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;}
+.cart-overlay.open{opacity:1;pointer-events:all;}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:90vw;background:var(--navy-mid);border-left:1px solid var(--glass-border);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.cart-drawer.open{transform:translateX(0);}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:24px;border-bottom:1px solid var(--glass-border);}
+.cart-header h3{font-size:1.2rem;letter-spacing:1px;}
+.cart-close{background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;transition:color .3s;}
+.cart-close:hover{color:var(--cream);}
+.cart-items{flex:1;overflow-y:auto;padding:20px 24px;}
+.cart-empty{text-align:center;color:var(--muted);padding:60px 20px;font-size:.88rem;}
+.cart-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--glass-border);}
+.cart-item-img{width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+.cart-item-img img{max-width:80%;max-height:80%;object-fit:contain;}
+.cart-item-info{flex:1;}
+.cart-item-name{font-size:.85rem;font-weight:600;margin-bottom:2px;}
+.cart-item-price{color:var(--gold);font-size:.85rem;font-weight:600;}
+.cart-item-qty{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.qty-btn{background:rgba(255,255,255,.06);border:1px solid var(--glass-border);color:var(--cream);width:26px;height:26px;border-radius:6px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.qty-btn:hover{background:rgba(30,144,255,.15);}
+.qty-num{font-size:.82rem;font-weight:600;min-width:20px;text-align:center;}
+.cart-item-remove{background:none;border:none;color:var(--muted-dark);cursor:pointer;font-size:1.2rem;padding:4px;transition:color .2s;}
+.cart-item-remove:hover{color:var(--gold);}
+.cart-footer{padding:24px;border-top:1px solid var(--glass-border);}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.cart-total .lbl{font-size:.85rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.cart-total .amt{font-family:'Anton',sans-serif;font-size:1.8rem;color:var(--gold);}
+.cart-checkout{display:flex;flex-direction:column;gap:10px;}
+.cart-checkout .btn{width:100%;}
+
+/* ===== PRODUCT MODAL ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--navy-mid);border:1px solid var(--glass-border);border-radius:24px;max-width:500px;width:100%;padding:40px;position:relative;transform:scale(.9);transition:transform .3s;}
+.modal-overlay.open .modal{transform:scale(1);}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.06);border:none;color:var(--muted);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.modal-close:hover{background:rgba(203,161,53,.1);color:var(--gold);}
+.modal-img{width:180px;height:180px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;}
+.modal-img img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));}
+.modal h3{text-align:center;font-size:1.4rem;margin-bottom:8px;letter-spacing:1px;}
+.modal .modal-caption{text-align:center;color:var(--blue-bright);font-size:.88rem;font-style:italic;margin-bottom:16px;}
+.modal .modal-desc{text-align:center;color:var(--cream);opacity:.7;font-size:.88rem;line-height:1.9;margin-bottom:24px;}
+.modal .modal-price{text-align:center;font-family:'Anton',sans-serif;font-size:2rem;color:var(--gold);margin-bottom:24px;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+/* Parallax hero */
+@media (min-width:768px){
+  .hero-bg{background-attachment:fixed;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav-wrapper">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <div class="nav-logo-circle">
+        <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/5c0d72850_logo_v2.png" alt="pinthiz.la" style="width:100%;height:100%;object-fit:contain;border-radius:50%;padding:2px;">
+      </div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#shop">Shop</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#raffle">Raffle</a>
+      <a href="#updates">Updates</a>
+      <a href="#faq">FAQ</a>
+      <a href="#shipping">Shipping</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search pins…" id="searchInput">
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count hidden" id="cartCount">0</span>
+      </button>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-sunset"></div>
+  <div class="float-ball"><svg viewBox="0 0 100 100"><defs><radialGradient id="bbf1" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#efe8d8"/><stop offset="90%" stop-color="#d0c8b4"/><stop offset="100%" stop-color="#b8b0a0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbf1)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.15"/></svg></div>
+  <div class="float-ball"><svg viewBox="0 0 100 100"><defs><radialGradient id="bbf2" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#efe8d8"/><stop offset="90%" stop-color="#d0c8b4"/><stop offset="100%" stop-color="#b8b0a0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbf2)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.15"/></svg></div>
+  <div class="float-ball"><svg viewBox="0 0 100 100"><defs><radialGradient id="bbf3" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#efe8d8"/><stop offset="90%" stop-color="#d0c8b4"/><stop offset="100%" stop-color="#b8b0a0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbf3)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.15"/></svg></div>
+  <div class="float-ball"><svg viewBox="0 0 100 100"><defs><radialGradient id="bbf4" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#efe8d8"/><stop offset="90%" stop-color="#d0c8b4"/><stop offset="100%" stop-color="#b8b0a0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbf4)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.15"/></svg></div>
+  <div class="hero-content">
+    <div class="hero-logo-ph" style="overflow:hidden;background:none;border:none;box-shadow:none;"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/5c0d72850_logo_v2.png" alt="pinthiz.la" style="width:100%;height:100%;object-fit:contain;border-radius:50%;padding:2px;"></div>
+    <p class="hero-est">EST. 2018 · Los Angeles</p>
+    <h1>pinthiz<span class="accent">.la</span></h1>
+    <p class="tagline">Pins that hit different.</p>
+    <p class="sub">Custom enamel pins, stickers, shirts & patches born in LA. Dodgers culture, creative crossovers, and designs that knock it out the park.</p>
+    <div class="hero-btns">
+      <a href="#shop" class="btn">Shop the Collection</a>
+      <a href="#raffle" class="btn btn-gold">Enter the Raffle</a>
+    </div>
+    <p class="locale">From LA · For LA · Always LA</p>
+    <div class="scroll-baseball" title="Scroll down"><svg viewBox="0 0 100 100" width="32" height="32"><defs><radialGradient id="bbscroll" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#efe8d8"/><stop offset="90%" stop-color="#d0c8b4"/><stop offset="100%" stop-color="#b8b0a0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbscroll)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="3 2.5" stroke-linecap="round"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.15"/></svg></div>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-navy">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===== SHOP ===== -->
+<section class="shop section" id="shop">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="label">The Collection</span>
+      <h2>Shop All Designs</h2>
+      <p>Every pin tells a story. Every sticker hits a home run. Find your fit.</p>
+    </div>
+    <div class="shop-filters">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="pin">Pins</button>
+      <button class="filter-btn" data-cat="sticker">Stickers</button>
+      <button class="filter-btn" data-cat="shirt">Shirts</button>
+      <button class="filter-btn" data-cat="patch">Patches</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Products injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-mid">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===== PROMO + GALLERY ===== -->
+<section class="promo-gallery section" id="gallery">
+  <div class="wrap">
+    <!-- Promo CTA -->
+    <div class="promo-banner">
+      <div class="promo-content">
+        <span class="label">Tag To Save</span>
+        <h2>Tag Us, Get 50% Off</h2>
+        <p>Snap a photo wearing your pin, tag <strong>@pinthiz.la</strong> on Instagram, and unlock an instant 50% off your next order. It's that simple — show off your gear, boost our community, and get rewarded.</p>
+        <div class="promo-steps">
+          <div class="promo-step">
+            <span class="step-num">1</span>
+            <p>Wear your pin & snap a pic</p>
+          </div>
+          <div class="promo-step">
+            <span class="step-num">2</span>
+            <p>Tag @pinthiz.la on IG</p>
+          </div>
+          <div class="promo-step">
+            <span class="step-num">3</span>
+            <p>Get 50% off instantly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Gallery -->
+    <div class="section-title" style="margin-top:60px;">
+      <span class="label">Real Fans, Real Pins</span>
+      <h2>Community Gallery</h2>
+      <p>Photos from the pinthiz.la community. Tag us to get featured here.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item placeholder">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+      <div class="gallery-item placeholder">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+      <div class="gallery-item placeholder">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+      <div class="gallery-item placeholder">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+      <div class="gallery-item placeholder">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+      <div class="gallery-item placeholder">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+    </div>
+    <p class="gallery-cta">Tag <a href="https://www.instagram.com/pinthiz.la/" target="_blank">@pinthiz.la</a> on Instagram with your pin photo to get featured!</p>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-charcoal">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===== RAFFLE WHEEL ===== -->
+<section class="raffle section" id="raffle">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="label">Spin to Win</span>
+      <h2>Live Raffle</h2>
+      <p>Step up to the plate. Enter to win exclusive drops, rare pins, and more.</p>
+    </div>
+    <div class="raffle-container">
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="wheel-wrap">
+        <div class="wheel-stage">
+          <div class="wheel-base"></div>
+          <div class="bat-pointer" id="batPointer">
+            <svg viewBox="0 0 40 80"><defs><linearGradient id="batGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B6B47"/><stop offset="50%" stop-color="#C19A6B"/><stop offset="100%" stop-color="#8B6B47"/></linearGradient></defs><rect x="16" y="0" width="8" height="70" rx="4" fill="url(#batGrad)" stroke="#5C4033" stroke-width="1"/><ellipse cx="20" cy="72" rx="6" ry="4" fill="#5C4033"/></svg>
+          </div>
+          <svg class="wheel-svg" id="raffleWheel" viewBox="0 0 300 300" style="filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));">
+          <defs>
+            <radialGradient id="ballGrad" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#fffcf5"/>
+              <stop offset="55%" stop-color="#efe8d8"/>
+              <stop offset="90%" stop-color="#d0c8b4"/>
+              <stop offset="100%" stop-color="#b8b0a0"/>
+            </radialGradient>
+            <radialGradient id="seamGrad" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="#c0392b"/>
+              <stop offset="100%" stop-color="#a93226"/>
+            </radialGradient>
+          </defs>
+          <!-- Baseball outer circle -->
+          <circle cx="150" cy="150" r="140" fill="url(#ballGrad)" stroke="#bbb" stroke-width="2"/>
+          <!-- Prize segments as subtle arcs -->
+          <g id="wheelSegments" opacity="0.35"></g>
+          <!-- Baseball stitch pattern - left seam (curves from top to bottom, bowing left) -->
+          <path d="M 150 10 C 70 10, 10 70, 10 150 C 10 230, 70 290, 150 290" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round"/>
+          <!-- Baseball stitch pattern - right seam (curves from top to bottom, bowing right) -->
+          <path d="M 150 10 C 230 10, 290 70, 290 150 C 290 230, 230 290, 150 290" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round"/>
+          <!-- Center dot -->
+          <circle cx="150" cy="150" r="8" fill="#005A9C" stroke="#CBA135" stroke-width="2"/>
+          <!-- Baseball stitch marks along left seam -->
+          <g stroke="#c0392b" stroke-width="1.5" opacity="0.6" stroke-linecap="round">
+            <line x1="40" y1="40" x2="46" y2="34"/>
+            <line x1="22" y1="80" x2="30" y2="76"/>
+            <line x1="14" y1="120" x2="22" y2="118"/>
+            <line x1="14" y1="180" x2="22" y2="182"/>
+            <line x1="22" y1="220" x2="30" y2="224"/>
+            <line x1="40" y1="260" x2="46" y2="266"/>
+            <line x1="80" y1="278" x2="84" y2="284"/>
+            <line x1="120" y1="286" x2="121" y2="293"/>
+          </g>
+          <!-- Baseball stitch marks along right seam -->
+          <g stroke="#c0392b" stroke-width="1.5" opacity="0.6" stroke-linecap="round">
+            <line x1="260" y1="40" x2="254" y2="34"/>
+            <line x1="278" y1="80" x2="270" y2="76"/>
+            <line x1="286" y1="120" x2="278" y2="118"/>
+            <line x1="286" y1="180" x2="278" y2="182"/>
+            <line x1="278" y1="220" x2="270" y2="224"/>
+            <line x1="260" y1="260" x2="254" y2="266"/>
+            <line x1="220" y1="278" x2="216" y2="284"/>
+            <line x1="180" y1="286" x2="179" y2="293"/>
+          </g>
+        </svg>
+        <!-- Baseball bat pointer -->
+        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);z-index:10;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));">
+          <svg width="20" height="50" viewBox="0 0 20 50">
+            <defs>
+              <linearGradient id="batGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#d4a055"/>
+                <stop offset="40%" stop-color="#e8c878"/>
+                <stop offset="60%" stop-color="#d4a055"/>
+                <stop offset="100%" stop-color="#a07835"/>
+              </linearGradient>
+            </defs>
+            <!-- Bat handle (thin end at top) -->
+            <rect x="7" y="0" width="6" height="15" rx="2" fill="#8B6914"/>
+            <!-- Bat barrel (thick end at bottom, pointing down at wheel) -->
+            <path d="M 4 15 L 4 48 Q 4 50 6 50 L 14 50 Q 16 50 16 48 L 16 15 Z" fill="url(#batGrad)" stroke="#8B6914" stroke-width="0.5"/>
+            <!-- Knob at top -->
+            <ellipse cx="10" cy="2" rx="4" ry="2" fill="#6B5210"/>
+          </svg>
+        </div>
+        </div>
+      </div>
+      <div class="raffle-info">
+        <h3>Grand Slam Giveaway</h3>
+        <p class="raffle-prize">🏆 Win: Complete Pin Collection + Exclusive Mystery Drop</p>
+        <p class="raffle-desc">Enter for your shot at the full pinthiz.la collection — every design we've made, plus a mystery drop nobody's seen yet. One lucky winner takes it all.</p>
+        <div class="raffle-stats">
+          <div class="raffle-stat">
+            <div class="num" id="entryCount">247</div>
+            <div class="lbl">Entries</div>
+          </div>
+          <div class="raffle-stat">
+            <div class="num">$5</div>
+            <div class="lbl">Per Entry</div>
+          </div>
+          <div class="raffle-stat">
+            <div class="num">3d</div>
+            <div class="lbl">Remaining</div>
+          </div>
+        </div>
+        <form class="raffle-form" onsubmit="enterRaffle(event)">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Email address" required>
+          <button type="submit" class="btn btn-gold btn-block" onclick="launchConfetti()">Enter to Win — $5</button>
+        </form>
+        <div class="raffle-share">
+          <input type="text" value="https://pinthiz.la/raffle" readonly id="raffleLink">
+          <button class="raffle-share-btn" onclick="copyRaffleLink()">Copy Link</button>
+        </div>
+        <div class="raffle-result" id="raffleResult"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-navy">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===== UPDATES ===== -->
+<section class="updates section" id="updates">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="label">What's Next</span>
+      <h2>Updates & Pop-Ups</h2>
+      <p>Pop-up events, random giveaways, and raffle announcements. Stay in the loop.</p>
+    </div>
+    <div class="updates-grid">
+      <div class="update-card">
+        <span class="update-badge raffle">Raffle Live</span>
+        <h3>Grand Slam Giveaway</h3>
+        <p>Our biggest raffle yet is live. Enter to win the complete pin collection plus a mystery drop. $5 per entry, winner drawn in 3 days.</p>
+        <p class="update-date">July 16, 2026</p>
+      </div>
+      <div class="update-card">
+        <span class="update-badge">Pop-Up</span>
+        <h3>Dodger Stadium Pop-Up</h3>
+        <p>Catch us outside Dodger Stadium before the series finale. Exclusive game-day pins available only at the pop-up. First 50 visitors get a free sticker.</p>
+        <p class="update-date">July 20, 2026</p>
+      </div>
+      <div class="update-card">
+        <span class="update-badge giveaway">Giveaway</span>
+        <h3>Instagram Flash Giveaway</h3>
+        <p>Follow @pinthiz.la, tag 3 friends, and share to your story for a chance to win a free pin of your choice. Winner announced on our story.</p>
+        <p class="update-date">July 18, 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-charcoal">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+
+<!-- ===== UPCOMING GAMES ===== -->
+<section class="games section" id="games">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="label">On Deck</span>
+      <h2>Upcoming Games</h2>
+      <p>Catch the Dodgers and catch us — we'll be at the stadium.</p>
+    </div>
+    <div class="games-list" id="gamesList">
+      <div class="game-card">
+        <div class="game-date"><span class="game-month">JUL</span><span class="game-day">18</span></div>
+        <div class="game-matchup">
+          <div class="team-logo team-home"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+          <div class="game-vs">vs</div>
+          <div class="team-logo team-away"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sf.png" alt="SF Giants" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        </div>
+        <div class="game-info">
+          <div class="game-teams">Dodgers vs. Giants</div>
+          <div class="game-time">7:10 PM PT · Dodger Stadium</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-date"><span class="game-month">JUL</span><span class="game-day">19</span></div>
+        <div class="game-matchup">
+          <div class="team-logo team-home"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+          <div class="game-vs">vs</div>
+          <div class="team-logo team-away"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sf.png" alt="SF Giants" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        </div>
+        <div class="game-info">
+          <div class="game-teams">Dodgers vs. Giants</div>
+          <div class="game-time">6:10 PM PT · Dodger Stadium</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-date"><span class="game-month">JUL</span><span class="game-day">20</span></div>
+        <div class="game-matchup">
+          <div class="team-logo team-home"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+          <div class="game-vs">vs</div>
+          <div class="team-logo team-away"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sf.png" alt="SF Giants" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        </div>
+        <div class="game-info">
+          <div class="game-teams">Dodgers vs. Giants</div>
+          <div class="game-time">1:10 PM PT · Dodger Stadium</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-mid">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===== SHIPPING ===== -->
+<section class="shipping section" id="shipping">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="label">Getting It Home</span>
+      <h2>Shipping & Pickup</h2>
+      <p>Whether you're in LA or across the country, we'll get your gear to you.</p>
+    </div>
+    <div class="shipping-compact">
+      <div class="ship-row">
+        <div class="ship-compact-card">
+          <div class="ship-compact-head" onclick="toggleShip(this)">
+            <div class="ship-compact-left">
+              <div class="ship-icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+              <h3>US Shipping</h3>
+            </div>
+            <span class="ship-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+          </div>
+          <div class="ship-compact-body">
+            <p>Flat-rate $4.99 anywhere in the US. Free shipping on orders over $40. Orders ship in 2-3 business days via tracked mail.</p>
+          </div>
+        </div>
+        <div class="ship-compact-card">
+          <div class="ship-compact-head" onclick="toggleShip(this)">
+            <div class="ship-compact-left">
+              <div class="ship-icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></div>
+              <h3>International</h3>
+            </div>
+            <span class="ship-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+          </div>
+          <div class="ship-compact-body">
+            <p>We ship worldwide! International rates calculated at checkout. Delivery typically 7-14 business days depending on location.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-compact-card">
+          <div class="ship-compact-head" onclick="toggleShip(this)">
+            <div class="ship-compact-left">
+              <div class="ship-icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <h3>LA Local Pickup</h3>
+            </div>
+            <span class="ship-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+          </div>
+          <div class="ship-compact-body">
+            <p>Free pickup in the LA area. Follow us on Instagram to coordinate your pickup spot. Same-day for in-stock items.</p>
+          </div>
+        </div>
+        <div class="ship-compact-card">
+          <div class="ship-compact-head" onclick="toggleShip(this)">
+            <div class="ship-compact-left">
+              <div class="ship-icon-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></div>
+              <h3>Stadium Pickup</h3>
+            </div>
+            <span class="ship-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+          </div>
+          <div class="ship-compact-body">
+            <p>Heading to the game? DM us on Instagram (@pinthiz.la) to arrange pickup at Dodger Stadium on game days. We'll bring your order to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-mid">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===== FAQ ===== -->
+<section class="faq section" id="faq">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="label">Rulebook</span>
+      <h2>Frequently Asked</h2>
+      <p>The umpire's call on everything you need to know.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How long until my order ships? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Orders ship within 2-3 business days. LA locals get free pickup — DM us on Instagram to coordinate. We also offer stadium pickup on game days!</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Are these officially licensed MLB products? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Our designs are inspired by Dodgers culture and the LA baseball community. They're fan-made, creative crossovers — not official MLB merchandise. We celebrate the culture, we don't copy it.</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How do raffles work? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Enter by paying $5 per entry. The more entries, the better your odds. When the timer hits zero, we spin the wheel live on Instagram and the winner gets the prize. Simple as a bases-clearing double.</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What payment methods do you accept? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Venmo (@Stephie33), Zelle (gstephanie3@yahoo.com), and Stripe for card payments. Whatever's easiest for you — we're flexible like a utility infielder.</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you do custom designs? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Absolutely. If you've got an idea for a pin, sticker, or patch, follow us on Instagram and send us a message. We love creative collabs — especially if they're LA-rooted.</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What if my pin arrives damaged? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>That shouldn't happen, but if it does, reach out within 7 days and we'll send a replacement. No questions asked — we treat our customers better than the home plate ump.</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I return or exchange? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Pins and patches are final sale. Shirts can be exchanged within 14 days if unworn. We're a small operation, not a big-box retailer — appreciate your understanding.</p></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Where can I follow you? <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></div>
+        <div class="faq-a"><p>Instagram is our home base — follow @pinthiz.la for drops, raffles, pop-up announcements, and behind-the-scenes content. That's where the action happens.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-cta">
+      <div class="footer-logo-circle"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/5c0d72850_logo_v2.png" alt="pinthiz.la" style="width:100%;height:100%;object-fit:contain;border-radius:50%;padding:2px;"></div>
+      <h3>Join the community</h3>
+      <p>Follow for exclusive drops, raffle announcements, and behind-the-scenes content.</p>
+      <a href="https://www.instagram.com/pinthiz.la/" target="_blank" class="ig-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Follow us on Instagram
+      </a>
+      <a href="#" class="btn btn-gold" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;font-size:.78rem;margin-top:14px;" onclick="toggleCart();return false;">Ready to Checkout →</a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-brand-sub">Custom enamel pins, stickers, shirts & patches born in LA. Dodgers culture, creative crossovers. From LA, For LA.</p>
+      </div>
+      <div class="footer-col">
+        <p style="color:var(--muted);font-size:.82rem;">Los Angeles, California</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2018 pinthiz.la &middot; From LA, For LA &middot; All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<button class="sound-toggle" id="soundToggle" onclick="toggleSound()" style="position:fixed;bottom:20px;right:20px;z-index:1000;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(11,22,40,.9);color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;">🔊</button>
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Your cart is empty. Step up to the plate!</div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span class="lbl">Total</span>
+      <span class="amt" id="cartTotal">$0.00</span>
+    </div>
+    <div class="cart-checkout">
+      <button class="btn" onclick="checkout('stripe')">Pay with Stripe</button>
+      <button class="btn btn-outline" onclick="checkout('venmo')">Pay with Venmo</button>
+      <button class="btn btn-outline" onclick="checkout('zelle')">Pay with Zelle</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRODUCT MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img" id="modalImg"></div>
+    <h3 id="modalName"></h3>
+    <p class="modal-caption" id="modalCaption"></p>
+    <p class="modal-desc" id="modalDesc"></p>
+    <p class="modal-price" id="modalPrice"></p>
+    <button class="btn btn-block" onclick="addToCartFromModal()">Add to Cart</button>
+  </div>
+</div>
+
+<script>
+// ===== PRODUCT DATA =====
+const products = [
+  {id:1,name:"Mookie Magic",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c212338b2_pin_01_cutout.png",caption:"Betts on Black — quiet luxury, loud energy.",desc:"A clean, bold pin celebrating that Mookie energy. When the game's on the line, this is the one you want on your lapel.",featured:true},
+  {id:2,name:"Freddie Clutch",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dd20d660d_pin_02_cutout.png",caption:"Walk-off energy you can wear.",desc:"Freddie Freeman gave us the walk-off moment. Now you can carry that clutch energy everywhere.",featured:true},
+  {id:3,name:"Lowrider Funko",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0bf234f4b_pin_05_cutout.png",caption:"Cruising low, styling high.",desc:"LA car culture meets Dodgers pride. Low and slow, just like a Sunday drive down Whittier Blvd.",featured:false},
+  {id:4,name:"Agua Fresca Cup",cat:"pin",price:10,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/85b11dac0_pin_07_cutout.png",caption:"Refreshment that hits like a grand slam.",desc:"Nothing says LA like an agua fresca on a hot day at the stadium. This pin is summer in your pocket.",featured:false},
+  {id:5,name:"High-Five Hound",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a2496cc51_pin_10_cutout.png",caption:"Man's best friend, baseball's best fan.",desc:"Every dog has its day — and this one's at the ballpark. A feel-good pin for the dog lovers and Dodgers faithful.",featured:false},
+  {id:6,name:"Dodgers Classic",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:0,caption:"Pin #1 — Dodgers Classic",desc:"Collectible Dodgers-themed pin. Dodgers Classic design — a must-have for any true LA fan.",featured:true},
+  {id:7,name:"LA Blue Crest",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:0,caption:"Pin #2 — LA Blue Crest",desc:"Collectible Dodgers-themed pin. LA Blue Crest design — a must-have for any true LA fan.",featured:true},
+  {id:8,name:"Stadium Star",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:0,caption:"Pin #3 — Stadium Star",desc:"Collectible Dodgers-themed pin. Stadium Star design — a must-have for any true LA fan.",featured:true},
+  {id:9,name:"Mookie Glow",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:0,caption:"Pin #4 — Mookie Glow",desc:"Collectible Dodgers-themed pin. Mookie Glow design — a must-have for any true LA fan.",featured:false},
+  {id:10,name:"Freddie Force",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:0,caption:"Pin #5 — Freddie Force",desc:"Collectible Dodgers-themed pin. Freddie Force design — a must-have for any true LA fan.",featured:false},
+  {id:11,name:"Ohtani Power",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:0,caption:"Pin #6 — Ohtani Power",desc:"Collectible Dodgers-themed pin. Ohtani Power design — a must-have for any true LA fan.",featured:false},
+  {id:12,name:"Lowrider Blue",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:0,caption:"Pin #7 — Lowrider Blue",desc:"Collectible Dodgers-themed pin. Lowrider Blue design — a must-have for any true LA fan.",featured:false},
+  {id:13,name:"Agua Fresh",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:0,caption:"Pin #8 — Agua Fresh",desc:"Collectible Dodgers-themed pin. Agua Fresh design — a must-have for any true LA fan.",featured:false},
+  {id:14,name:"Dodger Dog",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:0,caption:"Pin #9 — Dodger Dog",desc:"Collectible Dodgers-themed pin. Dodger Dog design — a must-have for any true LA fan.",featured:false},
+  {id:15,name:"Bat Flip",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:0,caption:"Pin #10 — Bat Flip",desc:"Collectible Dodgers-themed pin. Bat Flip design — a must-have for any true LA fan.",featured:false},
+  {id:16,name:"World Series Champs",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-200,caption:"Pin #11 — World Series Champs",desc:"Collectible Dodgers-themed pin. World Series Champs design — a must-have for any true LA fan.",featured:false},
+  {id:17,name:"Gold Glove",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-200,caption:"Pin #12 — Gold Glove",desc:"Collectible Dodgers-themed pin. Gold Glove design — a must-have for any true LA fan.",featured:false},
+  {id:18,name:"Stadium Lights",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-200,caption:"Pin #13 — Stadium Lights",desc:"Collectible Dodgers-themed pin. Stadium Lights design — a must-have for any true LA fan.",featured:false},
+  {id:19,name:"LA Strong",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-200,caption:"Pin #14 — LA Strong",desc:"Collectible Dodgers-themed pin. LA Strong design — a must-have for any true LA fan.",featured:false},
+  {id:20,name:"Blue Heart",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-200,caption:"Pin #15 — Blue Heart",desc:"Collectible Dodgers-themed pin. Blue Heart design — a must-have for any true LA fan.",featured:false},
+  {id:21,name:"Dodgers Script",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-200,caption:"Pin #16 — Dodgers Script",desc:"Collectible Dodgers-themed pin. Dodgers Script design — a must-have for any true LA fan.",featured:false},
+  {id:22,name:"MVP Gold",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-200,caption:"Pin #17 — MVP Gold",desc:"Collectible Dodgers-themed pin. MVP Gold design — a must-have for any true LA fan.",featured:false},
+  {id:23,name:"Catcher's Mask",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-200,caption:"Pin #18 — Catcher's Mask",desc:"Collectible Dodgers-themed pin. Catcher's Mask design — a must-have for any true LA fan.",featured:false},
+  {id:24,name:"Home Plate",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-200,caption:"Pin #19 — Home Plate",desc:"Collectible Dodgers-themed pin. Home Plate design — a must-have for any true LA fan.",featured:false},
+  {id:25,name:"Pitcher's Mound",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-200,caption:"Pin #20 — Pitcher's Mound",desc:"Collectible Dodgers-themed pin. Pitcher's Mound design — a must-have for any true LA fan.",featured:false},
+  {id:26,name:"Dugout Vibes",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-400,caption:"Pin #21 — Dugout Vibes",desc:"Collectible Dodgers-themed pin. Dugout Vibes design — a must-have for any true LA fan.",featured:false},
+  {id:27,name:"Bleacher Creature",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-400,caption:"Pin #22 — Bleacher Creature",desc:"Collectible Dodgers-themed pin. Bleacher Creature design — a must-have for any true LA fan.",featured:false},
+  {id:28,name:"Hot Dog Zone",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-400,caption:"Pin #23 — Hot Dog Zone",desc:"Collectible Dodgers-themed pin. Hot Dog Zone design — a must-have for any true LA fan.",featured:false},
+  {id:29,name:"Helmet Sticker",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-400,caption:"Pin #24 — Helmet Sticker",desc:"Collectible Dodgers-themed pin. Helmet Sticker design — a must-have for any true LA fan.",featured:false},
+  {id:30,name:"Jersey Blue",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-400,caption:"Pin #25 — Jersey Blue",desc:"Collectible Dodgers-themed pin. Jersey Blue design — a must-have for any true LA fan.",featured:false},
+  {id:31,name:"9x Champions",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-400,caption:"Pin #26 — 9x Champions",desc:"Collectible Dodgers-themed pin. 9x Champions design — a must-have for any true LA fan.",featured:false},
+  {id:32,name:"Chavez Ravine",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-400,caption:"Pin #27 — Chavez Ravine",desc:"Collectible Dodgers-themed pin. Chavez Ravine design — a must-have for any true LA fan.",featured:false},
+  {id:33,name:"Cocktail Blue",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-400,caption:"Pin #28 — Cocktail Blue",desc:"Collectible Dodgers-themed pin. Cocktail Blue design — a must-have for any true LA fan.",featured:false},
+  {id:34,name:"Modelo Moment",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-400,caption:"Pin #29 — Modelo Moment",desc:"Collectible Dodgers-themed pin. Modelo Moment design — a must-have for any true LA fan.",featured:false},
+  {id:35,name:"Funko Ohtani",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-400,caption:"Pin #30 — Funko Ohtani",desc:"Collectible Dodgers-themed pin. Funko Ohtani design — a must-have for any true LA fan.",featured:false},
+  {id:36,name:"Hello Kitty LA",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-600,caption:"Pin #31 — Hello Kitty LA",desc:"Collectible Dodgers-themed pin. Hello Kitty LA design — a must-have for any true LA fan.",featured:false},
+  {id:37,name:"Bunny Dodgers",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-600,caption:"Pin #32 — Bunny Dodgers",desc:"Collectible Dodgers-themed pin. Bunny Dodgers design — a must-have for any true LA fan.",featured:false},
+  {id:38,name:"LV Monogram",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-600,caption:"Pin #33 — LV Monogram",desc:"Collectible Dodgers-themed pin. LV Monogram design — a must-have for any true LA fan.",featured:false},
+  {id:39,name:"Nike Swoosh LA",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-600,caption:"Pin #34 — Nike Swoosh LA",desc:"Collectible Dodgers-themed pin. Nike Swoosh LA design — a must-have for any true LA fan.",featured:false},
+  {id:40,name:"Lipstick LA",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-600,caption:"Pin #35 — Lipstick LA",desc:"Collectible Dodgers-themed pin. Lipstick LA design — a must-have for any true LA fan.",featured:false},
+  {id:41,name:"Peace LA",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-600,caption:"Pin #36 — Peace LA",desc:"Collectible Dodgers-themed pin. Peace LA design — a must-have for any true LA fan.",featured:false},
+  {id:42,name:"Christmas Dodger",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-600,caption:"Pin #37 — Christmas Dodger",desc:"Collectible Dodgers-themed pin. Christmas Dodger design — a must-have for any true LA fan.",featured:false},
+  {id:43,name:"Jackie 42",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-600,caption:"Pin #38 — Jackie 42",desc:"Collectible Dodgers-themed pin. Jackie 42 design — a must-have for any true LA fan.",featured:false},
+  {id:44,name:"Gold Crown",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-600,caption:"Pin #39 — Gold Crown",desc:"Collectible Dodgers-themed pin. Gold Crown design — a must-have for any true LA fan.",featured:false},
+  {id:45,name:"Blue Diamond",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-600,caption:"Pin #40 — Blue Diamond",desc:"Collectible Dodgers-themed pin. Blue Diamond design — a must-have for any true LA fan.",featured:false},
+  {id:46,name:"Stitch Pattern",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-800,caption:"Pin #41 — Stitch Pattern",desc:"Collectible Dodgers-themed pin. Stitch Pattern design — a must-have for any true LA fan.",featured:false},
+  {id:47,name:"Bat Crossed",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-800,caption:"Pin #42 — Bat Crossed",desc:"Collectible Dodgers-themed pin. Bat Crossed design — a must-have for any true LA fan.",featured:false},
+  {id:48,name:"LA Classic",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-800,caption:"Pin #43 — LA Classic",desc:"Collectible Dodgers-themed pin. LA Classic design — a must-have for any true LA fan.",featured:false},
+  {id:49,name:"Dodgers D",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-800,caption:"Pin #44 — Dodgers D",desc:"Collectible Dodgers-themed pin. Dodgers D design — a must-have for any true LA fan.",featured:false},
+  {id:50,name:"Blue Cap",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-800,caption:"Pin #45 — Blue Cap",desc:"Collectible Dodgers-themed pin. Blue Cap design — a must-have for any true LA fan.",featured:false},
+  {id:51,name:"Pin Set Mini",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-800,caption:"Pin #46 — Pin Set Mini",desc:"Collectible Dodgers-themed pin. Pin Set Mini design — a must-have for any true LA fan.",featured:false},
+  {id:52,name:"Stadium Panorama",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-800,caption:"Pin #47 — Stadium Panorama",desc:"Collectible Dodgers-themed pin. Stadium Panorama design — a must-have for any true LA fan.",featured:false},
+  {id:53,name:"Sunset Strip",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-800,caption:"Pin #48 — Sunset Strip",desc:"Collectible Dodgers-themed pin. Sunset Strip design — a must-have for any true LA fan.",featured:false},
+  {id:54,name:"Vin Scully",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-800,caption:"Pin #49 — Vin Scully",desc:"Collectible Dodgers-themed pin. Vin Scully design — a must-have for any true LA fan.",featured:false},
+  {id:55,name:"Tommy Lasorda",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-800,caption:"Pin #50 — Tommy Lasorda",desc:"Collectible Dodgers-themed pin. Tommy Lasorda design — a must-have for any true LA fan.",featured:false},
+  {id:56,name:"Kirk Gibson",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1000,caption:"Pin #51 — Kirk Gibson",desc:"Collectible Dodgers-themed pin. Kirk Gibson design — a must-have for any true LA fan.",featured:false},
+  {id:57,name:"Sandy Koufax",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1000,caption:"Pin #52 — Sandy Koufax",desc:"Collectible Dodgers-themed pin. Sandy Koufax design — a must-have for any true LA fan.",featured:false},
+  {id:58,name:"Clayton Kershaw",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1000,caption:"Pin #53 — Clayton Kershaw",desc:"Collectible Dodgers-themed pin. Clayton Kershaw design — a must-have for any true LA fan.",featured:false},
+  {id:59,name:"Cody Bellinger",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1000,caption:"Pin #54 — Cody Bellinger",desc:"Collectible Dodgers-themed pin. Cody Bellinger design — a must-have for any true LA fan.",featured:false},
+  {id:60,name:"Corey Seager",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1000,caption:"Pin #55 — Corey Seager",desc:"Collectible Dodgers-themed pin. Corey Seager design — a must-have for any true LA fan.",featured:false},
+  {id:61,name:"Justin Turner",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1000,caption:"Pin #56 — Justin Turner",desc:"Collectible Dodgers-themed pin. Justin Turner design — a must-have for any true LA fan.",featured:false},
+  {id:62,name:"Kenley Jansen",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1000,caption:"Pin #57 — Kenley Jansen",desc:"Collectible Dodgers-themed pin. Kenley Jansen design — a must-have for any true LA fan.",featured:false},
+  {id:63,name:"Max Muncy",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1000,caption:"Pin #58 — Max Muncy",desc:"Collectible Dodgers-themed pin. Max Muncy design — a must-have for any true LA fan.",featured:false},
+  {id:64,name:"Will Smith",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1000,caption:"Pin #59 — Will Smith",desc:"Collectible Dodgers-themed pin. Will Smith design — a must-have for any true LA fan.",featured:false},
+  {id:65,name:"Walker Buehler",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-1000,caption:"Pin #60 — Walker Buehler",desc:"Collectible Dodgers-themed pin. Walker Buehler design — a must-have for any true LA fan.",featured:false},
+  {id:66,name:"Gavin Lux",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1200,caption:"Pin #61 — Gavin Lux",desc:"Collectible Dodgers-themed pin. Gavin Lux design — a must-have for any true LA fan.",featured:false},
+  {id:67,name:"Tony Gonsolin",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1200,caption:"Pin #62 — Tony Gonsolin",desc:"Collectible Dodgers-themed pin. Tony Gonsolin design — a must-have for any true LA fan.",featured:false},
+  {id:68,name:"Julio Urias",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1200,caption:"Pin #63 — Julio Urias",desc:"Collectible Dodgers-themed pin. Julio Urias design — a must-have for any true LA fan.",featured:false},
+  {id:69,name:"Brusdar Graterol",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1200,caption:"Pin #64 — Brusdar Graterol",desc:"Collectible Dodgers-themed pin. Brusdar Graterol design — a must-have for any true LA fan.",featured:false},
+  {id:70,name:"Evan Phillips",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1200,caption:"Pin #65 — Evan Phillips",desc:"Collectible Dodgers-themed pin. Evan Phillips design — a must-have for any true LA fan.",featured:false},
+  {id:71,name:"Blake Treinen",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1200,caption:"Pin #66 — Blake Treinen",desc:"Collectible Dodgers-themed pin. Blake Treinen design — a must-have for any true LA fan.",featured:false},
+  {id:72,name:"Alex Vesia",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1200,caption:"Pin #67 — Alex Vesia",desc:"Collectible Dodgers-themed pin. Alex Vesia design — a must-have for any true LA fan.",featured:false},
+  {id:73,name:"Chris Taylor",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1200,caption:"Pin #68 — Chris Taylor",desc:"Collectible Dodgers-themed pin. Chris Taylor design — a must-have for any true LA fan.",featured:false},
+  {id:74,name:"Enrique Hernandez",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1200,caption:"Pin #69 — Enrique Hernandez",desc:"Collectible Dodgers-themed pin. Enrique Hernandez design — a must-have for any true LA fan.",featured:false},
+  {id:75,name:"Joc Pederson",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-1200,caption:"Pin #70 — Joc Pederson",desc:"Collectible Dodgers-themed pin. Joc Pederson design — a must-have for any true LA fan.",featured:false},
+  {id:76,name:"Yasiel Puig",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1400,caption:"Pin #71 — Yasiel Puig",desc:"Collectible Dodgers-themed pin. Yasiel Puig design — a must-have for any true LA fan.",featured:false},
+  {id:77,name:"Manny Machado",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1400,caption:"Pin #72 — Manny Machado",desc:"Collectible Dodgers-themed pin. Manny Machado design — a must-have for any true LA fan.",featured:false},
+  {id:78,name:"Cody Bellinger Star",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1400,caption:"Pin #73 — Cody Bellinger Star",desc:"Collectible Dodgers-themed pin. Cody Bellinger Star design — a must-have for any true LA fan.",featured:false},
+  {id:79,name:"AJ Pollock",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1400,caption:"Pin #74 — AJ Pollock",desc:"Collectible Dodgers-themed pin. AJ Pollock design — a must-have for any true LA fan.",featured:false},
+  {id:80,name:"Matt Beaty",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1400,caption:"Pin #75 — Matt Beaty",desc:"Collectible Dodgers-themed pin. Matt Beaty design — a must-have for any true LA fan.",featured:false},
+  {id:81,name:"Russell Martin",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1400,caption:"Pin #76 — Russell Martin",desc:"Collectible Dodgers-themed pin. Russell Martin design — a must-have for any true LA fan.",featured:false},
+  {id:82,name:"David Freese",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1400,caption:"Pin #77 — David Freese",desc:"Collectible Dodgers-themed pin. David Freese design — a must-have for any true LA fan.",featured:false},
+  {id:83,name:"Rich Hill",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1400,caption:"Pin #78 — Rich Hill",desc:"Collectible Dodgers-themed pin. Rich Hill design — a must-have for any true LA fan.",featured:false},
+  {id:84,name:"Kenta Maeda",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1400,caption:"Pin #79 — Kenta Maeda",desc:"Collectible Dodgers-themed pin. Kenta Maeda design — a must-have for any true LA fan.",featured:false},
+  {id:85,name:"Hyun-Jin Ryu",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-1400,caption:"Pin #80 — Hyun-Jin Ryu",desc:"Collectible Dodgers-themed pin. Hyun-Jin Ryu design — a must-have for any true LA fan.",featured:false},
+  {id:86,name:"Julio Urias Star",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1600,caption:"Pin #81 — Julio Urias Star",desc:"Collectible Dodgers-themed pin. Julio Urias Star design — a must-have for any true LA fan.",featured:false},
+  {id:87,name:"Dustin May",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1600,caption:"Pin #82 — Dustin May",desc:"Collectible Dodgers-themed pin. Dustin May design — a must-have for any true LA fan.",featured:false},
+  {id:88,name:"Tony Watson",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1600,caption:"Pin #83 — Tony Watson",desc:"Collectible Dodgers-themed pin. Tony Watson design — a must-have for any true LA fan.",featured:false},
+  {id:89,name:"Joe Kelly",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1600,caption:"Pin #84 — Joe Kelly",desc:"Collectible Dodgers-themed pin. Joe Kelly design — a must-have for any true LA fan.",featured:false},
+  {id:90,name:"Jesse Chavez",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1600,caption:"Pin #85 — Jesse Chavez",desc:"Collectible Dodgers-themed pin. Jesse Chavez design — a must-have for any true LA fan.",featured:false},
+  {id:91,name:"Sheldon Sulfa",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1600,caption:"Pin #86 — Sheldon Sulfa",desc:"Collectible Dodgers-themed pin. Sheldon Sulfa design — a must-have for any true LA fan.",featured:false},
+  {id:92,name:"Reza Marzban",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1600,caption:"Pin #87 — Reza Marzban",desc:"Collectible Dodgers-themed pin. Reza Marzban design — a must-have for any true LA fan.",featured:false},
+  {id:93,name:"LA Skyline",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1600,caption:"Pin #88 — LA Skyline",desc:"Collectible Dodgers-themed pin. LA Skyline design — a must-have for any true LA fan.",featured:false},
+  {id:94,name:"Blue Cola",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1600,caption:"Pin #89 — Blue Cola",desc:"Collectible Dodgers-themed pin. Blue Cola design — a must-have for any true LA fan.",featured:false},
+,
+  {id:95,name:"Dodgers Logo Sticker",cat:"sticker",price:4,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/329511c44_generated_image.png",caption:"Slap it on your laptop, water bottle, wherever.",desc:"Glossy die-cut vinyl sticker featuring the iconic LA Dodgers logo. Weatherproof and durable. Approximately 3 inches.",featured:true},
+  {id:96,name:"Navy Cap Sticker",cat:"sticker",price:4,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/5012bae9c_generated_image.png",caption:"Blue cap energy in sticker form.",desc:"Dodgers blue cap vinyl sticker. Perfect for laptops, phone cases, and water bottles. Glossy finish, weatherproof.",featured:false},
+  {id:97,name:"Dodgers Classic Tee",cat:"shirt",price:25,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/fc1629774_generated_image.png",caption:"The essential Dodgers tee. Wear it to the game.",desc:"Premium navy blue cotton t-shirt with white LA Dodgers logo. Soft, durable, and game-day ready. Unisex sizing.",featured:true},
+  {id:98,name:"Blue Hoodie",cat:"shirt",price:45,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/910116441_generated_image.png",caption:"Stay warm, stay blue. Gold accent details.",desc:"Premium navy blue hoodie with gold accent details and Dodgers branding. Fleece-lined for comfort. Unisex sizing.",featured:false},
+  {id:99,name:"Dodgers Logo Patch",cat:"patch",price:8,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/f031b33d8_generated_image.png",caption:"Iron it on your jacket, your bag, your hat.",desc:"Embroidered iron-on patch featuring the LA Dodgers logo. Navy and white thread with gold border. Approximately 2.5 inches.",featured:true},
+  {id:100,name:"Baseball Stitch Patch",cat:"patch",price:8,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/d660f4514_generated_image.png",caption:"Classic baseball stitching in patch form.",desc:"Embroidered iron-on patch of a baseball with red stitching and navy border. Perfect for jackets and bags. Approximately 2.5 inches.",featured:false}
+];
+
+// ===== CONFETTI ON DEMAND =====
+function launchConfetti() {
+  const container = document.getElementById('confettiContainer');
+  if (!container) return;
+  container.innerHTML = '';
+  const colors = ['#CBA135','#1E90FF','#005A9C','#E0B84C','#fff'];
+  for (let i = 0; i < 80; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.animationDelay = Math.random() * 1.5 + 's';
+    piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    piece.style.width = (Math.random() * 8 + 5) + 'px';
+    piece.style.height = (Math.random() * 8 + 5) + 'px';
+    container.appendChild(piece);
+  }
+}
+
+// ===== RENDER PRODUCTS =====
+let activeFilter = 'all';
+let searchQuery = '';
+
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  const filtered = products.filter(p => {
+    const catMatch = activeFilter === 'all' || p.cat === activeFilter;
+    const searchMatch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.caption.toLowerCase().includes(searchQuery);
+    return catMatch && searchMatch;
+  });
+  
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;color:var(--muted);grid-column:1/-1;padding:40px;">No designs found. Try a different search.</p>';
+    return;
+  }
+  
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      ${p.featured ? '<span class="badge-new">Featured</span>' : ''}
+      <div class="product-img-wrap">
+        ${p.img 
+          ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` 
+          : `<div class="product-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg><span>${p.cat} photo</span></div>`
+        }
+      </div>
+      <div class="product-info">
+        <span class="product-cat">${p.cat}</span>
+        <div class="product-name">${p.name}</div>
+        <div class="product-caption">"${p.caption}"</div>
+        <div class="product-bottom">
+          <span class="product-price"><span class="currency">$</span>${p.price}</span>
+          <button class="add-cart-btn" onclick="event.stopPropagation();addToCart(${p.id})">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.cat;
+    renderProducts();
+  });
+});
+
+// Search
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  searchQuery = e.target.value.toLowerCase();
+  renderProducts();
+});
+
+// ===== CART =====
+let cart = [];
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  updateCart();
+  playCrackOfBat();
+  
+  // Pulse cart button
+  const cartBtn = document.querySelector('.cart-btn');
+  cartBtn.style.transform = 'scale(1.2)';
+  setTimeout(() => cartBtn.style.transform = '', 200);
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    removeFromCart(id);
+  } else {
+    updateCart();
+  }
+}
+
+function updateCart() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const countEl = document.getElementById('cartCount');
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+  
+  countEl.textContent = count;
+  countEl.classList.toggle('hidden', count === 0);
+  
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty. Step up to the plate!</div>';
+    footerEl.style.display = 'none';
+  } else {
+    itemsEl.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <div class="cart-item-img">${item.img ? `<img src="${item.img}" alt="${item.name}" style="width:100%;height:100%;object-fit:contain;">` : item.sprite ? `<div style="width:100%;height:100%;background:url('${item.sprite}') ${item.sx}px ${item.sy}px;background-size:2000px 1800px;background-repeat:no-repeat;background-position:center;"></div>` : `<div style="font-size:.6rem;color:var(--muted);text-align:center">${item.cat}</div>`}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">$${item.price}</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+          </div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</button>
+      </div>
+    `).join('');
+    footerEl.style.display = 'block';
+    document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+  }
+}
+
+function toggleCart() {
+  document.getElementById('cartOverlay').classList.toggle('open');
+  document.getElementById('cartDrawer').classList.toggle('open');
+}
+
+function checkout(method) {
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  if (method === 'venmo') {
+    alert('Redirecting to Venmo @Stephie33 — Total: $' + total.toFixed(2) + '\n\nPlease include your order in the Venmo note!');
+  } else if (method === 'zelle') {
+    alert('Send $' + total.toFixed(2) + ' to gstephanie3@yahoo.com via Zelle.\n\nInclude your order details in the memo!');
+  } else {
+    alert('Redirecting to Stripe checkout — Total: $' + total.toFixed(2) + '\n\nStripe integration coming soon!');
+  }
+}
+
+// ===== PRODUCT MODAL =====
+let modalProductId = null;
+
+function openModal(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+  modalProductId = id;
+  
+  let modalImgHtml;
+  if (product.img) {
+    modalImgHtml = `<img src="${product.img}" alt="${product.name}" style="width:100%;height:100%;object-fit:contain;">`;
+  } else if (product.sprite) {
+    modalImgHtml = `<div style="width:100%;height:100%;background:url('${product.sprite}') ${product.sx}px ${product.sy}px;background-size:2000px 1800px;background-repeat:no-repeat;background-position:center;"></div>`;
+  } else {
+    modalImgHtml = `<div class="product-placeholder" style="width:100%;height:100%;border-radius:20px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg></div>`;
+  }
+  document.getElementById('modalImg').innerHTML = modalImgHtml;
+  document.getElementById('modalName').textContent = product.name;
+  document.getElementById('modalCaption').textContent = `"${product.caption}"`;
+  document.getElementById('modalDesc').textContent = product.desc;
+  document.getElementById('modalPrice').textContent = '$' + product.price;
+  
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function addToCartFromModal() {
+  if (modalProductId) {
+    addToCart(modalProductId);
+    closeModal();
+    toggleCart();
+  }
+}
+
+// ===== FAQ =====
+function toggleFaq(item) {
+  item.classList.toggle('open');
+}
+
+// ===== MENU =====
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== RAFFLE WHEEL =====
+function buildWheelSegments() {
+  const segments = document.getElementById('wheelSegments');
+  const prizes = ['WIN!', 'Try Again', 'Free Pin', 'Try Again', '10% Off', 'Try Again', 'Free Sticker', 'Try Again'];
+  const colors = ['#005A9C', '#0B1628', '#1E90FF', '#0B1628', '#CBA135', '#0B1628', '#1E90FF', '#0B1628'];
+  const total = prizes.length;
+  const angle = 360 / total;
+  
+  let html = '';
+  for (let i = 0; i < total; i++) {
+    const startAngle = i * angle - 90;
+    const endAngle = (i + 1) * angle - 90;
+    const x1 = 150 + 135 * Math.cos(startAngle * Math.PI / 180);
+    const y1 = 150 + 135 * Math.sin(startAngle * Math.PI / 180);
+    const x2 = 150 + 135 * Math.cos(endAngle * Math.PI / 180);
+    const y2 = 150 + 135 * Math.sin(endAngle * Math.PI / 180);
+    const midAngle = (startAngle + endAngle) / 2;
+    const tx = 150 + 85 * Math.cos(midAngle * Math.PI / 180);
+    const ty = 150 + 85 * Math.sin(midAngle * Math.PI / 180);
+    
+    html += `<path d="M150 150 L${x1} ${y1} A135 135 0 0 1 ${x2} ${y2} Z" fill="${colors[i]}" opacity=".6" stroke="#fff" stroke-width="1"/>`;
+    html += `<text x="${tx}" y="${ty}" text-anchor="middle" fill="#fff" font-family="Outfit" font-size="8" font-weight="700" transform="rotate(${midAngle + 90} ${tx} ${ty})">${prizes[i]}</text>`;
+  }
+  segments.innerHTML = html;
+}
+
+let isSpinning = false;
+function enterRaffle(e) {
+  e.preventDefault();
+  if (isSpinning) return;
+  isSpinning = true;
+  
+  const wheel = document.getElementById('raffleWheel');
+  const result = document.getElementById('raffleResult');
+  
+  // Reset
+  wheel.style.transition = 'none';
+  wheel.style.transform = 'rotate(0deg)';
+  result.classList.remove('show');
+  
+  setTimeout(() => {
+    wheel.style.transition = 'transform 4s cubic-bezier(.17,.67,.32,1)';
+    wheel.style.transform = 'rotate(1440deg)';
+    
+    setTimeout(() => {
+      // Increment entry count
+      const countEl = document.getElementById('entryCount');
+      countEl.textContent = parseInt(countEl.textContent) + 1;
+      
+      fireConfetti();
+      result.innerHTML = `
+        <div style="background:linear-gradient(135deg,rgba(30,144,255,.1),rgba(203,161,53,.1));border:1px solid rgba(203,161,53,.2);padding:16px;border-radius:12px;">
+          <p style="color:var(--gold);font-weight:700;font-size:.92rem;margin-bottom:4px;">🎉 You're in!</p>
+          <p style="color:var(--cream);opacity:.7;font-size:.82rem;">Entry received. We'll spin the wheel live on Instagram when the timer ends. Follow @pinthiz.la so you don't miss it!</p>
+        </div>
+      `;
+      result.classList.add('show');
+      isSpinning = false;
+    }, 4000);
+  }, 50);
+}
+
+function copyRaffleLink() {
+  const link = document.getElementById('raffleLink');
+  link.select();
+  document.execCommand('copy');
+  const btn = event.target;
+  const orig = btn.textContent;
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = orig, 2000);
+}
+
+// ===== SHIPPING TOGGLE =====
+function toggleShip(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+// ===== CONFETTI =====
+function fireConfetti() {
+  const container = document.getElementById('confettiContainer');
+  if (!container) return;
+  const colors = ['#CBA135','#E0B84C','#1E90FF','#005A9C','#fff'];
+  for (let i = 0; i < 40; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = Math.random() * 0.5 + 's';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    container.appendChild(piece);
+    setTimeout(() => piece.remove(), 3500);
+  }
+}
+
+
+// ===== SOUNDS =====
+let audioCtx = null;
+let soundEnabled = true;
+
+function initAudio() {
+  if (audioCtx) return;
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+
+function playStadiumOrgan() {
+  if (!soundEnabled || !audioCtx) return;
+  const now = audioCtx.currentTime;
+  // Stadium organ riff - a short sequence of notes
+  const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 523.25]; // C, E, G, C, G, C
+  notes.forEach((freq, i) => {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    const filter = audioCtx.createBiquadFilter();
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    filter.type = 'lowpass';
+    filter.frequency.value = 2000;
+    gain.gain.setValueAtTime(0, now + i * 0.15);
+    gain.gain.linearRampToValueAtTime(0.15, now + i * 0.15 + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.15 + 0.25);
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now + i * 0.15);
+    osc.stop(now + i * 0.15 + 0.3);
+  });
+}
+
+function playCrackOfBat() {
+  if (!soundEnabled || !audioCtx) return;
+  const now = audioCtx.currentTime;
+  // Crack of bat - short noise burst with fast decay
+  const bufferSize = audioCtx.sampleRate * 0.15;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < bufferSize; i++) {
+    data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufferSize, 3);
+  }
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = buffer;
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = 'bandpass';
+  filter.frequency.value = 2000;
+  filter.Q.value = 2;
+  const gain = audioCtx.createGain();
+  gain.gain.setValueAtTime(0.3, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+  noise.connect(filter);
+  filter.connect(gain);
+  gain.connect(audioCtx.destination);
+  noise.start(now);
+  // Add a low thump
+  const osc = audioCtx.createOscillator();
+  const oscGain = audioCtx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(150, now);
+  osc.frequency.exponentialRampToValueAtTime(50, now + 0.1);
+  oscGain.gain.setValueAtTime(0.2, now);
+  oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+  osc.connect(oscGain);
+  oscGain.connect(audioCtx.destination);
+  osc.start(now);
+  osc.stop(now + 0.15);
+}
+
+// Play organ on first user interaction
+let soundPlayed = false;
+function playIntroSound() {
+  if (soundPlayed) return;
+  soundPlayed = true;
+  initAudio();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  setTimeout(playStadiumOrgan, 100);
+}
+document.addEventListener('click', playIntroSound, { once: true });
+document.addEventListener('scroll', playIntroSound, { once: true });
+document.addEventListener('touchstart', playIntroSound, { once: true });
+document.addEventListener('keydown', playIntroSound, { once: true });
+
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  const btn = document.getElementById('soundToggle');
+  btn.textContent = soundEnabled ? '🔊' : '🔇';
+  if (soundEnabled) {
+    initAudio();
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  }
+}
+
+// ===== INIT =====
+renderProducts();
+buildWheelSegments();
+
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// Nav background on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav-wrapper');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(11,22,40,.95)';
+  } else {
+    nav.style.background = 'rgba(11,22,40,.88)';
+  }
+});
+
+// Scroll reveal animation
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-header, .product-card, .raffle-container, .gallery-grid, .games-list, .faq-grid, .shipping-grid, .updates-grid, .promo-banner').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+</script>
+</body>
+</html>
