@@ -91,7 +91,7 @@ img{max-width:100%;display:block;}
   opacity:.4;}
 .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1200px;margin:0 auto;padding:12px 24px;gap:12px;}
 .nav-left{display:flex;align-items:center;justify-content:flex-start;gap:10px;}
-.nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.08);border:2px solid rgba(203,161,53,.3);box-shadow:0 2px 12px rgba(0,0,0,.3);transition:all .3s;}.nav-logo-circle:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(203,161,53,.2);}.nav-logo-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;height:44px;width:auto;background:none;border:none;box-shadow:none;transition:all .3s;}.nav-logo-circle:hover{opacity:.85;}.nav-logo-circle img{height:44px;width:auto;object-fit:contain;border-radius:6px;}
 .nav-logo-circle:hover{transform:scale(1.05);}
 .nav-logo-circle svg{width:24px;height:24px;}
 
@@ -170,15 +170,15 @@ img{max-width:100%;display:block;}
 .hero .locale{margin-top:32px;color:var(--muted-dark);font-size:.62rem;letter-spacing:3.5px;text-transform:uppercase;font-weight:600;}
 .scroll-hint{margin-top:20px;color:var(--gold);font-size:1rem;animation:bounce 2s ease-in-out infinite;opacity:.5;display:block;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
-.scroll-baseball{margin-top:20px;animation:bounce 2s ease-in-out infinite;opacity:.4;display:inline-block;}
+
 
 /* ===== FLOATING BASEBALLS ===== */
-.float-ball{position:absolute;width:40px;height:40px;z-index:1;opacity:.12;pointer-events:none;animation:floatBall 6s ease-in-out infinite;}
-.float-ball:nth-child(1){top:15%;left:8%;animation-delay:0s;}
-.float-ball:nth-child(2){top:25%;right:10%;animation-delay:1.5s;}
-.float-ball:nth-child(3){bottom:20%;left:12%;animation-delay:3s;width:28px;height:28px;}
-.float-ball:nth-child(4){bottom:30%;right:8%;animation-delay:2s;width:32px;height:32px;}
-@keyframes floatBall{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-20px) rotate(15deg);}}
+
+
+
+
+
+50%{transform:translateY(-20px) rotate(15deg);}}
 
 /* ===== STITCH DIVIDER ===== */
 .stitch-divider{height:32px;width:100%;display:flex;align-items:center;overflow:hidden;position:relative;}
@@ -298,8 +298,8 @@ img{max-width:100%;display:block;}
 .wheel-base{position:absolute;bottom:0;width:120px;height:24px;background:linear-gradient(135deg,var(--navy-light),var(--navy));border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:0;}
 .wheel-base::before{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:60px;height:8px;background:var(--gold);border-radius:4px 4px 0 0;}
 .wheel-svg{width:300px;height:300px;position:relative;z-index:1;transition:transform 4s cubic-bezier(.17,.67,.32,1);}
-.wheel-svg.spinning{animation:spinWheel 4s cubic-bezier(.17,.67,.32,1) forwards;}
-@keyframes spinWheel{0%{transform:rotate(0deg);}100%{transform:rotate(1440deg);}}
+.wheel-svg.spinning{animation:spinWheelAnim 4s cubic-bezier(.17,.67,.32,1) forwards;}
+@keyframes spinWheelAnim{0%{transform:rotate(0deg);}100%{transform:rotate(var(--spin-target,1440deg));}}
 .bat-pointer{position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(0deg);z-index:3;transform-origin:50% 0%;}
 .bat-pointer svg{width:40px;height:80px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5));}
 .raffle-info{text-align:left;}
@@ -473,7 +473,7 @@ img{max-width:100%;display:block;}
   <div class="nav-inner">
     <div class="nav-left">
       <div class="nav-logo-circle">
-        <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a73af5d4a_logo_transparent_v2.png" alt="pinthiz.la" style="height:44px;width:auto;object-fit:contain;display:block;">
+        <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0cbe21d1_logo_full_white.png" alt="pinthiz.la" style="height:44px;width:auto;object-fit:contain;display:block;border-radius:6px;">
       </div>
     </div>
     <div class="nav-links" id="navLinks">
@@ -504,8 +504,6 @@ img{max-width:100%;display:block;}
   <div class="hero-stars"></div>
   <div class="hero-glow"></div>
   <div class="hero-sunset"></div>
-  <div class="float-ball"><svg viewBox="0 0 100 100"><defs><radialGradient id="bbf3" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#f5f0e0"/><stop offset="90%" stop-color="#e0d8c8"/><stop offset="100%" stop-color="#c8c0b0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbf3)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 2" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 2" stroke-linecap="round"/><path d="M10 35 Q50 28 90 35" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="2 1.5" stroke-linecap="round" opacity=".7"/><path d="M10 65 Q50 72 90 65" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="2 1.5" stroke-linecap="round" opacity=".7"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.2"/></svg></div>
-  <div class="float-ball"><svg viewBox="0 0 100 100"><defs><radialGradient id="bbf4" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#fffcf5"/><stop offset="55%" stop-color="#f5f0e0"/><stop offset="90%" stop-color="#e0d8c8"/><stop offset="100%" stop-color="#c8c0b0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#bbf4)"/><path d="M50 4 C28 4, 6 22, 6 50 C6 78, 28 96, 50 96" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 2" stroke-linecap="round"/><path d="M50 4 C72 4, 94 22, 94 50 C94 78, 72 96, 50 96" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 2" stroke-linecap="round"/><path d="M10 35 Q50 28 90 35" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="2 1.5" stroke-linecap="round" opacity=".7"/><path d="M10 65 Q50 72 90 65" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="2 1.5" stroke-linecap="round" opacity=".7"/><ellipse cx="38" cy="32" rx="18" ry="12" fill="#fff" opacity="0.2"/></svg></div>
   <div class="hero-content">
     <div class="hero-logo-ph" style="background:none;border:none;box-shadow:none;margin:0 auto 24px;"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a73af5d4a_logo_transparent_v2.png" alt="pinthiz.la" style="max-width:340px;width:85vw;height:auto;object-fit:contain;display:block;margin:0 auto;filter:drop-shadow(0 4px 32px rgba(0,0,0,0.8)) drop-shadow(0 0 16px rgba(203,161,53,0.3));"></div>
     <p class="hero-est">EST. 2018 · Los Angeles</p>
@@ -639,7 +637,7 @@ img{max-width:100%;display:block;}
 <section class="raffle section" id="raffle">
   <div class="wrap">
     <div class="section-title">
-      <span class="label">Spin to Win</span>
+      <span class="label">🎯 EVERY SPIN WINS</span>
       <h2>Live Raffle</h2>
       <p>Step up to the plate. Enter to win exclusive drops, rare pins, and more.</p>
     </div>
@@ -715,7 +713,7 @@ img{max-width:100%;display:block;}
           <circle cx="150" cy="150" r="55" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
 
           <!-- Center logo image -->
-          <image href="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a73af5d4a_logo_transparent_v2.png" x="100" y="100" width="100" height="100" clip-path="url(#logoCenterClip)" preserveAspectRatio="xMidYMid meet"/>
+          <image href="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0cbe21d1_logo_full_white.png" x="104" y="104" width="92" height="92" preserveAspectRatio="xMidYMid meet"/>
 
           <!-- Center gold dot -->
           <circle cx="150" cy="150" r="6" fill="url(#goldRing)" stroke="#0B1628" stroke-width="1"/>
@@ -741,7 +739,15 @@ img{max-width:100%;display:block;}
         </div>
         </div>
       </div>
-      <div class="raffle-info">
+      <div style="text-align:center;margin-top:16px;margin-bottom:4px;">
+          <button id="spinWheelBtn" onclick="spinPromoWheel()" 
+            style="background:linear-gradient(135deg,var(--gold),#F5D76E);color:var(--navy);border:none;border-radius:50px;padding:14px 36px;font-size:.9rem;font-weight:800;font-family:Outfit,sans-serif;cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 4px 20px rgba(203,161,53,.35);transition:all .3s;"
+            onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            🎯 SPIN TO WIN
+          </button>
+          <p style="color:var(--muted);font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;margin-top:8px;opacity:.6;">FREE — Every spin wins a prize</p>
+        </div>
+        <div class="raffle-info">
         <h3>Grand Slam Giveaway</h3>
         <p class="raffle-prize">🏆 Win: Complete Pin Collection + Exclusive Mystery Drop</p>
         <p class="raffle-desc">Enter for your shot at the full pinthiz.la collection — every design we've made, plus a mystery drop nobody's seen yet. One lucky winner takes it all.</p>
@@ -1003,7 +1009,7 @@ img{max-width:100%;display:block;}
 <footer class="footer">
   <div class="wrap">
     <div class="footer-cta">
-      <div class="footer-logo-circle"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a73af5d4a_logo_transparent_v2.png" alt="pinthiz.la" style="height:44px;width:auto;object-fit:contain;display:block;"></div>
+      <div class="footer-logo-circle"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0cbe21d1_logo_full_white.png" alt="pinthiz.la" style="height:44px;width:auto;object-fit:contain;display:block;border-radius:6px;"></div>
       <h3>Join the community</h3>
       <p>Follow for exclusive drops, raffle announcements, and behind-the-scenes content.</p>
       <a href="https://www.instagram.com/pinthiz.la/" target="_blank" class="ig-btn">
@@ -1069,104 +1075,42 @@ const products = [
   {id:1,name:"Mookie Magic",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c212338b2_pin_01_cutout.png",caption:"Betts on Black — quiet luxury, loud energy.",desc:"A clean, bold pin celebrating that Mookie energy. When the game's on the line, this is the one you want on your lapel.",featured:true},
   {id:2,name:"Freddie Clutch",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dd20d660d_pin_02_cutout.png",caption:"Walk-off energy you can wear.",desc:"Freddie Freeman gave us the walk-off moment. Now you can carry that clutch energy everywhere.",featured:true},
   {id:3,name:"Lowrider Funko",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0bf234f4b_pin_05_cutout.png",caption:"Cruising low, styling high.",desc:"LA car culture meets Dodgers pride. Low and slow, just like a Sunday drive down Whittier Blvd.",featured:false},
-  {id:4,name:"Agua Fresca Cup",cat:"pin",price:10,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/85b11dac0_pin_07_cutout.png",caption:"Refreshment that hits like a grand slam.",desc:"Nothing says LA like an agua fresca on a hot day at the stadium. This pin is summer in your pocket.",featured:false},
-  {id:5,name:"High-Five Hound",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a2496cc51_pin_10_cutout.png",caption:"Man's best friend, baseball's best fan.",desc:"Every dog has its day — and this one's at the ballpark. A feel-good pin for the dog lovers and Dodgers faithful.",featured:false},
-  {id:6,name:"Dodgers Classic",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:0,caption:"Pin #1 — Dodgers Classic",desc:"Collectible Dodgers-themed pin. Dodgers Classic design — a must-have for any true LA fan.",featured:true},
-  {id:7,name:"LA Blue Crest",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:0,caption:"Pin #2 — LA Blue Crest",desc:"Collectible Dodgers-themed pin. LA Blue Crest design — a must-have for any true LA fan.",featured:true},
-  {id:8,name:"Stadium Star",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:0,caption:"Pin #3 — Stadium Star",desc:"Collectible Dodgers-themed pin. Stadium Star design — a must-have for any true LA fan.",featured:true},
-  {id:9,name:"Mookie Glow",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:0,caption:"Pin #4 — Mookie Glow",desc:"Collectible Dodgers-themed pin. Mookie Glow design — a must-have for any true LA fan.",featured:false},
-  {id:10,name:"Freddie Force",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:0,caption:"Pin #5 — Freddie Force",desc:"Collectible Dodgers-themed pin. Freddie Force design — a must-have for any true LA fan.",featured:false},
-  {id:11,name:"Ohtani Power",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:0,caption:"Pin #6 — Ohtani Power",desc:"Collectible Dodgers-themed pin. Ohtani Power design — a must-have for any true LA fan.",featured:false},
-  {id:12,name:"Lowrider Blue",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:0,caption:"Pin #7 — Lowrider Blue",desc:"Collectible Dodgers-themed pin. Lowrider Blue design — a must-have for any true LA fan.",featured:false},
-  {id:13,name:"Agua Fresh",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:0,caption:"Pin #8 — Agua Fresh",desc:"Collectible Dodgers-themed pin. Agua Fresh design — a must-have for any true LA fan.",featured:false},
-  {id:14,name:"Dodger Dog",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:0,caption:"Pin #9 — Dodger Dog",desc:"Collectible Dodgers-themed pin. Dodger Dog design — a must-have for any true LA fan.",featured:false},
-  {id:15,name:"Bat Flip",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:0,caption:"Pin #10 — Bat Flip",desc:"Collectible Dodgers-themed pin. Bat Flip design — a must-have for any true LA fan.",featured:false},
-  {id:16,name:"World Series Champs",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-200,caption:"Pin #11 — World Series Champs",desc:"Collectible Dodgers-themed pin. World Series Champs design — a must-have for any true LA fan.",featured:false},
-  {id:17,name:"Gold Glove",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-200,caption:"Pin #12 — Gold Glove",desc:"Collectible Dodgers-themed pin. Gold Glove design — a must-have for any true LA fan.",featured:false},
-  {id:18,name:"Stadium Lights",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-200,caption:"Pin #13 — Stadium Lights",desc:"Collectible Dodgers-themed pin. Stadium Lights design — a must-have for any true LA fan.",featured:false},
-  {id:19,name:"LA Strong",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-200,caption:"Pin #14 — LA Strong",desc:"Collectible Dodgers-themed pin. LA Strong design — a must-have for any true LA fan.",featured:false},
-  {id:20,name:"Blue Heart",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-200,caption:"Pin #15 — Blue Heart",desc:"Collectible Dodgers-themed pin. Blue Heart design — a must-have for any true LA fan.",featured:false},
-  {id:21,name:"Dodgers Script",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-200,caption:"Pin #16 — Dodgers Script",desc:"Collectible Dodgers-themed pin. Dodgers Script design — a must-have for any true LA fan.",featured:false},
-  {id:22,name:"MVP Gold",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-200,caption:"Pin #17 — MVP Gold",desc:"Collectible Dodgers-themed pin. MVP Gold design — a must-have for any true LA fan.",featured:false},
-  {id:23,name:"Catcher's Mask",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-200,caption:"Pin #18 — Catcher's Mask",desc:"Collectible Dodgers-themed pin. Catcher's Mask design — a must-have for any true LA fan.",featured:false},
-  {id:24,name:"Home Plate",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-200,caption:"Pin #19 — Home Plate",desc:"Collectible Dodgers-themed pin. Home Plate design — a must-have for any true LA fan.",featured:false},
-  {id:25,name:"Pitcher's Mound",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-200,caption:"Pin #20 — Pitcher's Mound",desc:"Collectible Dodgers-themed pin. Pitcher's Mound design — a must-have for any true LA fan.",featured:false},
-  {id:26,name:"Dugout Vibes",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-400,caption:"Pin #21 — Dugout Vibes",desc:"Collectible Dodgers-themed pin. Dugout Vibes design — a must-have for any true LA fan.",featured:false},
-  {id:27,name:"Bleacher Creature",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-400,caption:"Pin #22 — Bleacher Creature",desc:"Collectible Dodgers-themed pin. Bleacher Creature design — a must-have for any true LA fan.",featured:false},
-  {id:28,name:"Hot Dog Zone",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-400,caption:"Pin #23 — Hot Dog Zone",desc:"Collectible Dodgers-themed pin. Hot Dog Zone design — a must-have for any true LA fan.",featured:false},
-  {id:29,name:"Helmet Sticker",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-400,caption:"Pin #24 — Helmet Sticker",desc:"Collectible Dodgers-themed pin. Helmet Sticker design — a must-have for any true LA fan.",featured:false},
-  {id:30,name:"Jersey Blue",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-400,caption:"Pin #25 — Jersey Blue",desc:"Collectible Dodgers-themed pin. Jersey Blue design — a must-have for any true LA fan.",featured:false},
-  {id:31,name:"9x Champions",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-400,caption:"Pin #26 — 9x Champions",desc:"Collectible Dodgers-themed pin. 9x Champions design — a must-have for any true LA fan.",featured:false},
-  {id:32,name:"Chavez Ravine",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-400,caption:"Pin #27 — Chavez Ravine",desc:"Collectible Dodgers-themed pin. Chavez Ravine design — a must-have for any true LA fan.",featured:false},
-  {id:33,name:"Cocktail Blue",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-400,caption:"Pin #28 — Cocktail Blue",desc:"Collectible Dodgers-themed pin. Cocktail Blue design — a must-have for any true LA fan.",featured:false},
-  {id:34,name:"Modelo Moment",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-400,caption:"Pin #29 — Modelo Moment",desc:"Collectible Dodgers-themed pin. Modelo Moment design — a must-have for any true LA fan.",featured:false},
-  {id:35,name:"Funko Ohtani",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-400,caption:"Pin #30 — Funko Ohtani",desc:"Collectible Dodgers-themed pin. Funko Ohtani design — a must-have for any true LA fan.",featured:false},
-  {id:36,name:"Hello Kitty LA",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-600,caption:"Pin #31 — Hello Kitty LA",desc:"Collectible Dodgers-themed pin. Hello Kitty LA design — a must-have for any true LA fan.",featured:false},
-  {id:37,name:"Bunny Dodgers",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-600,caption:"Pin #32 — Bunny Dodgers",desc:"Collectible Dodgers-themed pin. Bunny Dodgers design — a must-have for any true LA fan.",featured:false},
-  {id:38,name:"LV Monogram",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-600,caption:"Pin #33 — LV Monogram",desc:"Collectible Dodgers-themed pin. LV Monogram design — a must-have for any true LA fan.",featured:false},
-  {id:39,name:"Nike Swoosh LA",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-600,caption:"Pin #34 — Nike Swoosh LA",desc:"Collectible Dodgers-themed pin. Nike Swoosh LA design — a must-have for any true LA fan.",featured:false},
-  {id:40,name:"Lipstick LA",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-600,caption:"Pin #35 — Lipstick LA",desc:"Collectible Dodgers-themed pin. Lipstick LA design — a must-have for any true LA fan.",featured:false},
-  {id:41,name:"Peace LA",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-600,caption:"Pin #36 — Peace LA",desc:"Collectible Dodgers-themed pin. Peace LA design — a must-have for any true LA fan.",featured:false},
-  {id:42,name:"Christmas Dodger",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-600,caption:"Pin #37 — Christmas Dodger",desc:"Collectible Dodgers-themed pin. Christmas Dodger design — a must-have for any true LA fan.",featured:false},
-  {id:43,name:"Jackie 42",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-600,caption:"Pin #38 — Jackie 42",desc:"Collectible Dodgers-themed pin. Jackie 42 design — a must-have for any true LA fan.",featured:false},
-  {id:44,name:"Gold Crown",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-600,caption:"Pin #39 — Gold Crown",desc:"Collectible Dodgers-themed pin. Gold Crown design — a must-have for any true LA fan.",featured:false},
-  {id:45,name:"Blue Diamond",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-600,caption:"Pin #40 — Blue Diamond",desc:"Collectible Dodgers-themed pin. Blue Diamond design — a must-have for any true LA fan.",featured:false},
-  {id:46,name:"Stitch Pattern",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-800,caption:"Pin #41 — Stitch Pattern",desc:"Collectible Dodgers-themed pin. Stitch Pattern design — a must-have for any true LA fan.",featured:false},
-  {id:47,name:"Bat Crossed",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-800,caption:"Pin #42 — Bat Crossed",desc:"Collectible Dodgers-themed pin. Bat Crossed design — a must-have for any true LA fan.",featured:false},
-  {id:48,name:"LA Classic",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-800,caption:"Pin #43 — LA Classic",desc:"Collectible Dodgers-themed pin. LA Classic design — a must-have for any true LA fan.",featured:false},
-  {id:49,name:"Dodgers D",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-800,caption:"Pin #44 — Dodgers D",desc:"Collectible Dodgers-themed pin. Dodgers D design — a must-have for any true LA fan.",featured:false},
-  {id:50,name:"Blue Cap",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-800,caption:"Pin #45 — Blue Cap",desc:"Collectible Dodgers-themed pin. Blue Cap design — a must-have for any true LA fan.",featured:false},
-  {id:51,name:"Pin Set Mini",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-800,caption:"Pin #46 — Pin Set Mini",desc:"Collectible Dodgers-themed pin. Pin Set Mini design — a must-have for any true LA fan.",featured:false},
-  {id:52,name:"Stadium Panorama",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-800,caption:"Pin #47 — Stadium Panorama",desc:"Collectible Dodgers-themed pin. Stadium Panorama design — a must-have for any true LA fan.",featured:false},
-  {id:53,name:"Sunset Strip",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-800,caption:"Pin #48 — Sunset Strip",desc:"Collectible Dodgers-themed pin. Sunset Strip design — a must-have for any true LA fan.",featured:false},
-  {id:54,name:"Vin Scully",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-800,caption:"Pin #49 — Vin Scully",desc:"Collectible Dodgers-themed pin. Vin Scully design — a must-have for any true LA fan.",featured:false},
-  {id:55,name:"Tommy Lasorda",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-800,caption:"Pin #50 — Tommy Lasorda",desc:"Collectible Dodgers-themed pin. Tommy Lasorda design — a must-have for any true LA fan.",featured:false},
-  {id:56,name:"Kirk Gibson",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1000,caption:"Pin #51 — Kirk Gibson",desc:"Collectible Dodgers-themed pin. Kirk Gibson design — a must-have for any true LA fan.",featured:false},
-  {id:57,name:"Sandy Koufax",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1000,caption:"Pin #52 — Sandy Koufax",desc:"Collectible Dodgers-themed pin. Sandy Koufax design — a must-have for any true LA fan.",featured:false},
-  {id:58,name:"Clayton Kershaw",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1000,caption:"Pin #53 — Clayton Kershaw",desc:"Collectible Dodgers-themed pin. Clayton Kershaw design — a must-have for any true LA fan.",featured:false},
-  {id:59,name:"Cody Bellinger",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1000,caption:"Pin #54 — Cody Bellinger",desc:"Collectible Dodgers-themed pin. Cody Bellinger design — a must-have for any true LA fan.",featured:false},
-  {id:60,name:"Corey Seager",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1000,caption:"Pin #55 — Corey Seager",desc:"Collectible Dodgers-themed pin. Corey Seager design — a must-have for any true LA fan.",featured:false},
-  {id:61,name:"Justin Turner",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1000,caption:"Pin #56 — Justin Turner",desc:"Collectible Dodgers-themed pin. Justin Turner design — a must-have for any true LA fan.",featured:false},
-  {id:62,name:"Kenley Jansen",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1000,caption:"Pin #57 — Kenley Jansen",desc:"Collectible Dodgers-themed pin. Kenley Jansen design — a must-have for any true LA fan.",featured:false},
-  {id:63,name:"Max Muncy",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1000,caption:"Pin #58 — Max Muncy",desc:"Collectible Dodgers-themed pin. Max Muncy design — a must-have for any true LA fan.",featured:false},
-  {id:64,name:"Will Smith",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1000,caption:"Pin #59 — Will Smith",desc:"Collectible Dodgers-themed pin. Will Smith design — a must-have for any true LA fan.",featured:false},
-  {id:65,name:"Walker Buehler",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-1000,caption:"Pin #60 — Walker Buehler",desc:"Collectible Dodgers-themed pin. Walker Buehler design — a must-have for any true LA fan.",featured:false},
-  {id:66,name:"Gavin Lux",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1200,caption:"Pin #61 — Gavin Lux",desc:"Collectible Dodgers-themed pin. Gavin Lux design — a must-have for any true LA fan.",featured:false},
-  {id:67,name:"Tony Gonsolin",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1200,caption:"Pin #62 — Tony Gonsolin",desc:"Collectible Dodgers-themed pin. Tony Gonsolin design — a must-have for any true LA fan.",featured:false},
-  {id:68,name:"Julio Urias",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1200,caption:"Pin #63 — Julio Urias",desc:"Collectible Dodgers-themed pin. Julio Urias design — a must-have for any true LA fan.",featured:false},
-  {id:69,name:"Brusdar Graterol",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1200,caption:"Pin #64 — Brusdar Graterol",desc:"Collectible Dodgers-themed pin. Brusdar Graterol design — a must-have for any true LA fan.",featured:false},
-  {id:70,name:"Evan Phillips",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1200,caption:"Pin #65 — Evan Phillips",desc:"Collectible Dodgers-themed pin. Evan Phillips design — a must-have for any true LA fan.",featured:false},
-  {id:71,name:"Blake Treinen",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1200,caption:"Pin #66 — Blake Treinen",desc:"Collectible Dodgers-themed pin. Blake Treinen design — a must-have for any true LA fan.",featured:false},
-  {id:72,name:"Alex Vesia",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1200,caption:"Pin #67 — Alex Vesia",desc:"Collectible Dodgers-themed pin. Alex Vesia design — a must-have for any true LA fan.",featured:false},
-  {id:73,name:"Chris Taylor",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1200,caption:"Pin #68 — Chris Taylor",desc:"Collectible Dodgers-themed pin. Chris Taylor design — a must-have for any true LA fan.",featured:false},
-  {id:74,name:"Enrique Hernandez",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1200,caption:"Pin #69 — Enrique Hernandez",desc:"Collectible Dodgers-themed pin. Enrique Hernandez design — a must-have for any true LA fan.",featured:false},
-  {id:75,name:"Joc Pederson",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-1200,caption:"Pin #70 — Joc Pederson",desc:"Collectible Dodgers-themed pin. Joc Pederson design — a must-have for any true LA fan.",featured:false},
-  {id:76,name:"Yasiel Puig",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1400,caption:"Pin #71 — Yasiel Puig",desc:"Collectible Dodgers-themed pin. Yasiel Puig design — a must-have for any true LA fan.",featured:false},
-  {id:77,name:"Manny Machado",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1400,caption:"Pin #72 — Manny Machado",desc:"Collectible Dodgers-themed pin. Manny Machado design — a must-have for any true LA fan.",featured:false},
-  {id:78,name:"Cody Bellinger Star",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1400,caption:"Pin #73 — Cody Bellinger Star",desc:"Collectible Dodgers-themed pin. Cody Bellinger Star design — a must-have for any true LA fan.",featured:false},
-  {id:79,name:"AJ Pollock",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1400,caption:"Pin #74 — AJ Pollock",desc:"Collectible Dodgers-themed pin. AJ Pollock design — a must-have for any true LA fan.",featured:false},
-  {id:80,name:"Matt Beaty",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1400,caption:"Pin #75 — Matt Beaty",desc:"Collectible Dodgers-themed pin. Matt Beaty design — a must-have for any true LA fan.",featured:false},
-  {id:81,name:"Russell Martin",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1400,caption:"Pin #76 — Russell Martin",desc:"Collectible Dodgers-themed pin. Russell Martin design — a must-have for any true LA fan.",featured:false},
-  {id:82,name:"David Freese",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1400,caption:"Pin #77 — David Freese",desc:"Collectible Dodgers-themed pin. David Freese design — a must-have for any true LA fan.",featured:false},
-  {id:83,name:"Rich Hill",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1400,caption:"Pin #78 — Rich Hill",desc:"Collectible Dodgers-themed pin. Rich Hill design — a must-have for any true LA fan.",featured:false},
-  {id:84,name:"Kenta Maeda",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1400,caption:"Pin #79 — Kenta Maeda",desc:"Collectible Dodgers-themed pin. Kenta Maeda design — a must-have for any true LA fan.",featured:false},
-  {id:85,name:"Hyun-Jin Ryu",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1800,sy:-1400,caption:"Pin #80 — Hyun-Jin Ryu",desc:"Collectible Dodgers-themed pin. Hyun-Jin Ryu design — a must-have for any true LA fan.",featured:false},
-  {id:86,name:"Julio Urias Star",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:0,sy:-1600,caption:"Pin #81 — Julio Urias Star",desc:"Collectible Dodgers-themed pin. Julio Urias Star design — a must-have for any true LA fan.",featured:false},
-  {id:87,name:"Dustin May",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-200,sy:-1600,caption:"Pin #82 — Dustin May",desc:"Collectible Dodgers-themed pin. Dustin May design — a must-have for any true LA fan.",featured:false},
-  {id:88,name:"Tony Watson",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-400,sy:-1600,caption:"Pin #83 — Tony Watson",desc:"Collectible Dodgers-themed pin. Tony Watson design — a must-have for any true LA fan.",featured:false},
-  {id:89,name:"Joe Kelly",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-600,sy:-1600,caption:"Pin #84 — Joe Kelly",desc:"Collectible Dodgers-themed pin. Joe Kelly design — a must-have for any true LA fan.",featured:false},
-  {id:90,name:"Jesse Chavez",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-800,sy:-1600,caption:"Pin #85 — Jesse Chavez",desc:"Collectible Dodgers-themed pin. Jesse Chavez design — a must-have for any true LA fan.",featured:false},
-  {id:91,name:"Sheldon Sulfa",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1000,sy:-1600,caption:"Pin #86 — Sheldon Sulfa",desc:"Collectible Dodgers-themed pin. Sheldon Sulfa design — a must-have for any true LA fan.",featured:false},
-  {id:92,name:"Reza Marzban",cat:"pin",price:15,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1200,sy:-1600,caption:"Pin #87 — Reza Marzban",desc:"Collectible Dodgers-themed pin. Reza Marzban design — a must-have for any true LA fan.",featured:false},
-  {id:93,name:"LA Skyline",cat:"pin",price:12,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1400,sy:-1600,caption:"Pin #88 — LA Skyline",desc:"Collectible Dodgers-themed pin. LA Skyline design — a must-have for any true LA fan.",featured:false},
-  {id:94,name:"Blue Cola",cat:"pin",price:10,sprite:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/27815f003_pins_sprite_sheet.png",sx:-1600,sy:-1600,caption:"Pin #89 — Blue Cola",desc:"Collectible Dodgers-themed pin. Blue Cola design — a must-have for any true LA fan.",featured:false},
-,
-  {id:95,name:"Dodgers Logo Sticker",cat:"sticker",price:4,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/329511c44_generated_image.png",caption:"Slap it on your laptop, water bottle, wherever.",desc:"Glossy die-cut vinyl sticker featuring the iconic LA Dodgers logo. Weatherproof and durable. Approximately 3 inches.",featured:true},
-  {id:96,name:"Navy Cap Sticker",cat:"sticker",price:4,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/5012bae9c_generated_image.png",caption:"Blue cap energy in sticker form.",desc:"Dodgers blue cap vinyl sticker. Perfect for laptops, phone cases, and water bottles. Glossy finish, weatherproof.",featured:false},
-  {id:97,name:"Dodgers Classic Tee",cat:"shirt",price:25,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/fc1629774_generated_image.png",caption:"The essential Dodgers tee. Wear it to the game.",desc:"Premium navy blue cotton t-shirt with white LA Dodgers logo. Soft, durable, and game-day ready. Unisex sizing.",featured:true},
-  {id:98,name:"Blue Hoodie",cat:"shirt",price:45,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/910116441_generated_image.png",caption:"Stay warm, stay blue. Gold accent details.",desc:"Premium navy blue hoodie with gold accent details and Dodgers branding. Fleece-lined for comfort. Unisex sizing.",featured:false},
-  {id:99,name:"Dodgers Logo Patch",cat:"patch",price:8,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/f031b33d8_generated_image.png",caption:"Iron it on your jacket, your bag, your hat.",desc:"Embroidered iron-on patch featuring the LA Dodgers logo. Navy and white thread with gold border. Approximately 2.5 inches.",featured:true},
-  {id:100,name:"Baseball Stitch Patch",cat:"patch",price:8,img:"https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/d660f4514_generated_image.png",caption:"Classic baseball stitching in patch form.",desc:"Embroidered iron-on patch of a baseball with red stitching and navy border. Perfect for jackets and bags. Approximately 2.5 inches.",featured:false}
+  {id:4,name:"Agua Fresca Cup",cat:"pin",price:10,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/85b11dac0_pin_07_cutout.png",caption:"Refreshment that hits like a grand slam.",desc:"Nothing says LA like an agua fresca on a hot game day. This pin is summer in your pocket.",featured:false},
+  {id:5,name:"High-Five Hound",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a2496cc51_pin_10_cutout.png",caption:"Man's best friend, baseball's best fan.",desc:"Every dog has its day — and this one's at the ballpark. A feel-good pin for dog lovers and Dodgers faithful.",featured:false},
+  {id:6,name:"Dodgers Christmas",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3677b8539_pin_dodgers_christmas_wreath.png",caption:"Decking the halls in blue and gold.",desc:"A holiday wreath with Dodgers branding and candy cane bats. Limited seasonal drop — perfect gift.",featured:true},
+  {id:7,name:"Nike x LA",cat:"pin",price:18,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3bfea6a56_pin_nike_la.png",caption:"Two icons, one pin.",desc:"The Nike swoosh meets the LA logo in a sleek black-and-white collab. Clean, bold, undeniably LA.",featured:true},
+  {id:8,name:"Mexico Player",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/826e2ed73_pin_mexico_player.png",caption:"Representing the homeland.",desc:"A nod to the Mexican players who've rocked the Dodger blue. Cultura and baseball in one pin.",featured:false},
+  {id:9,name:"Ohtani Face",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/acbeb20f7_pin_ohtani_face.png",caption:"Shohei all day.",desc:"The best player in baseball, distilled into pin form. Collector's must-have for Ohtani fans.",featured:true},
+  {id:10,name:"LA Hello Kitty",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f43083111_pin_la_hello_kitty.png",caption:"Kawaii meets the stadium.",desc:"Hello Kitty rocking the LA letters with a bow. The crossover nobody expected but everyone needed.",featured:false},
+  {id:11,name:"LA Rams Helmet",cat:"pin",price:13,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/cb75802c4_pin_la_rams_helmet.png",caption:"Blue city, two teams.",desc:"A LA Rams helmet in classic yellow and blue with palm trees. Rep the whole city.",featured:false},
+  {id:12,name:"Freddie Funko Pop",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/16e324dc7_pin_freddie_funko.png",caption:"Walk-off in vinyl.",desc:"Freddie Freeman as a Funko Pop figure. Grand Slam champion in pocket-sized form.",featured:true},
+  {id:13,name:"Lowrider Funko",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/799f943de_pin_lowrider_funko.png",caption:"Low and slow, pure LA.",desc:"A Funko-style lowrider car in Dodgers blue. Old school LA meets new school Dodgers energy.",featured:false},
+  {id:14,name:"Mookie Face",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/1c8f5790e_pin_mookie_face.png",caption:"That smile hits different.",desc:"Mookie Betts illustrated face pin — bright, bold, and full of that All-Star energy.",featured:false},
+  {id:15,name:"Latina Forevr",cat:"pin",price:18,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2597bd876_pin_latina_forevr_cut.png",caption:"LA x Latinx forever.",desc:"Pink and black graffiti-style pin celebrating Latina pride and Dodgers culture. Bold statement piece.",featured:true},
+  {id:16,name:"Freddie Freeman Face",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ca009b8f5_pin2_freddie_freeman_face.png",caption:"The face of the franchise.",desc:"Freddie Freeman illustrated face pin — that championship smile, wearable.",featured:true},
+  {id:17,name:"LA Script Block",cat:"pin",price:13,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/6379706d4_pin2_la_script.png",caption:"The classic letters, elevated.",desc:"The LA letters in a clean block script style. Timeless Dodgers design.",featured:false},
+  {id:18,name:"Nike Dodgers Shoe",cat:"pin",price:20,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c45e75bf1_pin2_nike_dodgers_shoe.png",caption:"Game-day kicks, pin edition.",desc:"Nike Air Force 1 in Dodgers blue with LA branding. For the sneakerheads and baseball fans.",featured:true},
+  {id:19,name:"Jackie Robinson #42",cat:"pin",price:18,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/cc6fcc18e_pin2_jackie_robinson_42.png",caption:"Honor the legend. Wear the number.",desc:"Jackie Robinson #42 on crossed bats and a blue diamond. A tribute to baseball's greatest trailblazer.",featured:true},
+  {id:20,name:"Cody Bellinger Funko",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/65ab3025f_pin2_cody_bellinger_funko.png",caption:"Back when Cody was magic.",desc:"Cody Bellinger Funko Pop pin, number 35, in full Dodgers uniform. Collector's nostalgia piece.",featured:false},
+  {id:21,name:"Colorful LA",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e47584bb4_pin2_colorful_la.png",caption:"LA in every color.",desc:"The LA letters in multi-color block style — pink, blue, teal, and gold. A vibrant city in a pin.",featured:false},
+  {id:22,name:"LV x LA",cat:"pin",price:22,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a4e7f78f7_pin2_lv_la.png",caption:"Louis Vuitton meets LA.",desc:"The LA letters in Louis Vuitton monogram pattern. Luxury streetwear meets Dodgers pride.",featured:true},
+  {id:23,name:"LA Peace Sign",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b614d2f8e_pin2_la_peace_sign.png",caption:"Peace, love, and Dodgers.",desc:"A blue hand throwing a W with LA on the glove. That West Side energy, always.",featured:false},
+  {id:24,name:"Modelo Chelada",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/6fe1e8b8f_pin2_modelo_chelada.png",caption:"Stadium brew, pin edition.",desc:"A Modelo Chelada Mango Chili can featuring the Dodger Stadium skyline. Perfect for the tailgate fans.",featured:false},
+  {id:25,name:"Dark Angel",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/720710836_pin2_dark_angel.png",caption:"Mysterious LA energy.",desc:"A dark, dramatic angel figure in Dodgers navy. For the fans who keep it gothic and blue.",featured:false},
+  {id:26,name:"LA Rams Logo",cat:"pin",price:13,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dce6b4142_pin2_la_rams_logo.png",caption:"Two LA teams, one city.",desc:"LA Rams helmet logo with palm trees and blue/gold colorway. Rep every team in the city.",featured:false},
+  {id:27,name:"Lipstick LA",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fd9651ce9_pin2_lipstick_la.png",caption:"Beauty and the ballpark.",desc:"A red lipstick tube with the LA logo engraved. Bold, feminine, and Dodgers blue.",featured:true},
+  {id:28,name:"LA Kings Crown",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/9762eb68a_pin3_la_kings_crown.png",caption:"Kings of LA, always.",desc:"The LA Kings hockey logo in classic black and white. For the LA sports collector.",featured:false},
+  {id:29,name:"Accordion Pin",cat:"pin",price:18,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c74db87a4_pin3_accordion.png",caption:"Música y cultura.",desc:"A glittering accordion in purple and gold. A nod to LA's vibrant Latin music scene.",featured:true},
+  {id:30,name:"Dodger Mascot",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d1fe936b0_pin3_dodger_mascot.png",caption:"OG Dodgers character.",desc:"The classic Dodgers mascot character in full uniform. Old school and proud.",featured:false},
+  {id:31,name:"NYC Skyline",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/970d9bd44_pin3_nyc_skyline.png",caption:"Coast to coast.",desc:"NYC skyline with a Dodgers twist — for the crossover fans who rep both coasts.",featured:false},
+  {id:32,name:"LA World Champions",cat:"pin",price:20,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c136068b8_pin3_la_world_champions.png",caption:"Champions forever.",desc:"The LA World Champions diamond pin in gold and blue. Championship energy, always.",featured:true},
+  {id:33,name:"Teal Bat",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b1317f773_pin3_teal_bat.png",caption:"Game day essential.",desc:"A minimalist teal baseball bat pin. Clean, simple, and perfect for any fan outfit.",featured:false},
+  {id:34,name:"Bunny LA",cat:"pin",price:15,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/6f69ea3ad_pin3_bunny_la.png",caption:"Soft side of LA.",desc:"A cute white bunny wearing an LA Dodgers cap. For the fans who keep it adorable.",featured:false},
+  {id:35,name:"Player #25",cat:"pin",price:16,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/5d5f4de54_pin3_player_25.png",caption:"Carrying the legacy.",desc:"A real-style photo pin of a Dodgers player wearing #25. Authentic baseball energy.",featured:false},
+  {id:36,name:"Champions Stars",cat:"pin",price:18,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3c40d9461_pin3_champions_stars.png",caption:"Star power, champion energy.",desc:"Red, white, and blue stars with Champions Stars branding. For the dynasty believers.",featured:true},
+  {id:37,name:"Daisy Flowers LA",cat:"pin",price:14,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2189e20bb_pin3_daisy_flowers_la.png",caption:"Spring in the ballpark.",desc:"Blue daisy flowers with smiley faces and an LA tag. Bright, fun, and uniquely LA.",featured:false},
+  {id:38,name:"Stadium Cooler",cat:"pin",price:13,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e391792ec_pin3_cooler.png",caption:"Tailgate ready.",desc:"A Dodgers blue cooler pin — the tailgate essential. Cold ones and baseball go together.",featured:false},
+  {id:39,name:"LA Skater",cat:"pin",price:17,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/81b38bfd1_pin3_la_skater.png",caption:"Dodgers on the board.",desc:"An LA skater riding in Dodger colors. Street culture meets stadium culture.",featured:true}
 ];
 
 // ===== CONFETTI ON DEMAND =====
@@ -1228,7 +1172,11 @@ function renderProducts() {
   const grid = document.getElementById('productGrid');
   const filtered = products.filter(p => {
     const catMatch = activeFilter === 'all' || p.cat === activeFilter;
-    const searchMatch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.caption.toLowerCase().includes(searchQuery);
+    const searchMatch = !searchQuery || 
+    p.name.toLowerCase().includes(searchQuery) || 
+    (p.caption && p.caption.toLowerCase().includes(searchQuery)) ||
+    (p.desc && p.desc.toLowerCase().includes(searchQuery)) ||
+    (p.cat && p.cat.toLowerCase().includes(searchQuery));
     return catMatch && searchMatch;
   });
   
@@ -1305,9 +1253,26 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 // Search
 document.getElementById('searchInput').addEventListener('input', (e) => {
-  searchQuery = e.target.value.toLowerCase();
+  searchQuery = e.target.value.toLowerCase().trim();
   currentPage = 1;
   renderProducts();
+  // Scroll to product grid when user is typing and there's a query
+  if (searchQuery.length > 0) {
+    const grid = document.getElementById('productGrid');
+    if (grid) {
+      setTimeout(() => {
+        grid.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }, 150);
+    }
+  }
+});
+
+document.getElementById('searchInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const grid = document.getElementById('productGrid');
+    if (grid) grid.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
 });
 
 // ===== CART =====
@@ -1472,6 +1437,21 @@ function buildWheelSegments() {
 }
 
 let isSpinning = false;
+let currentWheelAngle = 0; // Track cumulative wheel angle
+
+// Prizes array — matches wheel segments (0° start = top, going clockwise)
+// Wheel segments: each 45° wide, starting from 0° (top pointer position)
+const WHEEL_PRIZES = [
+  { label: 'WIN! 🎉',           code: 'WINNER10',  instruction: 'Show this at checkout — applies automatically!',   color: '#CBA135' },  // 0–45°
+  { label: 'Free Pin',          code: 'FREEPIN25', instruction: 'Add any pin to cart and apply code at checkout.',   color: '#0B1628' },  // 45–90°
+  { label: '10% Off',           code: 'SAVE10',    instruction: 'Enter code at checkout for 10% off your order.',   color: '#1E5BC6' },  // 90–135°
+  { label: 'Mystery Drop',      code: 'MYSTERY',   instruction: 'Check your email for your mystery bonus item!',    color: '#0B1628' },  // 135–180°
+  { label: 'Free Sticker',      code: 'STICKER',   instruction: 'Your free sticker ships with your next order.',    color: '#CBA135' },  // 180–225°
+  { label: '20% Off',           code: 'SAVE20',    instruction: 'Enter code at checkout for 20% off your order.',   color: '#1E5BC6' },  // 225–270°
+  { label: 'Grand Prize',       code: 'GRAND2024', instruction: 'Email pinthiz.la@gmail.com with your code to claim!', color: '#0B1628' }, // 270–315°
+  { label: '$5 Off',            code: 'FIVE5',     instruction: 'Enter code at checkout for $5 off any order.',     color: '#CBA135' },  // 315–360°
+];
+
 function updateRafflePrice() {
   const qty = document.getElementById('raffleQty').value;
   const prices = {1: 5, 3: 12, 5: 20, 10: 35};
@@ -1479,47 +1459,82 @@ function updateRafflePrice() {
   document.getElementById('raffleSubmitBtn').textContent = 'Enter to Win — $' + price;
 }
 
-function enterRaffle(e) {
-  e.preventDefault();
+function spinPromoWheel() {
   if (isSpinning) return;
+  const spinBtn = document.getElementById('spinWheelBtn');
+  if (spinBtn) spinBtn.disabled = true;
   isSpinning = true;
   
   const wheel = document.getElementById('raffleWheel');
   const result = document.getElementById('raffleResult');
-  
-  // Reset
-  wheel.style.transition = 'none';
-  wheel.style.transform = 'rotate(0deg)';
   result.classList.remove('show');
+
+  // Pick random prize
+  const prizeIndex = Math.floor(Math.random() * WHEEL_PRIZES.length);
+  const prize = WHEEL_PRIZES[prizeIndex];
+
+  // Calculate target angle so chosen segment lands under the top pointer (12 o'clock)
+  // Pointer is at 270° in SVG terms (top = 270° in standard math, but our wheel starts at 0° = top)
+  // Each segment is 45° wide; segment center is at: prizeIndex * 45 + 22.5 degrees from top
+  const segmentCenterAngle = prizeIndex * 45 + 22.5;
+  // We need this segment center to end up at 0° (top pointer)
+  // Rotate so segment center is at 0: we spin by (360 - segmentCenterAngle) + multiple full rotations
+  const minSpins = 5; // at least 5 full rotations for drama
+  const extraRotations = minSpins * 360;
+  const targetAngle = extraRotations + (360 - segmentCenterAngle);
+  
+  // Apply cumulative rotation to avoid reset flicker
+  const absoluteTarget = currentWheelAngle + targetAngle;
+  
+  wheel.style.transition = 'none';
+  wheel.style.transform = \`rotate(\${currentWheelAngle}deg)\`;
   
   setTimeout(() => {
-    wheel.style.transition = 'transform 4s cubic-bezier(.17,.67,.32,1)';
-    wheel.style.transform = 'rotate(1440deg)';
+    wheel.style.transition = 'transform 4.5s cubic-bezier(0.17,0.67,0.12,0.99)';
+    wheel.style.transform = \`rotate(\${absoluteTarget}deg)\`;
     
     setTimeout(() => {
-      // Increment entry count
-      const countEl = document.getElementById('entryCount');
-      countEl.textContent = parseInt(countEl.textContent) + 1;
-      
+      currentWheelAngle = absoluteTarget % 360;
       fireConfetti();
-      const qty = parseInt(document.getElementById('raffleQty').value) || 1;
-      const prices = {1: 5, 3: 12, 5: 20, 10: 35};
-      const totalPrice = prices[qty] || 5;
       
-      // Add raffle entries to cart
-      addToCart({id: 999, name: 'Raffle Entry x' + qty, price: totalPrice, cat: 'raffle', caption: 'Grand Slam Giveaway'});
-      
-      result.innerHTML = `
-        <div style="background:linear-gradient(135deg,rgba(30,144,255,.1),rgba(203,161,53,.1));border:1px solid rgba(203,161,53,.2);padding:16px;border-radius:12px;">
-          <p style="color:var(--gold);font-weight:700;font-size:.92rem;margin-bottom:4px;">🎉 You're in!</p>
-          <p style="color:var(--cream);opacity:.7;font-size:.82rem;margin-bottom:12px;">${qty} entr${qty > 1 ? 'ies' : 'y'} received for $${totalPrice}. We'll spin the wheel live on Instagram!</p>
-          <button class="btn btn-gold" style="font-size:.72rem;padding:10px 24px;width:100%;" onclick="toggleCart()">Checkout Now — $${totalPrice}</button>
+      result.innerHTML = \`
+        <div style="background:linear-gradient(135deg,rgba(203,161,53,.12),rgba(30,144,255,.08));border:2px solid rgba(203,161,53,.35);padding:24px;border-radius:16px;text-align:center;">
+          <div style="font-size:2.4rem;margin-bottom:8px;">🎉</div>
+          <p style="color:var(--gold);font-weight:800;font-size:1.2rem;letter-spacing:1px;margin-bottom:4px;">YOU WON: \${prize.label}</p>
+          <p style="color:var(--cream);opacity:.75;font-size:.82rem;margin-bottom:16px;">\${prize.instruction}</p>
+          <div style="background:rgba(11,22,40,.6);border:1px dashed rgba(203,161,53,.4);border-radius:10px;padding:12px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span style="font-family:'Anton',sans-serif;letter-spacing:3px;font-size:1.1rem;color:var(--gold);">\${prize.code}</span>
+            <button onclick="navigator.clipboard.writeText('\${prize.code}').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>this.textContent='Copy Code',2000)})" 
+              style="background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-size:.75rem;font-weight:700;font-family:Outfit,sans-serif;cursor:pointer;letter-spacing:1px;">Copy Code</button>
+          </div>
+          <p style="color:var(--muted);font-size:.72rem;opacity:.6;">Valid for 7 days. One use per customer.</p>
         </div>
-      `;
+      \`;
       result.classList.add('show');
       isSpinning = false;
-    }, 4000);
-  }, 50);
+      if (spinBtn) spinBtn.disabled = false;
+    }, 4600);
+  }, 30);
+}
+
+function enterRaffle(e) {
+  e.preventDefault();
+  const qty = parseInt(document.getElementById('raffleQty').value) || 1;
+  const prices = {1: 5, 3: 12, 5: 20, 10: 35};
+  const totalPrice = prices[qty] || 5;
+  
+  // Add raffle entries to cart (separate from promo wheel)
+  addToCart({id: 999, name: 'Raffle Entry x' + qty, price: totalPrice, cat: 'raffle', caption: 'Grand Slam Giveaway'});
+  
+  const result = document.getElementById('raffleResult');
+  result.innerHTML = \`
+    <div style="background:linear-gradient(135deg,rgba(30,144,255,.1),rgba(203,161,53,.1));border:1px solid rgba(203,161,53,.2);padding:16px;border-radius:12px;">
+      <p style="color:var(--gold);font-weight:700;font-size:.92rem;margin-bottom:4px;">🎉 You're in!</p>
+      <p style="color:var(--cream);opacity:.7;font-size:.82rem;margin-bottom:12px;">\${qty} entr\${qty > 1 ? 'ies' : 'y'} added — $\${totalPrice}. We spin live on Instagram!</p>
+      <button class="btn btn-gold" style="font-size:.72rem;padding:10px 24px;width:100%;" onclick="toggleCart()">Checkout Now — $\${totalPrice}</button>
+    </div>
+  \`;
+  result.classList.add('show');
 }
 
 function copyRaffleLink() {
