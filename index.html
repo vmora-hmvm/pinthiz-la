@@ -78,8 +78,8 @@ img{max-width:100%;display:block;}
   opacity:.4;}
 .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1200px;margin:0 auto;padding:12px 24px;gap:12px;}
 .nav-left{display:flex;align-items:center;justify-content:flex-start;gap:10px;}
-.nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:52px;height:52px;transition:all .3s;}
-.nav-logo-circle img{width:44px;height:44px;object-fit:contain;border-radius:50%;display:block;padding:2px;}.nav-logo-circle{background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:52px;height:52px;background:#fff;border-radius:50%;transition:all .3s;box-shadow:0 2px 10px rgba(0,0,0,.3);}
+.nav-logo-circle img{width:44px;height:44px;object-fit:contain;border-radius:50%;display:block;}
 .nav-logo-circle:hover{transform:scale(1.05);}
 .nav-logo-circle svg{width:24px;height:24px;}
 
@@ -287,7 +287,7 @@ img{max-width:100%;display:block;}
 .wheel-stage{position:relative;width:320px;height:380px;display:flex;align-items:center;justify-content:center;}
 .wheel-base{position:absolute;bottom:0;width:120px;height:24px;background:linear-gradient(135deg,var(--navy-light),var(--navy));border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:0;}
 .wheel-base::before{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:60px;height:8px;background:var(--gold);border-radius:4px 4px 0 0;}
-.wheel-svg{width:300px;height:300px;position:relative;z-index:1;transition:transform 4s cubic-bezier(.17,.67,.32,1);}
+.wheel-svg{width:300px;height:300px;position:relative;z-index:1;cursor:pointer;}
 .wheel-svg.spinning{animation:spinWheelAnim 4s cubic-bezier(.17,.67,.32,1) forwards;}
 @keyframes spinWheelAnim{0%{transform:rotate(0deg);}100%{transform:rotate(var(--spin-target,1440deg));}}
 .bat-pointer{position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(0deg);z-index:3;transform-origin:50% 0%;}
@@ -459,17 +459,17 @@ img{max-width:100%;display:block;}
 .reviews{position:relative;background:linear-gradient(180deg,rgba(15,28,50,.92) 0%,rgba(11,22,40,.96) 100%);}
 .reviews-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .reviews-track::-webkit-scrollbar{display:none;}
-.review-card{flex:0 0 160px;scroll-snap-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;cursor:grab;}
+.review-card{flex:0 0 220px;scroll-snap-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;cursor:grab;}
 .review-card:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 24px rgba(30,144,255,.2);border-color:rgba(30,144,255,.3);}
 .review-card:active{cursor:grabbing;}
-.review-card img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center;display:block;pointer-events:none;}
+.review-card img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;display:block;pointer-events:none;}
 .review-nav{display:flex;gap:12px;justify-content:center;margin-top:16px;}
 .review-btn{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:var(--cream);font-size:1.1rem;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;}
 .review-btn:hover{background:var(--blue);border-color:var(--blue);transform:scale(1.1);}
 .review-dots{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:14px;}
 .review-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .3s;border:none;padding:0;}
 .review-dot.active{background:var(--gold);width:24px;border-radius:4px;}
-@media(max-width:768px){.review-card{flex:0 0 130px;}.review-card img{aspect-ratio:1/1;}}
+@media(max-width:768px){.review-card{flex:0 0 180px;}.review-card img{aspect-ratio:4/5;}}
 
 
 /* ===== BIRTHDAY / SURPRISE SECTION ===== */
@@ -486,11 +486,11 @@ img{max-width:100%;display:block;}
 .birthday-sig{color:var(--blue-bright);font-size:.82rem;font-style:italic;line-height:1.6;margin:0;font-weight:500;}
 
 /* Birthday photo "video" slideshow */
-.bday-video{position:relative;width:100%;aspect-ratio:9/12;max-height:380px;border-radius:18px;overflow:hidden;border:2px solid rgba(203,161,53,.35);box-shadow:0 12px 40px rgba(0,0,0,.5);}
+.bday-video{position:relative;width:100%;aspect-ratio:3/4;max-height:460px;border-radius:18px;overflow:hidden;border:2px solid rgba(203,161,53,.35);box-shadow:0 12px 40px rgba(0,0,0,.5);}
 .bday-slides{position:relative;width:100%;height:100%;}
 .bday-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;}
 .bday-slide.active{opacity:1;}
-.bday-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.bday-slide img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 .bday-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,20,40,.6));}
 .bday-caption{position:absolute;bottom:12px;left:0;right:0;text-align:center;z-index:2;}
 .bday-caption span{background:rgba(10,20,40,.7);color:var(--cream);font-size:.7rem;font-weight:600;letter-spacing:1px;padding:4px 14px;border-radius:20px;text-transform:uppercase;}
@@ -509,7 +509,7 @@ img{max-width:100%;display:block;}
   .birthday-content{grid-template-columns:1fr;gap:24px;}
   .birthday-text{text-align:center;}
   .birthday-message{text-align:center;}
-  .bday-video{max-height:340px;margin:0 auto;}
+  .bday-video{max-height:400px;margin:0 auto;}
   .birthday-title{font-size:2rem;}
   .birthday-title span{font-size:2.2rem;}
   .birthday-message{font-size:.85rem;}
@@ -524,9 +524,7 @@ img{max-width:100%;display:block;}
   <div class="nav-inner">
     <div class="nav-left">
       <div class="nav-logo-circle">
-        <div style="background:#fff;border-radius:10px;padding:4px 10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);height:44px;">
-          <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" alt="Pinthiz LA" style="height:36px;width:auto;object-fit:contain;display:block;filter:none;">
-        </div>
+        <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" alt="Pinthiz LA" style="width:40px;height:40px;object-fit:contain;border-radius:50%;display:block;">
       </div>
     </div>
     <div class="nav-links" id="navLinks">
@@ -559,7 +557,7 @@ img{max-width:100%;display:block;}
   <div class="hero-glow"></div>
   <div class="hero-sunset"></div>
   <div class="hero-content">
-    <div class="hero-logo-ph" style="background:rgba(255,255,255,0.92);border:none;box-shadow:0 4px 30px rgba(0,0,0,0.3);margin:0 auto 24px;border-radius:16px;padding:20px 32px;"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" alt="Pinthiz LA logo" style="max-width:380px;width:85vw;height:auto;object-fit:contain;display:block;margin:0 auto;filter:drop-shadow(0 0 20px rgba(203,161,53,0.4));"></div>
+    <div class="hero-logo-ph" style="background:#ffffff;border:none;box-shadow:0 4px 30px rgba(0,0,0,0.35);margin:0 auto 24px;border-radius:18px;padding:18px 32px;"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" alt="Pinthiz LA logo" style="max-width:380px;width:85vw;height:auto;object-fit:contain;display:block;margin:0 auto;filter:none;"></div>
     <p class="hero-est">EST. 2018 · Los Angeles</p>
     <h1>From LA, For LA</h1>
     <p class="tagline">Pins that hit different.</p>
@@ -629,7 +627,7 @@ img{max-width:100%;display:block;}
         <div style="border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);border:2px solid rgba(203,161,53,.25);">
           <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/4d4cefb2b_IMG_4187.jpg"
                alt="Steph G. — founder of pinthiz.la"
-               style="width:100%;height:520px;object-fit:cover;object-position:center top;display:block;">
+               style="width:100%;height:auto;max-height:580px;object-fit:cover;object-position:center 15%;display:block;">
         </div>
         <!-- Gold accent tag -->
         <div style="position:absolute;bottom:-16px;left:24px;background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--navy);padding:10px 22px;border-radius:30px;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;box-shadow:0 4px 16px rgba(203,161,53,.4);">
@@ -735,10 +733,7 @@ img{max-width:100%;display:block;}
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/69d4e0f40_IMG_2955.jpg" alt="Customer review 39" loading="lazy"></div>
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/01f119ddf_IMG_2956.jpg" alt="Customer review 40" loading="lazy"></div>
     </div>
-    <div class="review-nav">
-      <button class="review-btn" onclick="scrollGallery(-1)">⬅</button>
-      <button class="review-btn" onclick="scrollGallery(1)">➡</button>
-    </div>
+
     <div class="review-dots" id="galleryDots"></div>
     <p class="gallery-cta">Tag <a href="https://www.instagram.com/pinthiz.la/" target="_blank">@pinthiz.la</a> on Instagram with your pin photo to get featured!</p>
   </div>
@@ -749,14 +744,12 @@ img{max-width:100%;display:block;}
   <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
 </div>
 
-<!-- ===
-
+<!-- ===== RAFFLE WHEEL ===== -->
 
 <!-- STITCH DIVIDER -->
 <div class="stitch-divider">
   <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
 </div>
-== RAFFLE WHEEL ===== -->
 <section class="raffle section" id="raffle">
   <div class="wrap">
     <div class="section-title">
@@ -769,9 +762,7 @@ img{max-width:100%;display:block;}
       <div class="wheel-wrap">
         <div class="wheel-stage">
           <div class="wheel-base"></div>
-          <div class="bat-pointer" id="batPointer">
-            <svg viewBox="0 0 40 80"><defs><linearGradient id="batGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B6B47"/><stop offset="50%" stop-color="#C19A6B"/><stop offset="100%" stop-color="#8B6B47"/></linearGradient></defs><rect x="16" y="0" width="8" height="70" rx="4" fill="url(#batGrad)" stroke="#5C4033" stroke-width="1"/><ellipse cx="20" cy="72" rx="6" ry="4" fill="#5C4033"/></svg>
-          </div>
+
           <svg class="wheel-svg" id="raffleWheel" viewBox="0 0 300 300" style="filter:drop-shadow(0 8px 24px rgba(0,0,0,.6));">
           <defs>
             <!-- Clip path for center logo circle -->
@@ -833,39 +824,32 @@ img{max-width:100%;display:block;}
           <text transform="rotate(337.5,150,150) translate(150,150)" x="0" y="-90" text-anchor="middle" fill="#0B1628" font-family="Anton,sans-serif" font-size="9" font-weight="900">ENTER</text>
           <text transform="rotate(337.5,150,150) translate(150,150)" x="0" y="-78" text-anchor="middle" fill="#0B1628" font-family="Anton,sans-serif" font-size="9" font-weight="900">NOW</text>
 
-          <!-- Center white circle background with gold ring -->
+          <!-- Center white circle with round logo -->
           <circle cx="150" cy="150" r="58" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
-          
-          <!-- Center logo - horizontal wordmark logo on white circle -->
-          <foreignObject x="92" y="117" width="116" height="66">
-            <div xmlns="http://www.w3.org/1999/xhtml" style="width:116px;height:66px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;">
-              <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" style="width:108px;height:auto;object-fit:contain;display:block;" alt="Pinthiz LA"/>
-            </div>
-          </foreignObject>
+          <clipPath id="centerClip"><circle cx="150" cy="150" r="54"/></clipPath>
+          <image href="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" x="96" y="96" width="108" height="108" clip-path="url(#centerClip)" preserveAspectRatio="xMidYMid meet"/>
           
           <!-- Center gold dot -->
           <circle cx="150" cy="150" r="6" fill="url(#goldRing)" stroke="#0B1628" stroke-width="1"/>
         </svg>
-        <!-- Baseball bat pointer -->
-        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);z-index:10;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));">
-          <svg width="20" height="50" viewBox="0 0 20 50">
+        <!-- Arrow pointer -->
+        <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);z-index:10;">
+          <svg width="24" height="36" viewBox="0 0 24 36">
             <defs>
-              <linearGradient id="batGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#d4a055"/>
-                <stop offset="40%" stop-color="#e8c878"/>
-                <stop offset="60%" stop-color="#d4a055"/>
-                <stop offset="100%" stop-color="#a07835"/>
+              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#F5D76E"/>
+                <stop offset="100%" stop-color="#CBA135"/>
               </linearGradient>
             </defs>
-            <!-- Bat handle (thin end at top) -->
-            <rect x="7" y="0" width="6" height="15" rx="2" fill="#8B6914"/>
-            <!-- Bat barrel (thick end at bottom, pointing down at wheel) -->
-            <path d="M 4 15 L 4 48 Q 4 50 6 50 L 14 50 Q 16 50 16 48 L 16 15 Z" fill="url(#batGrad)" stroke="#8B6914" stroke-width="0.5"/>
-            <!-- Knob at top -->
-            <ellipse cx="10" cy="2" rx="4" ry="2" fill="#6B5210"/>
+            <!-- Arrow triangle pointing down toward wheel -->
+            <polygon points="12,36 0,0 24,0" fill="url(#arrowGrad)" stroke="#8B6A00" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Inner highlight -->
+            <polygon points="12,28 4,6 20,6" fill="rgba(255,255,255,0.25)"/>
           </svg>
         </div>
-        </div>
+        
+        <button onclick="spinWheelNow()" class="btn btn-gold" style="margin-top:16px;width:280px;font-size:.92rem;letter-spacing:2px;">🎰 SPIN THE WHEEL</button>
+        <div id="spinResult" style="display:none;margin-top:12px;width:280px;"></div></div>
       </div>
       
         <div class="raffle-info">
@@ -1146,19 +1130,47 @@ img{max-width:100%;display:block;}
       <div class="bday-video" id="bdayVideo">
         <div class="bday-play-badge">BIRTHDAY MOMENTS</div>
         <div class="bday-dots" id="bdayDots">
-          <span class="on"></span><span></span><span></span>
+          <span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
         <div class="bday-slides" id="bdaySlides">
           <div class="bday-slide active">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/429de459a_IMG_3033.jpg" alt="Together" loading="lazy">
+            <div class="bday-caption"><span>Together 💙</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/b565ee211_IMG_3034.png" alt="Bestie" loading="lazy">
+            <div class="bday-caption"><span>Bestie ✨</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/6884c4630_IMG_3035.png" alt="LA love" loading="lazy">
+            <div class="bday-caption"><span>LA love 🎉</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/912413c3d_IMG_3036.png" alt="The crew" loading="lazy">
+            <div class="bday-caption"><span>The crew 🤞</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/7682dc201_IMG_3037.png" alt="Good times" loading="lazy">
+            <div class="bday-caption"><span>Good times 🌴</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/5433ad171_IMG_3038.jpg" alt="Birthday girl" loading="lazy">
+            <div class="bday-caption"><span>Birthday girl 🎂</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/3e16c914c_IMG_3039.png" alt="Real ones" loading="lazy">
+            <div class="bday-caption"><span>Real ones 💛</span></div>
+          </div>
+          <div class="bday-slide">
             <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a0d98f9ce_IMG_3027.jpg" alt="Steph and Victoria" loading="lazy">
             <div class="bday-caption"><span>The duo 🤞</span></div>
           </div>
           <div class="bday-slide">
-            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="Victoria and Stephanie together" loading="lazy">
+            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="LA nights" loading="lazy">
             <div class="bday-caption"><span>LA nights ✨</span></div>
           </div>
           <div class="bday-slide">
-            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2082e54d6_IMG_3030.jpg" alt="The dynamic duo" loading="lazy">
+            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2082e54d6_IMG_3030.jpg" alt="Real ones" loading="lazy">
             <div class="bday-caption"><span>Real ones 💙</span></div>
           </div>
         </div>
@@ -1575,7 +1587,6 @@ function renderProducts() {
       <div class="product-info">
         <span class="product-cat">${p.cat}</span>
         <div class="product-name">${p.name}</div>
-        <div class="product-caption">"${p.caption}"</div>
         <div class="product-bottom">
           <span class="product-price"><span class="currency">$</span>${p.price}</span>
           <button class="add-cart-btn" onclick="event.stopPropagation();addToCart(${p.id})">
