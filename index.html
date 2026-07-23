@@ -48,6 +48,101 @@ function copyBottomLink() {
   setTimeout(() => btn.textContent = orig, 2000);
 }
 
+
+// ===== AUTO-UPDATING DODGERS SCHEDULE =====
+async function loadDodgersSchedule() {
+  const DODGERS_ID = 119;
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  // Get games for the next 60 days
+  const future = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000);
+  const endDate = future.toISOString().split('T')[0];
+  
+  try {
+    const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=${DODGERS_ID}&startDate=${today}&endDate=${endDate}&hydrate=team,linescore,gameType&gameType=R,F,D,L,W`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch schedule');
+    const data = await res.json();
+    
+    const games = [];
+    if (data.dates && data.dates.length > 0) {
+      for (const dateObj of data.dates) {
+        for (const game of dateObj.games) {
+          // Only upcoming or today's games
+          const gameDate = new Date(game.gameDate);
+          if (gameDate < now && gameDate.getDate() !== now.getDate()) continue;
+          
+          const isHome = game.teams.home.team.id === DODGERS_ID;
+          const opponent = isHome ? game.teams.away.team : game.teams.home.team;
+          const opponentId = opponent.id;
+          const opponentName = opponent.name;
+          
+          // Format date
+          const month = gameDate.toLocaleString('en-US', {month: 'short'}).toUpperCase();
+          const day = gameDate.getDate();
+          
+          // Format time
+          let timeStr = 'TBD';
+          if (game.gameDate) {
+            const pt = new Date(game.gameDate).toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'});
+            timeStr = pt + ' PT';
+          }
+          
+          const venue = isHome ? 'Dodger Stadium' : (game.venue ? game.venue.name : 'Away');
+          
+          games.push({
+            month, day, opponentName, opponentId,
+            isHome, timeStr, venue,
+            homeId: game.teams.home.team.id,
+            awayId: game.teams.away.team.id
+          });
+        }
+      }
+    }
+    
+    // Show next 6 games
+    const upcoming = games.slice(0, 6);
+    
+    const list = document.getElementById('gamesList');
+    if (upcoming.length === 0) {
+      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">No upcoming games in the next 60 days. Check back soon!</p></div>';
+      return;
+    }
+    
+    list.innerHTML = upcoming.map(g => {
+      const homeAbbr = g.isHome ? 'la' : (g.homeId === 119 ? 'la' : g.homeId === 137 ? 'sf' : 'la');
+      const awayAbbr = g.isHome ? (g.awayId === 137 ? 'sf' : g.opponentId === 137 ? 'sf' : g.opponentId === 108 ? 'la' : 'la') : 'la';
+      // Use ESPN team logo URLs
+      const dodgerLogo = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png';
+      const oppEspnId = g.opponentName.toLowerCase().replace(' ', '');
+      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${awayAbbr === 'la' ? homeAbbr : awayAbbr}.png`;
+      
+      return `<div class="game-card">
+        <div class="game-date"><span class="game-month">${g.month}</span><span class="game-day">${g.day}</span></div>
+        <div class="game-matchup">
+          <div class="team-logo ${g.isHome ? 'team-home' : 'team-away'}"><img src="${dodgerLogo}" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+          <div class="game-vs">vs</div>
+          <div class="team-logo ${g.isHome ? 'team-away' : 'team-home'}"><img src="${oppLogo}" alt="${g.opponentName}" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        </div>
+        <div class="game-info">
+          <div class="game-teams">Dodgers vs. ${g.opponentName}</div>
+          <div class="game-time">${g.timeStr} · ${g.venue}</div>
+        </div>
+      </div>`;
+    }).join('');
+    
+  } catch (e) {
+    console.error('Schedule load error:', e);
+    // Fallback: show a friendly message
+    const list = document.getElementById('gamesList');
+    if (list) {
+      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">Schedule temporarily unavailable. <a href="https://www.mlb.com/dodgers/schedule" target="_blank" style="color:var(--gold);">View full schedule on MLB.com →</a></p></div>';
+    }
+  }
+}
+// Load on page ready
+document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
+
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +198,7 @@ img{max-width:100%;display:block;}
 .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1200px;margin:0 auto;padding:12px 24px;gap:12px;}
 .nav-left{display:flex;align-items:center;justify-content:flex-start;gap:10px;}
 .nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:52px;height:52px;transition:all .3s;}
-.nav-logo-circle img{width:38px;height:38px;object-fit:cover;border-radius:50%;display:block;}.nav-logo-circle{background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nav-logo-circle img{width:44px;height:44px;object-fit:contain;border-radius:50%;display:block;padding:2px;}.nav-logo-circle{background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .nav-logo-circle:hover{transform:scale(1.05);}
 .nav-logo-circle svg{width:24px;height:24px;}
 
@@ -485,7 +580,7 @@ img{max-width:100%;display:block;}
   <div class="nav-inner">
     <div class="nav-left">
       <div class="nav-logo-circle">
-        <div style="width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" alt="Pinthiz LA" style="width:38px;height:38px;object-fit:cover;border-radius:50%;display:block;"></div>
+        <div style="width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" alt="Pinthiz LA" style="width:44px;height:44px;object-fit:contain;border-radius:50%;display:block;padding:2px;"></div>
       </div>
     </div>
     <div class="nav-links" id="navLinks">
@@ -780,9 +875,9 @@ img{max-width:100%;display:block;}
           <circle cx="150" cy="150" r="55" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
           
           <!-- Center logo - circular using foreignObject for reliable rounding -->
-          <foreignObject x="100" y="100" width="100" height="100">
+          <foreignObject x="98" y="98" width="104" height="104">
             <div xmlns="http://www.w3.org/1999/xhtml" style="width:100px;height:100px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;">
-              <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" style="width:90px;height:90px;object-fit:cover;border-radius:50%;" alt="logo"/>
+              <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" style="width:86px;height:86px;object-fit:contain;border-radius:50%;padding:4px;" alt="logo"/>
             </div>
           </foreignObject>
           
@@ -905,41 +1000,8 @@ img{max-width:100%;display:block;}
       <p>Catch the Dodgers and catch us — we'll be at the stadium.</p>
     </div>
     <div class="games-list" id="gamesList">
-      <div class="game-card">
-        <div class="game-date"><span class="game-month">JUL</span><span class="game-day">18</span></div>
-        <div class="game-matchup">
-          <div class="team-logo team-home"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-          <div class="game-vs">vs</div>
-          <div class="team-logo team-away"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sf.png" alt="SF Giants" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-        </div>
-        <div class="game-info">
-          <div class="game-teams">Dodgers vs. Giants</div>
-          <div class="game-time">7:10 PM PT · Dodger Stadium</div>
-        </div>
-      </div>
-      <div class="game-card">
-        <div class="game-date"><span class="game-month">JUL</span><span class="game-day">19</span></div>
-        <div class="game-matchup">
-          <div class="team-logo team-home"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-          <div class="game-vs">vs</div>
-          <div class="team-logo team-away"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sf.png" alt="SF Giants" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-        </div>
-        <div class="game-info">
-          <div class="game-teams">Dodgers vs. Giants</div>
-          <div class="game-time">6:10 PM PT · Dodger Stadium</div>
-        </div>
-      </div>
-      <div class="game-card">
-        <div class="game-date"><span class="game-month">JUL</span><span class="game-day">20</span></div>
-        <div class="game-matchup">
-          <div class="team-logo team-home"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-          <div class="game-vs">vs</div>
-          <div class="team-logo team-away"><img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sf.png" alt="SF Giants" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-        </div>
-        <div class="game-info">
-          <div class="game-teams">Dodgers vs. Giants</div>
-          <div class="game-time">1:10 PM PT · Dodger Stadium</div>
-        </div>
+      <div class="game-card" style="text-align:center;padding:40px 20px;">
+        <p style="color:var(--muted);font-size:.85rem;">Loading upcoming Dodgers games...</p>
       </div>
     </div>
   </div>
@@ -1818,6 +1880,101 @@ function copyBottomLink() {
   btn.textContent = '✓ Copied!';
   setTimeout(() => btn.textContent = orig, 2000);
 }
+
+
+// ===== AUTO-UPDATING DODGERS SCHEDULE =====
+async function loadDodgersSchedule() {
+  const DODGERS_ID = 119;
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  // Get games for the next 60 days
+  const future = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000);
+  const endDate = future.toISOString().split('T')[0];
+  
+  try {
+    const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=${DODGERS_ID}&startDate=${today}&endDate=${endDate}&hydrate=team,linescore,gameType&gameType=R,F,D,L,W`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch schedule');
+    const data = await res.json();
+    
+    const games = [];
+    if (data.dates && data.dates.length > 0) {
+      for (const dateObj of data.dates) {
+        for (const game of dateObj.games) {
+          // Only upcoming or today's games
+          const gameDate = new Date(game.gameDate);
+          if (gameDate < now && gameDate.getDate() !== now.getDate()) continue;
+          
+          const isHome = game.teams.home.team.id === DODGERS_ID;
+          const opponent = isHome ? game.teams.away.team : game.teams.home.team;
+          const opponentId = opponent.id;
+          const opponentName = opponent.name;
+          
+          // Format date
+          const month = gameDate.toLocaleString('en-US', {month: 'short'}).toUpperCase();
+          const day = gameDate.getDate();
+          
+          // Format time
+          let timeStr = 'TBD';
+          if (game.gameDate) {
+            const pt = new Date(game.gameDate).toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'});
+            timeStr = pt + ' PT';
+          }
+          
+          const venue = isHome ? 'Dodger Stadium' : (game.venue ? game.venue.name : 'Away');
+          
+          games.push({
+            month, day, opponentName, opponentId,
+            isHome, timeStr, venue,
+            homeId: game.teams.home.team.id,
+            awayId: game.teams.away.team.id
+          });
+        }
+      }
+    }
+    
+    // Show next 6 games
+    const upcoming = games.slice(0, 6);
+    
+    const list = document.getElementById('gamesList');
+    if (upcoming.length === 0) {
+      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">No upcoming games in the next 60 days. Check back soon!</p></div>';
+      return;
+    }
+    
+    list.innerHTML = upcoming.map(g => {
+      const homeAbbr = g.isHome ? 'la' : (g.homeId === 119 ? 'la' : g.homeId === 137 ? 'sf' : 'la');
+      const awayAbbr = g.isHome ? (g.awayId === 137 ? 'sf' : g.opponentId === 137 ? 'sf' : g.opponentId === 108 ? 'la' : 'la') : 'la';
+      // Use ESPN team logo URLs
+      const dodgerLogo = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png';
+      const oppEspnId = g.opponentName.toLowerCase().replace(' ', '');
+      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${awayAbbr === 'la' ? homeAbbr : awayAbbr}.png`;
+      
+      return `<div class="game-card">
+        <div class="game-date"><span class="game-month">${g.month}</span><span class="game-day">${g.day}</span></div>
+        <div class="game-matchup">
+          <div class="team-logo ${g.isHome ? 'team-home' : 'team-away'}"><img src="${dodgerLogo}" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+          <div class="game-vs">vs</div>
+          <div class="team-logo ${g.isHome ? 'team-away' : 'team-home'}"><img src="${oppLogo}" alt="${g.opponentName}" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        </div>
+        <div class="game-info">
+          <div class="game-teams">Dodgers vs. ${g.opponentName}</div>
+          <div class="game-time">${g.timeStr} · ${g.venue}</div>
+        </div>
+      </div>`;
+    }).join('');
+    
+  } catch (e) {
+    console.error('Schedule load error:', e);
+    // Fallback: show a friendly message
+    const list = document.getElementById('gamesList');
+    if (list) {
+      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">Schedule temporarily unavailable. <a href="https://www.mlb.com/dodgers/schedule" target="_blank" style="color:var(--gold);">View full schedule on MLB.com →</a></p></div>';
+    }
+  }
+}
+// Load on page ready
+document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
 
 </script>
 </body>
