@@ -1109,10 +1109,10 @@ img{max-width:100%;display:block;}
 
 <!-- ===== BIRTHDAY SURPRISE ===== -->
 <section class="birthday" id="birthday">
-  <div class="balloon" style="top:10%;left:10%;animation-delay:0s;">🎈</div>
-  <div class="balloon" style="top:15%;right:10%;animation-delay:1s;">🎈</div>
-  <div class="balloon" style="top:30%;left:5%;animation-delay:2s;">🎉</div>
-  <div class="balloon" style="bottom:20%;right:5%;animation-delay:1.5s;">🎂</div>
+  <div class="balloon" style="top:10%;left:8%;animation-delay:0s;">🎈</div>
+  <div class="balloon" style="top:18%;right:8%;animation-delay:1s;">🎈</div>
+  <div class="balloon" style="top:35%;left:4%;animation-delay:2s;">🎉</div>
+  <div class="balloon" style="bottom:25%;right:4%;animation-delay:1.5s;">🎂</div>
   <div class="confetti-bday" style="left:15%;background:var(--blue);animation-delay:0s;"></div>
   <div class="confetti-bday" style="left:35%;background:var(--gold);animation-delay:.5s;"></div>
   <div class="confetti-bday" style="left:55%;background:var(--blue);animation-delay:1s;"></div>
@@ -1121,30 +1121,44 @@ img{max-width:100%;display:block;}
   
   <div class="wrap">
     <div class="birthday-content">
-      <div class="birthday-badge">🎂 Happy Birthday, Steph</div>
-      <h2 class="birthday-title">Happy Birthday<span>Steph! 🎉</span></h2>
-      <p class="birthday-sub">The designer, the dreamer, the one who makes LA wearable.</p>
-      
-      <div class="birthday-photos">
-        <div class="birthday-photo tall"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a0d98f9ce_IMG_3027.jpg" alt="Stephanie and Victoria" loading="lazy"></div>
-        <div class="birthday-photo wide"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="Victoria and Stephanie together" loading="lazy"></div>
-        <div class="birthday-photo tall"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2082e54d6_IMG_3030.jpg" alt="The dynamic duo" loading="lazy"></div>
+      <!-- Left: shoutout text -->
+      <div class="birthday-text">
+        <div class="birthday-badge">🎂 Happy Birthday, Steph</div>
+        <h2 class="birthday-title">Happy Birthday<span>Steph! 🎉</span></h2>
+        <p class="birthday-sub">The plug, the visionary, the one who put the 213 on a pin.</p>
+        
+        <p class="birthday-message">
+          <strong>Aight so here's the thing about Steph G.</strong> — shorty don't just make pins, she literally bottlenecks LA culture and puts it on your jacket. Every drop? That's her 2am genius. Every design? Got her fingerprints all over it like she left the scene of something beautiful.
+          <br><br>
+          She's the type to see Shohei do something unhinged and think "bet, that's a pin." Lowrider culture? Yeah she made that wearable. Palm trees, Dodger blue, the whole aesthetic — she ain't following the wave, she IS the wave. LA don't make 'em like this often.
+          <br><br>
+          Designer. Founder. The creative force behind every fly thing you've seen on this site. The one who made Dodger blue hit different. So here's to a real one — the kind that makes you proud to be from the city. 💙💛
+        </p>
+        
+        <p class="birthday-sig">— Your girl built you a whole website for your birthday. That's love. That's also a flex. Happy birthday, Steph! 🎂⚾</p>
       </div>
       
-      <p class="birthday-message">
-        <strong>Steph G.</strong> doesn't just make pins — she captures LA and puts it in your pocket. 
-        Every design starts with her, every drop has her fingerprints on it, and every piece of gear you rock 
-        started as a spark in her head at 2am somewhere in Los Angeles.
-        <br><br>
-        Designer. Creative director. Founder. The kind of person who sees a culture, feels a moment, 
-        and turns it into something you can wear. From Shohei to lowriders to palm trees — she doesn't 
-        follow trends, she makes the things that end up on them.
-        <br><br>
-        So here's to the woman behind the pins. The one who made Dodger blue look even better. 
-        The creative force that keeps this whole thing alive. Happy birthday to a real one. 💙💛
-      </p>
-      
-      <p class="birthday-sig">— Your girl built you a whole website for your birthday. That's love. That's also a flex. Happy birthday, Steph! 🎂⚾</p>
+      <!-- Right: mini "video" slideshow of us -->
+      <div class="bday-video" id="bdayVideo">
+        <div class="bday-play-badge">BIRTHDAY MOMENTS</div>
+        <div class="bday-dots" id="bdayDots">
+          <span class="on"></span><span></span><span></span>
+        </div>
+        <div class="bday-slides" id="bdaySlides">
+          <div class="bday-slide active">
+            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a0d98f9ce_IMG_3027.jpg" alt="Steph and Victoria" loading="lazy">
+            <div class="bday-caption"><span>The duo 🤞</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="Victoria and Stephanie together" loading="lazy">
+            <div class="bday-caption"><span>LA nights ✨</span></div>
+          </div>
+          <div class="bday-slide">
+            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2082e54d6_IMG_3030.jpg" alt="The dynamic duo" loading="lazy">
+            <div class="bday-caption"><span>Real ones 💙</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
