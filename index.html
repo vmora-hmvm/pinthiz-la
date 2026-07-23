@@ -508,6 +508,12 @@ img{max-width:100%;display:block;}
 @keyframes confettiFall{0%{transform:translateY(0) rotate(0);opacity:.6;}100%{transform:translateY(600px) rotate(360deg);opacity:0;}}
 
 @media(max-width:768px){
+  .story-grid{grid-template-columns:1fr !important;gap:32px !important;text-align:center;}
+  .story-grid > div:first-child{max-width:340px;margin:0 auto;}
+  .story-grid img{width:100%;height:auto;object-fit:contain;}
+  .story-grid > div:last-child{padding:0 16px;}
+}
+@media(max-width:768px){
   .birthday-content{grid-template-columns:1fr;gap:24px;}
   .birthday-text{text-align:center;}
   .birthday-message{text-align:center;}
@@ -621,7 +627,7 @@ img{max-width:100%;display:block;}
     <div class="section-title" style="margin-bottom:40px;">
       <span class="label">Meet the Founder</span>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto;">
+    <div class="story-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto;">
       <!-- Photo -->
       <div style="position:relative;">
         <div style="border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);border:2px solid rgba(203,161,53,.25);">
@@ -1153,8 +1159,8 @@ img{max-width:100%;display:block;}
     <div class="birthday-content">
       <!-- Left: shoutout text -->
       <div class="birthday-text">
-        <div class="birthday-badge">🎂 Happy Birthday, Steph</div>
-        <h2 class="birthday-title">Happy Birthday<span>Steph! 🎉</span></h2>
+        <div class="birthday-badge">🎂 Happy Birthday, Steph mi amor</div>
+        <h2 class="birthday-title">Happy Birthday<span>Steph mi amor! 🎉</span></h2>
         <p class="birthday-sub">The plug, the visionary, the one who put the 213 on a pin.</p>
         
         <p class="birthday-message">
@@ -1165,7 +1171,7 @@ img{max-width:100%;display:block;}
           Designer. Founder. The creative force behind every fly thing you've seen on this site. The one who made Dodger blue hit different. So here's to a real one — the kind that makes you proud to be from the city. 💙💛
         </p>
         
-        <p class="birthday-sig">— Your girl built you a whole website for your birthday. That's love. That's also a flex. Happy birthday, Steph! 🎂⚾</p>
+        <p class="birthday-sig">— Your girl built you a whole website for your birthday. That's love. That's also a flex. Happy birthday, Steph mi amor! 🎂⚾</p>
       </div>
       
       <!-- Right: mini "video" slideshow of us -->
