@@ -23,187 +23,8 @@
   "sameAs":["https://www.instagram.com/pinthiz.la/"]
 }
 
-// Scroll reveal animation
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.section-header, .product-card, .raffle-container, .gallery-grid, .games-list, .faq-grid, .shipping-grid, .updates-grid, .promo-banner').forEach(el => {
-  el.classList.add('reveal');
-  revealObserver.observe(el);
-});
-
-
-
-// ===== GALLERY CAROUSEL =====
-const galleryTrack = document.getElementById('galleryTrack');
-if (galleryTrack) {
-  const galleryCards = galleryTrack.querySelectorAll('.review-card');
-  const galleryDots = document.getElementById('galleryDots');
-  let galleryAutoScroll;
-  
-  // Build dots
-  const cardsPerView = window.innerWidth <= 768 ? 2 : 4;
-  const totalDots = Math.max(1, Math.ceil(galleryCards.length / cardsPerView));
-  for (let i = 0; i < totalDots; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => {
-      const scrollAmount = cardsPerView * 236;
-      galleryTrack.scrollTo({ left: i * scrollAmount, behavior: 'smooth' });
-    };
-    galleryDots.appendChild(dot);
-  }
-  
-  function scrollGallery(dir) {
-    galleryTrack.scrollBy({ left: dir * 236, behavior: 'smooth' });
-  }
-  window.scrollGallery = scrollGallery;
-  
-  // Update dots on scroll
-  galleryTrack.addEventListener('scroll', () => {
-    const dots = galleryDots.querySelectorAll('.review-dot');
-    const scrollAmount = cardsPerView * 236;
-    const activeIdx = Math.round(galleryTrack.scrollLeft / scrollAmount);
-    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
-  });
-  
-  // Auto-scroll
-  function startGalleryAutoScroll() {
-    galleryAutoScroll = setInterval(() => {
-      if (galleryTrack.matches(':hover')) return;
-      const maxScroll = galleryTrack.scrollWidth - galleryTrack.clientWidth;
-      if (galleryTrack.scrollLeft >= maxScroll - 10) {
-        galleryTrack.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        galleryTrack.scrollBy({ left: 236, behavior: 'smooth' });
-      }
-    }, 4000);
-  }
-  startGalleryAutoScroll();
-  
-  // Pause on hover
-  galleryTrack.addEventListener('mouseenter', () => clearInterval(galleryAutoScroll));
-  galleryTrack.addEventListener('mouseleave', () => startGalleryAutoScroll());
-  
-  // Touch/drag
-  let isDown = false, startX, scrollLeft;
-  galleryTrack.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - galleryTrack.offsetLeft; scrollLeft = galleryTrack.scrollLeft; });
-  galleryTrack.addEventListener('mouseleave', () => isDown = false);
-  galleryTrack.addEventListener('mouseup', () => isDown = false);
-  galleryTrack.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - galleryTrack.offsetLeft; galleryTrack.scrollLeft = scrollLeft - (x - startX); });
-}
-
-function copyBottomLink() {
-  const link = document.getElementById('bottomShareLink');
-  link.select();
-  document.execCommand('copy');
-  const btn = event.target;
-  const orig = btn.textContent;
-  btn.textContent = '✓ Copied!';
-  setTimeout(() => btn.textContent = orig, 2000);
-}
-
-
-// ===== AUTO-UPDATING DODGERS SCHEDULE =====
-async function loadDodgersSchedule() {
-  const DODGERS_ID = 119;
-  const now = new Date();
-  const today = now.toISOString().split('T')[0];
-  // Get games for the next 60 days
-  const future = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000);
-  const endDate = future.toISOString().split('T')[0];
-  
-  try {
-    const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=${DODGERS_ID}&startDate=${today}&endDate=${endDate}&hydrate=team,linescore,gameType&gameType=R,F,D,L,W`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('Failed to fetch schedule');
-    const data = await res.json();
-    
-    const games = [];
-    if (data.dates && data.dates.length > 0) {
-      for (const dateObj of data.dates) {
-        for (const game of dateObj.games) {
-          // Only upcoming or today's games
-          const gameDate = new Date(game.gameDate);
-          if (gameDate < now && gameDate.getDate() !== now.getDate()) continue;
-          
-          const isHome = game.teams.home.team.id === DODGERS_ID;
-          const opponent = isHome ? game.teams.away.team : game.teams.home.team;
-          const opponentId = opponent.id;
-          const opponentName = opponent.name;
-          
-          // Format date
-          const month = gameDate.toLocaleString('en-US', {month: 'short'}).toUpperCase();
-          const day = gameDate.getDate();
-          
-          // Format time
-          let timeStr = 'TBD';
-          if (game.gameDate) {
-            const pt = new Date(game.gameDate).toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'});
-            timeStr = pt + ' PT';
-          }
-          
-          const venue = isHome ? 'Dodger Stadium' : (game.venue ? game.venue.name : 'Away');
-          
-          games.push({
-            month, day, opponentName, opponentId,
-            isHome, timeStr, venue,
-            homeId: game.teams.home.team.id,
-            awayId: game.teams.away.team.id
-          });
-        }
-      }
-    }
-    
-    // Show next 6 games
-    const upcoming = games.slice(0, 6);
-    
-    const list = document.getElementById('gamesList');
-    if (upcoming.length === 0) {
-      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">No upcoming games in the next 60 days. Check back soon!</p></div>';
-      return;
-    }
-    
-    list.innerHTML = upcoming.map(g => {
-      const homeAbbr = g.isHome ? 'la' : (g.homeId === 119 ? 'la' : g.homeId === 137 ? 'sf' : 'la');
-      const awayAbbr = g.isHome ? (g.awayId === 137 ? 'sf' : g.opponentId === 137 ? 'sf' : g.opponentId === 108 ? 'la' : 'la') : 'la';
-      // Use ESPN team logo URLs
-      const dodgerLogo = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png';
-      const oppEspnId = g.opponentName.toLowerCase().replace(' ', '');
-      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${awayAbbr === 'la' ? homeAbbr : awayAbbr}.png`;
-      
-      return `<div class="game-card">
-        <div class="game-date"><span class="game-month">${g.month}</span><span class="game-day">${g.day}</span></div>
-        <div class="game-matchup">
-          <div class="team-logo ${g.isHome ? 'team-home' : 'team-away'}"><img src="${dodgerLogo}" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-          <div class="game-vs">vs</div>
-          <div class="team-logo ${g.isHome ? 'team-away' : 'team-home'}"><img src="${oppLogo}" alt="${g.opponentName}" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-        </div>
-        <div class="game-info">
-          <div class="game-teams">Dodgers vs. ${g.opponentName}</div>
-          <div class="game-time">${g.timeStr} · ${g.venue}</div>
-        </div>
-      </div>`;
-    }).join('');
-    
-  } catch (e) {
-    console.error('Schedule load error:', e);
-    // Fallback: show a friendly message
-    const list = document.getElementById('gamesList');
-    if (list) {
-      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">Schedule temporarily unavailable. <a href="https://www.mlb.com/dodgers/schedule" target="_blank" style="color:var(--gold);">View full schedule on MLB.com →</a></p></div>';
-    }
-  }
-}
-// Load on page ready
-document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
-
 </script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1348,6 +1169,186 @@ img{max-width:100%;display:block;}
 </div>
 
 <script>
+// Scroll reveal animation
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-header, .product-card, .raffle-container, .gallery-grid, .games-list, .faq-grid, .shipping-grid, .updates-grid, .promo-banner').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+
+
+// ===== GALLERY CAROUSEL =====
+const galleryTrack = document.getElementById('galleryTrack');
+if (galleryTrack) {
+  const galleryCards = galleryTrack.querySelectorAll('.review-card');
+  const galleryDots = document.getElementById('galleryDots');
+  let galleryAutoScroll;
+  
+  // Build dots
+  const cardsPerView = window.innerWidth <= 768 ? 2 : 4;
+  const totalDots = Math.max(1, Math.ceil(galleryCards.length / cardsPerView));
+  for (let i = 0; i < totalDots; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => {
+      const scrollAmount = cardsPerView * 236;
+      galleryTrack.scrollTo({ left: i * scrollAmount, behavior: 'smooth' });
+    };
+    galleryDots.appendChild(dot);
+  }
+  
+  function scrollGallery(dir) {
+    galleryTrack.scrollBy({ left: dir * 236, behavior: 'smooth' });
+  }
+  window.scrollGallery = scrollGallery;
+  
+  // Update dots on scroll
+  galleryTrack.addEventListener('scroll', () => {
+    const dots = galleryDots.querySelectorAll('.review-dot');
+    const scrollAmount = cardsPerView * 236;
+    const activeIdx = Math.round(galleryTrack.scrollLeft / scrollAmount);
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  });
+  
+  // Auto-scroll
+  function startGalleryAutoScroll() {
+    galleryAutoScroll = setInterval(() => {
+      if (galleryTrack.matches(':hover')) return;
+      const maxScroll = galleryTrack.scrollWidth - galleryTrack.clientWidth;
+      if (galleryTrack.scrollLeft >= maxScroll - 10) {
+        galleryTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        galleryTrack.scrollBy({ left: 236, behavior: 'smooth' });
+      }
+    }, 4000);
+  }
+  startGalleryAutoScroll();
+  
+  // Pause on hover
+  galleryTrack.addEventListener('mouseenter', () => clearInterval(galleryAutoScroll));
+  galleryTrack.addEventListener('mouseleave', () => startGalleryAutoScroll());
+  
+  // Touch/drag
+  let isDown = false, startX, scrollLeft;
+  galleryTrack.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - galleryTrack.offsetLeft; scrollLeft = galleryTrack.scrollLeft; });
+  galleryTrack.addEventListener('mouseleave', () => isDown = false);
+  galleryTrack.addEventListener('mouseup', () => isDown = false);
+  galleryTrack.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - galleryTrack.offsetLeft; galleryTrack.scrollLeft = scrollLeft - (x - startX); });
+}
+
+function copyBottomLink() {
+  const link = document.getElementById('bottomShareLink');
+  link.select();
+  document.execCommand('copy');
+  const btn = event.target;
+  const orig = btn.textContent;
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => btn.textContent = orig, 2000);
+}
+
+
+// ===== AUTO-UPDATING DODGERS SCHEDULE =====
+async function loadDodgersSchedule() {
+  const DODGERS_ID = 119;
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  // Get games for the next 60 days
+  const future = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000);
+  const endDate = future.toISOString().split('T')[0];
+  
+  try {
+    const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=${DODGERS_ID}&startDate=${today}&endDate=${endDate}&hydrate=team,linescore,gameType&gameType=R,F,D,L,W`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch schedule');
+    const data = await res.json();
+    
+    const games = [];
+    if (data.dates && data.dates.length > 0) {
+      for (const dateObj of data.dates) {
+        for (const game of dateObj.games) {
+          // Only upcoming or today's games
+          const gameDate = new Date(game.gameDate);
+          if (gameDate < now && gameDate.getDate() !== now.getDate()) continue;
+          
+          const isHome = game.teams.home.team.id === DODGERS_ID;
+          const opponent = isHome ? game.teams.away.team : game.teams.home.team;
+          const opponentId = opponent.id;
+          const opponentName = opponent.name;
+          
+          // Format date
+          const month = gameDate.toLocaleString('en-US', {month: 'short'}).toUpperCase();
+          const day = gameDate.getDate();
+          
+          // Format time
+          let timeStr = 'TBD';
+          if (game.gameDate) {
+            const pt = new Date(game.gameDate).toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'});
+            timeStr = pt + ' PT';
+          }
+          
+          const venue = isHome ? 'Dodger Stadium' : (game.venue ? game.venue.name : 'Away');
+          
+          games.push({
+            month, day, opponentName, opponentId,
+            isHome, timeStr, venue,
+            homeId: game.teams.home.team.id,
+            awayId: game.teams.away.team.id
+          });
+        }
+      }
+    }
+    
+    // Show next 6 games
+    const upcoming = games.slice(0, 6);
+    
+    const list = document.getElementById('gamesList');
+    if (upcoming.length === 0) {
+      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">No upcoming games in the next 60 days. Check back soon!</p></div>';
+      return;
+    }
+    
+    list.innerHTML = upcoming.map(g => {
+      const homeAbbr = g.isHome ? 'la' : (g.homeId === 119 ? 'la' : g.homeId === 137 ? 'sf' : 'la');
+      const awayAbbr = g.isHome ? (g.awayId === 137 ? 'sf' : g.opponentId === 137 ? 'sf' : g.opponentId === 108 ? 'la' : 'la') : 'la';
+      // Use ESPN team logo URLs
+      const dodgerLogo = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png';
+      const oppEspnId = g.opponentName.toLowerCase().replace(' ', '');
+      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${awayAbbr === 'la' ? homeAbbr : awayAbbr}.png`;
+      
+      return `<div class="game-card">
+        <div class="game-date"><span class="game-month">${g.month}</span><span class="game-day">${g.day}</span></div>
+        <div class="game-matchup">
+          <div class="team-logo ${g.isHome ? 'team-home' : 'team-away'}"><img src="${dodgerLogo}" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+          <div class="game-vs">vs</div>
+          <div class="team-logo ${g.isHome ? 'team-away' : 'team-home'}"><img src="${oppLogo}" alt="${g.opponentName}" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        </div>
+        <div class="game-info">
+          <div class="game-teams">Dodgers vs. ${g.opponentName}</div>
+          <div class="game-time">${g.timeStr} · ${g.venue}</div>
+        </div>
+      </div>`;
+    }).join('');
+    
+  } catch (e) {
+    console.error('Schedule load error:', e);
+    // Fallback: show a friendly message
+    const list = document.getElementById('gamesList');
+    if (list) {
+      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">Schedule temporarily unavailable. <a href="https://www.mlb.com/dodgers/schedule" target="_blank" style="color:var(--gold);">View full schedule on MLB.com →</a></p></div>';
+    }
+  }
+}
+// Load on page ready
+document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
+
 // ===== PRODUCT DATA =====
 const PRODUCTS = [
   {id:1,name:"World Champions LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b11b91624_A_00.png",caption:"Monsters Inc LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
