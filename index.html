@@ -829,8 +829,8 @@ img{max-width:100%;display:block;}
           <clipPath id="centerClip"><circle cx="150" cy="150" r="54"/></clipPath>
           <image href="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" x="96" y="96" width="108" height="108" clip-path="url(#centerClip)" preserveAspectRatio="xMidYMid meet"/>
           
-          <!-- Center gold dot -->
-          <circle cx="150" cy="150" r="6" fill="url(#goldRing)" stroke="#0B1628" stroke-width="1"/>
+          <!-- Center circle accent (thin ring, no fill to not cover logo) -->
+          <circle cx="150" cy="150" r="58" fill="none" stroke="url(#goldRing)" stroke-width="3"/>
         </svg>
         <!-- Arrow pointer -->
         <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);z-index:10;">
@@ -1302,7 +1302,7 @@ if (galleryTrack) {
       } else {
         galleryTrack.scrollBy({ left: 236, behavior: 'smooth' });
       }
-    }, 2500);
+    }, 3500);
   }
   startGalleryAutoScroll();
   
