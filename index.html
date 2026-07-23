@@ -187,7 +187,9 @@ img{max-width:100%;display:block;}
 .filter-btn{background:rgba(255,255,255,.04);border:1px solid var(--glass-border);color:var(--muted);padding:8px 22px;border-radius:24px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif;}
 .filter-btn:hover{border-color:var(--blue-bright);color:var(--cream);}
 .filter-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue-bright));color:var(--cream);border-color:var(--blue-bright);}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(3,1fr);gap:16px;}}
+@media(max-width:600px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
 .product-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:20px;overflow:hidden;transition:all .4s;cursor:pointer;position:relative;}
 .product-card:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.3);box-shadow:0 20px 50px rgba(0,0,0,.4);}
 .product-img-wrap{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden;background:linear-gradient(145deg,#0a1628 0%,#0d1f3e 50%,#0a1628 100%);border-bottom:1px solid rgba(30,144,255,.15);}
@@ -522,7 +524,9 @@ img{max-width:100%;display:block;}
   <div class="nav-inner">
     <div class="nav-left">
       <div class="nav-logo-circle">
-        <div style="width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" alt="Pinthiz LA" style="width:44px;height:44px;object-fit:contain;border-radius:50%;display:block;padding:2px;"></div>
+        <div style="background:#fff;border-radius:10px;padding:4px 10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);height:44px;">
+          <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" alt="Pinthiz LA" style="height:36px;width:auto;object-fit:contain;display:block;filter:none;">
+        </div>
       </div>
     </div>
     <div class="nav-links" id="navLinks">
@@ -830,12 +834,12 @@ img{max-width:100%;display:block;}
           <text transform="rotate(337.5,150,150) translate(150,150)" x="0" y="-78" text-anchor="middle" fill="#0B1628" font-family="Anton,sans-serif" font-size="9" font-weight="900">NOW</text>
 
           <!-- Center white circle background with gold ring -->
-          <circle cx="150" cy="150" r="55" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
+          <circle cx="150" cy="150" r="58" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
           
-          <!-- Center logo - circular using foreignObject for reliable rounding -->
-          <foreignObject x="98" y="98" width="104" height="104">
-            <div xmlns="http://www.w3.org/1999/xhtml" style="width:100px;height:100px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;">
-              <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" style="width:86px;height:86px;object-fit:contain;border-radius:50%;padding:4px;" alt="logo"/>
+          <!-- Center logo - horizontal wordmark logo on white circle -->
+          <foreignObject x="92" y="117" width="116" height="66">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="width:116px;height:66px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;">
+              <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" style="width:108px;height:auto;object-fit:contain;display:block;" alt="Pinthiz LA"/>
             </div>
           </foreignObject>
           
@@ -1286,7 +1290,7 @@ if (galleryTrack) {
       } else {
         galleryTrack.scrollBy({ left: 236, behavior: 'smooth' });
       }
-    }, 4000);
+    }, 2500);
   }
   startGalleryAutoScroll();
   
@@ -1373,13 +1377,17 @@ async function loadDodgersSchedule() {
       return;
     }
     
+    // MLB team ID -> ESPN abbreviation mapping
+    const mlbIdToEspn = {
+      108:'ana',109:'ari',110:'bal',111:'bos',112:'chc',113:'cin',114:'cle',115:'col',
+      116:'det',117:'hou',118:'kc',119:'la',120:'was',121:'nym',133:'oak',134:'pit',
+      135:'sd',136:'sea',137:'sf',138:'stl',139:'tb',140:'tex',141:'tor',142:'min',
+      143:'phi',144:'atl',145:'cws',146:'mia',147:'nyy',158:'mil'
+    };
     list.innerHTML = upcoming.map(g => {
-      const homeAbbr = g.isHome ? 'la' : (g.homeId === 119 ? 'la' : g.homeId === 137 ? 'sf' : 'la');
-      const awayAbbr = g.isHome ? (g.awayId === 137 ? 'sf' : g.opponentId === 137 ? 'sf' : g.opponentId === 108 ? 'la' : 'la') : 'la';
-      // Use ESPN team logo URLs
       const dodgerLogo = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png';
-      const oppEspnId = g.opponentName.toLowerCase().replace(' ', '');
-      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${awayAbbr === 'la' ? homeAbbr : awayAbbr}.png`;
+      const oppEspnAbbr = mlbIdToEspn[g.opponentId] || 'mlb';
+      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${oppEspnAbbr}.png`;
       
       return `<div class="game-card">
         <div class="game-date"><span class="game-month">${g.month}</span><span class="game-day">${g.day}</span></div>
@@ -1447,7 +1455,6 @@ const PRODUCTS = [
   {id:39,name:"Lowrider Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/803f8c212_D_10.png",caption:"Mini Badge Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:40,name:"Modelo Mango Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a7d53abfa_D_11.png",caption:"World Series Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:41,name:"LA Sunset Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/063fbea29_D_12.png",caption:"Lowrider Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:42,name:"Bearded Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/cfd43fc14_D_13.png",caption:"Chain Cap Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:44,name:"Sandlot Squad Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fd53f5815_E_00.png",caption:"LA Script Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:45,name:"LA Dodgers Blue Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/07ffc0594_E_01.png",caption:"Dodgers Blue Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:46,name:"Monsters Inc LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/838ec4db4_E_02.png",caption:"Tommy Lasorda Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
@@ -1465,11 +1472,9 @@ const PRODUCTS = [
   {id:59,name:"Helmet LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4460fca79_E_15.png",caption:"Latina Foreva Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:60,name:"Pinthiz Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3f3831455_F_00.png",caption:"Stadium Wide Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:61,name:"Championship Rings Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/76bf0cb1c_F_01.png",caption:"Trophy Big Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:62,name:"Bobblehead Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/eba9de1f0_F_02.png",caption:"Vertical Banner Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:63,name:"Dodgers Duck Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a51bcf2a1_F_03.png",caption:"Dodgers Big Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:64,name:"Latina Foreva Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/528191ff0_F_04.png",caption:"Circle Logo Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:65,name:"One Piece Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/93840713d_F_05.png",caption:"Horizontal Banner Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:66,name:"Bobblehead II Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3602bc5c5_F_06.png",caption:"Small Cap Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:68,name:"Dodgers Duck II Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/954e6d577_F_08.png",caption:"Small Trophy Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
   {id:69,name:"One Piece Dodgers II Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/9fe7c219b_F_09.png",caption:"Mini Logo Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false}
 ];
