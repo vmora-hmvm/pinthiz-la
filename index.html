@@ -469,6 +469,50 @@ img{max-width:100%;display:block;}
 .review-dot.active{background:var(--gold);width:24px;border-radius:4px;}
 @media(max-width:768px){.review-card{flex:0 0 170px;}.review-card img{height:220px;}}
 
+
+/* ===== BIRTHDAY / SURPRISE SECTION ===== */
+.birthday{position:relative;background:linear-gradient(135deg,#0a1428 0%,#0d2147 40%,#0a1428 100%);overflow:hidden;padding:80px 0;}
+.birthday .wrap{max-width:860px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
+.birthday-content{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+.birthday-text{text-align:left;}
+.birthday-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--navy);padding:6px 18px;border-radius:50px;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;}
+.birthday-title{font-family:'Anton',sans-serif;font-size:2.4rem;color:var(--cream);line-height:1.05;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px;}
+.birthday-title span{display:block;color:var(--gold);font-size:2.6rem;}
+.birthday-sub{color:var(--blue-bright);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;margin:0 0 20px;}
+.birthday-message{color:var(--cream);font-size:.88rem;line-height:1.7;margin:0 0 18px;font-weight:300;}
+.birthday-message strong{color:var(--gold);font-weight:700;}
+.birthday-sig{color:var(--blue-bright);font-size:.82rem;font-style:italic;line-height:1.6;margin:0;font-weight:500;}
+
+/* Birthday photo "video" slideshow */
+.bday-video{position:relative;width:100%;aspect-ratio:9/12;max-height:380px;border-radius:18px;overflow:hidden;border:2px solid rgba(203,161,53,.35);box-shadow:0 12px 40px rgba(0,0,0,.5);}
+.bday-slides{position:relative;width:100%;height:100%;}
+.bday-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;}
+.bday-slide.active{opacity:1;}
+.bday-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.bday-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,20,40,.6));}
+.bday-caption{position:absolute;bottom:12px;left:0;right:0;text-align:center;z-index:2;}
+.bday-caption span{background:rgba(10,20,40,.7);color:var(--cream);font-size:.7rem;font-weight:600;letter-spacing:1px;padding:4px 14px;border-radius:20px;text-transform:uppercase;}
+.bday-dots{position:absolute;top:12px;right:12px;display:flex;gap:5px;z-index:3;}
+.bday-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);transition:all .3s;}
+.bday-dots span.on{background:var(--gold);width:18px;border-radius:3px;}
+.bday-play-badge{position:absolute;top:12px;left:12px;z-index:3;background:rgba(10,20,40,.7);color:var(--gold);font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:12px;letter-spacing:1px;display:flex;align-items:center;gap:4px;}
+.bday-play-badge::before{content:'▶';font-size:.55rem;}
+
+.balloon{position:absolute;font-size:1.6rem;z-index:1;animation:float 6s ease-in-out infinite;opacity:.5;}
+.confetti-bday{position:absolute;width:8px;height:8px;border-radius:2px;top:-10px;animation:confettiFall 5s linear infinite;opacity:.6;z-index:1;}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-20px) rotate(5deg);}}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0);opacity:.6;}100%{transform:translateY(600px) rotate(360deg);opacity:0;}}
+
+@media(max-width:768px){
+  .birthday-content{grid-template-columns:1fr;gap:24px;}
+  .birthday-text{text-align:center;}
+  .birthday-message{text-align:center;}
+  .bday-video{max-height:340px;margin:0 auto;}
+  .birthday-title{font-size:2rem;}
+  .birthday-title span{font-size:2.2rem;}
+  .birthday-message{font-size:.85rem;}
+}
+
 </style>
 </head>
 <body>
@@ -1746,7 +1790,6 @@ function buildWheelSegments() {
 
 // Prizes array — matches wheel segments (0° start = top, going clockwise)
 // Wheel segments: each 45° wide, starting from 0° (top pointer position)
-const 
 
 function updateRafflePrice() {
   const qty = document.getElementById('raffleQty').value;
@@ -2046,6 +2089,22 @@ function toggleSound() {
   }
 }
 
+// ===== BIRTHDAY VIDEO SLIDESHOW =====
+(function(){
+  const slides = document.querySelectorAll('#bdaySlides .bday-slide');
+  const dots = document.querySelectorAll('#bdayDots span');
+  let bdayIdx = 0;
+  if (slides.length > 1) {
+    setInterval(() => {
+      slides[bdayIdx].classList.remove('active');
+      dots[bdayIdx].classList.remove('on');
+      bdayIdx = (bdayIdx + 1) % slides.length;
+      slides[bdayIdx].classList.add('active');
+      dots[bdayIdx].classList.add('on');
+    }, 3500);
+  }
+})();
+
 // ===== INIT =====
 renderProducts();
 buildWheelSegments();
@@ -2065,125 +2124,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Scroll reveal animation
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.section-header, .product-card, .raffle-container, .gallery-grid, .games-list, .faq-grid, .shipping-grid, .updates-grid, .promo-banner').forEach(el => {
-  el.classList.add('reveal');
-  revealObserver.observe(el);
-});
-
-
-function copyBottomLink() {
-  const link = document.getElementById('bottomShareLink');
-  link.select();
-  document.execCommand('copy');
-  const btn = event.target;
-  const orig = btn.textContent;
-  btn.textContent = '✓ Copied!';
-  setTimeout(() => btn.textContent = orig, 2000);
-}
-
-
 // ===== AUTO-UPDATING DODGERS SCHEDULE =====
-async function loadDodgersSchedule() {
-  const DODGERS_ID = 119;
-  const now = new Date();
-  const today = now.toISOString().split('T')[0];
-  // Get games for the next 60 days
-  const future = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000);
-  const endDate = future.toISOString().split('T')[0];
-  
-  try {
-    const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=${DODGERS_ID}&startDate=${today}&endDate=${endDate}&hydrate=team,linescore,gameType&gameType=R,F,D,L,W`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('Failed to fetch schedule');
-    const data = await res.json();
-    
-    const games = [];
-    if (data.dates && data.dates.length > 0) {
-      for (const dateObj of data.dates) {
-        for (const game of dateObj.games) {
-          // Only upcoming or today's games
-          const gameDate = new Date(game.gameDate);
-          if (gameDate < now && gameDate.getDate() !== now.getDate()) continue;
-          
-          const isHome = game.teams.home.team.id === DODGERS_ID;
-          const opponent = isHome ? game.teams.away.team : game.teams.home.team;
-          const opponentId = opponent.id;
-          const opponentName = opponent.name;
-          
-          // Format date
-          const month = gameDate.toLocaleString('en-US', {month: 'short'}).toUpperCase();
-          const day = gameDate.getDate();
-          
-          // Format time
-          let timeStr = 'TBD';
-          if (game.gameDate) {
-            const pt = new Date(game.gameDate).toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'});
-            timeStr = pt + ' PT';
-          }
-          
-          const venue = isHome ? 'Dodger Stadium' : (game.venue ? game.venue.name : 'Away');
-          
-          games.push({
-            month, day, opponentName, opponentId,
-            isHome, timeStr, venue,
-            homeId: game.teams.home.team.id,
-            awayId: game.teams.away.team.id
-          });
-        }
-      }
-    }
-    
-    // Show next 6 games
-    const upcoming = games.slice(0, 6);
-    
-    const list = document.getElementById('gamesList');
-    if (upcoming.length === 0) {
-      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">No upcoming games in the next 60 days. Check back soon!</p></div>';
-      return;
-    }
-    
-    list.innerHTML = upcoming.map(g => {
-      const homeAbbr = g.isHome ? 'la' : (g.homeId === 119 ? 'la' : g.homeId === 137 ? 'sf' : 'la');
-      const awayAbbr = g.isHome ? (g.awayId === 137 ? 'sf' : g.opponentId === 137 ? 'sf' : g.opponentId === 108 ? 'la' : 'la') : 'la';
-      // Use ESPN team logo URLs
-      const dodgerLogo = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/la.png';
-      const oppEspnId = g.opponentName.toLowerCase().replace(' ', '');
-      const oppLogo = `https://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/${awayAbbr === 'la' ? homeAbbr : awayAbbr}.png`;
-      
-      return `<div class="game-card">
-        <div class="game-date"><span class="game-month">${g.month}</span><span class="game-day">${g.day}</span></div>
-        <div class="game-matchup">
-          <div class="team-logo ${g.isHome ? 'team-home' : 'team-away'}"><img src="${dodgerLogo}" alt="LA Dodgers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-          <div class="game-vs">vs</div>
-          <div class="team-logo ${g.isHome ? 'team-away' : 'team-home'}"><img src="${oppLogo}" alt="${g.opponentName}" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
-        </div>
-        <div class="game-info">
-          <div class="game-teams">Dodgers vs. ${g.opponentName}</div>
-          <div class="game-time">${g.timeStr} · ${g.venue}</div>
-        </div>
-      </div>`;
-    }).join('');
-    
-  } catch (e) {
-    console.error('Schedule load error:', e);
-    // Fallback: show a friendly message
-    const list = document.getElementById('gamesList');
-    if (list) {
-      list.innerHTML = '<div class="game-card" style="text-align:center;padding:40px 20px;"><p style="color:var(--muted);font-size:.85rem;">Schedule temporarily unavailable. <a href="https://www.mlb.com/dodgers/schedule" target="_blank" style="color:var(--gold);">View full schedule on MLB.com →</a></p></div>';
-    }
-  }
-}
-// Load on page ready
-document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
 
 </script>
 </body>
