@@ -38,6 +38,66 @@ document.querySelectorAll('.section-header, .product-card, .raffle-container, .g
 });
 
 
+
+// ===== GALLERY CAROUSEL =====
+const galleryTrack = document.getElementById('galleryTrack');
+if (galleryTrack) {
+  const galleryCards = galleryTrack.querySelectorAll('.review-card');
+  const galleryDots = document.getElementById('galleryDots');
+  let galleryAutoScroll;
+  
+  // Build dots
+  const cardsPerView = window.innerWidth <= 768 ? 2 : 4;
+  const totalDots = Math.max(1, Math.ceil(galleryCards.length / cardsPerView));
+  for (let i = 0; i < totalDots; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => {
+      const scrollAmount = cardsPerView * 236;
+      galleryTrack.scrollTo({ left: i * scrollAmount, behavior: 'smooth' });
+    };
+    galleryDots.appendChild(dot);
+  }
+  
+  function scrollGallery(dir) {
+    galleryTrack.scrollBy({ left: dir * 236, behavior: 'smooth' });
+  }
+  window.scrollGallery = scrollGallery;
+  
+  // Update dots on scroll
+  galleryTrack.addEventListener('scroll', () => {
+    const dots = galleryDots.querySelectorAll('.review-dot');
+    const scrollAmount = cardsPerView * 236;
+    const activeIdx = Math.round(galleryTrack.scrollLeft / scrollAmount);
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  });
+  
+  // Auto-scroll
+  function startGalleryAutoScroll() {
+    galleryAutoScroll = setInterval(() => {
+      if (galleryTrack.matches(':hover')) return;
+      const maxScroll = galleryTrack.scrollWidth - galleryTrack.clientWidth;
+      if (galleryTrack.scrollLeft >= maxScroll - 10) {
+        galleryTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        galleryTrack.scrollBy({ left: 236, behavior: 'smooth' });
+      }
+    }, 4000);
+  }
+  startGalleryAutoScroll();
+  
+  // Pause on hover
+  galleryTrack.addEventListener('mouseenter', () => clearInterval(galleryAutoScroll));
+  galleryTrack.addEventListener('mouseleave', () => startGalleryAutoScroll());
+  
+  // Touch/drag
+  let isDown = false, startX, scrollLeft;
+  galleryTrack.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - galleryTrack.offsetLeft; scrollLeft = galleryTrack.scrollLeft; });
+  galleryTrack.addEventListener('mouseleave', () => isDown = false);
+  galleryTrack.addEventListener('mouseup', () => isDown = false);
+  galleryTrack.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - galleryTrack.offsetLeft; galleryTrack.scrollLeft = scrollLeft - (x - startX); });
+}
+
 function copyBottomLink() {
   const link = document.getElementById('bottomShareLink');
   link.select();
@@ -760,67 +820,11 @@ img{max-width:100%;display:block;}
 
     <!-- Customer Gallery -->
     <div class="section-title" style="margin-top:60px;">
-      <span class="label">Real Fans, Real Pins</span>
-      <h2>Community Gallery</h2>
-      <p>Photos from the pinthiz.la community. Tag us to get featured here.</p>
-    </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item placeholder">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
-          <span>Your photo here</span>
-        </div>
-      </div>
-      <div class="gallery-item placeholder">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
-          <span>Your photo here</span>
-        </div>
-      </div>
-      <div class="gallery-item placeholder">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
-          <span>Your photo here</span>
-        </div>
-      </div>
-      <div class="gallery-item placeholder">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
-          <span>Your photo here</span>
-        </div>
-      </div>
-      <div class="gallery-item placeholder">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
-          <span>Your photo here</span>
-        </div>
-      </div>
-      <div class="gallery-item placeholder">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L8 21"/></svg>
-          <span>Your photo here</span>
-        </div>
-      </div>
-    </div>
-    <p class="gallery-cta">Tag <a href="https://www.instagram.com/pinthiz.la/" target="_blank">@pinthiz.la</a> on Instagram with your pin photo to get featured!</p>
-  </div>
-</section>
-
-<!-- STITCH DIVIDER -->
-<div class="stitch-divider stitch-charcoal">
-  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
-</div>
-
-<!-- ===
-<!-- ===== REVIEWS CAROUSEL ===== -->
-<section class="reviews section" id="reviews">
-  <div class="wrap">
-    <div class="section-title">
       <span class="label">Fan Love</span>
-      <h2>What the Community Says</h2>
-      <p>Real reviews from real pin collectors who rock their gear.</p>
+      <h2>Community Gallery</h2>
+      <p>Real reviews from the pinthiz.la community. Tag us to get featured here.</p>
     </div>
-    <div class="reviews-track" id="reviewsTrack">
+    <div class="reviews-track" id="galleryTrack">
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e223f8f43_IMG_2903.jpg" alt="Customer review 1" loading="lazy"></div>
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/17429610b_IMG_2904.jpg" alt="Customer review 2" loading="lazy"></div>
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0ffd30ca8_IMG_2905.jpg" alt="Customer review 3" loading="lazy"></div>
@@ -863,12 +867,21 @@ img{max-width:100%;display:block;}
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/01f119ddf_IMG_2956.jpg" alt="Customer review 40" loading="lazy"></div>
     </div>
     <div class="review-nav">
-      <button class="review-btn" onclick="scrollReviews(-1)">⬅</button>
-      <button class="review-btn" onclick="scrollReviews(1)">➡</button>
+      <button class="review-btn" onclick="scrollGallery(-1)">⬅</button>
+      <button class="review-btn" onclick="scrollGallery(1)">➡</button>
     </div>
-    <div class="review-dots" id="reviewDots"></div>
+    <div class="review-dots" id="galleryDots"></div>
+    <p class="gallery-cta">Tag <a href="https://www.instagram.com/pinthiz.la/" target="_blank">@pinthiz.la</a> on Instagram with your pin photo to get featured!</p>
   </div>
 </section>
+
+<!-- STITCH DIVIDER -->
+<div class="stitch-divider stitch-charcoal">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none"><path d="M0 16 Q 50 4, 100 16 T 200 16 T 300 16 T 400 16 T 500 16 T 600 16 T 700 16 T 800 16 T 900 16 T 1000 16 T 1100 16 T 1200 16" stroke="#CBA135" stroke-width="2" fill="none" opacity=".15" stroke-dasharray="8 6"/></svg>
+</div>
+
+<!-- ===
+
 
 <!-- STITCH DIVIDER -->
 <div class="stitch-divider">
