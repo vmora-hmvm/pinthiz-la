@@ -78,8 +78,8 @@ img{max-width:100%;display:block;}
   opacity:.4;}
 .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1200px;margin:0 auto;padding:12px 24px;gap:12px;}
 .nav-left{display:flex;align-items:center;justify-content:flex-start;gap:10px;}
-.nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:48px;height:48px;background:#fff;border-radius:50%;overflow:hidden;transition:all .3s;box-shadow:0 2px 10px rgba(0,0,0,.3);}
-.nav-logo-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;}
+.nav-logo-circle{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:56px;height:56px;background:#fff;border-radius:50%;overflow:hidden;transition:all .3s;box-shadow:0 2px 10px rgba(0,0,0,.3);}
+.nav-logo-circle img{width:100%;height:100%;object-fit:contain;border-radius:50%;display:block;padding:3px;}
 .nav-logo-circle:hover{transform:scale(1.05);}
 .nav-logo-circle svg{width:24px;height:24px;}
 
@@ -457,8 +457,10 @@ img{max-width:100%;display:block;}
 
 /* ===== REVIEWS CAROUSEL ===== */
 .reviews{position:relative;background:linear-gradient(180deg,rgba(15,28,50,.92) 0%,rgba(11,22,40,.96) 100%);}
-.reviews-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.reviews-track{display:flex;gap:16px;width:max-content;animation:galleryScroll 35s linear infinite;padding:10px 0 20px;scrollbar-width:none;}
 .reviews-track::-webkit-scrollbar{display:none;}
+.reviews-track:hover{animation-play-state:paused;}
+@keyframes galleryScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .review-card{flex:0 0 220px;scroll-snap-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;cursor:grab;}
 .review-card:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 24px rgba(30,144,255,.2);border-color:rgba(30,144,255,.3);}
 .review-card:active{cursor:grabbing;}
@@ -524,7 +526,7 @@ img{max-width:100%;display:block;}
   <div class="nav-inner">
     <div class="nav-left">
       <div class="nav-logo-circle">
-        <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" alt="Pinthiz LA" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">
+        <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" alt="Pinthiz LA" style="width:100%;height:100%;object-fit:contain;border-radius:50%;display:block;padding:3px;">
       </div>
     </div>
     <div class="nav-links" id="navLinks">
@@ -616,10 +618,8 @@ img{max-width:100%;display:block;}
 <section class="story section" id="story" style="background:linear-gradient(135deg,rgba(0,30,60,.95) 0%,rgba(0,51,102,.85) 50%,rgba(11,22,40,1) 100%);position:relative;overflow:hidden;">
   <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/4d4cefb2b_IMG_4187.jpg');background-size:cover;background-position:center top;opacity:.08;pointer-events:none;"></div>
   <div class="wrap" style="position:relative;z-index:1;">
-    <div class="section-title">
-      <span class="label">The Woman Behind the Pins</span>
-      <h2>Our Story</h2>
-      <p>Born in LA. Built from love.</p>
+    <div class="section-title" style="margin-bottom:40px;">
+      <span class="label">Meet the Founder</span>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto;">
       <!-- Photo -->
@@ -662,29 +662,6 @@ img{max-width:100%;display:block;}
 <!-- ===== PROMO + GALLERY ===== -->
 <section class="promo-gallery section" id="gallery">
   <div class="wrap">
-    <!-- Promo CTA -->
-    <div class="promo-banner">
-      <div class="promo-content">
-        <span class="label">Tag To Save</span>
-        <h2>Tag Us, Get 50% Off</h2>
-        <p>Snap a photo wearing your pin, tag <strong>@pinthiz.la</strong> on Instagram, and unlock an instant 50% off your next order. It's that simple — show off your gear, boost our community, and get rewarded.</p>
-        <div class="promo-steps">
-          <div class="promo-step">
-            <span class="step-num">1</span>
-            <p>Wear your pin & snap a pic</p>
-          </div>
-          <div class="promo-step">
-            <span class="step-num">2</span>
-            <p>Tag @pinthiz.la on IG</p>
-          </div>
-          <div class="promo-step">
-            <span class="step-num">3</span>
-            <p>Get 50% off instantly</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Customer Gallery -->
     <div class="section-title" style="margin-top:60px;">
       <span class="label">Fan Love</span>
@@ -732,10 +709,76 @@ img{max-width:100%;display:block;}
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ede91938e_IMG_2948.jpg" alt="Customer review 38" loading="lazy"></div>
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/69d4e0f40_IMG_2955.jpg" alt="Customer review 39" loading="lazy"></div>
         <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/01f119ddf_IMG_2956.jpg" alt="Customer review 40" loading="lazy"></div>
+    
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e223f8f43_IMG_2903.jpg" alt="Customer review 1" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/17429610b_IMG_2904.jpg" alt="Customer review 2" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0ffd30ca8_IMG_2905.jpg" alt="Customer review 3" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/57e0d70f2_IMG_2906.jpg" alt="Customer review 4" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d2389dd79_IMG_2907.jpg" alt="Customer review 5" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b22ce3c27_IMG_2910.jpg" alt="Customer review 6" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/8b1d78bda_IMG_2911.jpg" alt="Customer review 7" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/baff141de_IMG_2912.jpg" alt="Customer review 8" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/724894eed_IMG_2913.jpg" alt="Customer review 9" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/97dc3a622_IMG_2914.jpg" alt="Customer review 10" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b6fa9b297_IMG_2915.jpg" alt="Customer review 11" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a820d61a9_IMG_2917.jpg" alt="Customer review 12" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/6fa128735_IMG_2918.jpg" alt="Customer review 13" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d3c7ebf08_IMG_2919.jpg" alt="Customer review 14" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/813a9b9cb_IMG_2920.jpg" alt="Customer review 15" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a46dd6dfc_IMG_2921.jpg" alt="Customer review 16" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/955764a8b_IMG_2922.jpg" alt="Customer review 17" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/260414f77_IMG_2923.jpg" alt="Customer review 18" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/57725c5e7_IMG_2925.jpg" alt="Customer review 19" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d517887b1_IMG_2927.jpg" alt="Customer review 20" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d541e4e8d_IMG_2929.jpg" alt="Customer review 21" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/739dcf1f8_IMG_2930.jpg" alt="Customer review 22" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a8ed27882_IMG_2931.jpg" alt="Customer review 23" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b27f0c63b_IMG_2933.jpg" alt="Customer review 24" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/7a82d5dd9_IMG_2934.jpg" alt="Customer review 25" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/01a7c4767_IMG_2935.jpg" alt="Customer review 26" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0a9877a2b_IMG_2936.jpg" alt="Customer review 27" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/003e679fb_IMG_2937.jpg" alt="Customer review 28" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ab43c467a_IMG_2938.jpg" alt="Customer review 29" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/8d33e656a_IMG_2939.jpg" alt="Customer review 30" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/24f24e90b_IMG_2941.jpg" alt="Customer review 31" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/9518e7e45_IMG_2942.jpg" alt="Customer review 32" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b855f4d21_IMG_2943.jpg" alt="Customer review 33" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/08897d865_IMG_2944.jpg" alt="Customer review 34" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ea75d758d_IMG_2945.jpg" alt="Customer review 35" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d299926f0_IMG_2946.jpg" alt="Customer review 36" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/32194306a_IMG_2947.jpg" alt="Customer review 37" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ede91938e_IMG_2948.jpg" alt="Customer review 38" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/69d4e0f40_IMG_2955.jpg" alt="Customer review 39" loading="lazy"></div>
+        <div class="review-card"><img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/01f119ddf_IMG_2956.jpg" alt="Customer review 40" loading="lazy"></div>
     </div>
 
     <div class="review-dots" id="galleryDots"></div>
     <p class="gallery-cta">Tag <a href="https://www.instagram.com/pinthiz.la/" target="_blank">@pinthiz.la</a> on Instagram with your pin photo to get featured!</p>
+
+    <div style="margin-top:60px;"></div>
+
+    <!-- Promo CTA -->
+    <div class="promo-banner">
+      <div class="promo-content">
+        <span class="label">Tag To Save</span>
+        <h2>Tag Us, Get 50% Off</h2>
+        <p>Snap a photo wearing your pin, tag <strong>@pinthiz.la</strong> on Instagram, and unlock an instant 50% off your next order. It's that simple — show off your gear, boost our community, and get rewarded.</p>
+        <div class="promo-steps">
+          <div class="promo-step">
+            <span class="step-num">1</span>
+            <p>Wear your pin & snap a pic</p>
+          </div>
+          <div class="promo-step">
+            <span class="step-num">2</span>
+            <p>Tag @pinthiz.la on IG</p>
+          </div>
+          <div class="promo-step">
+            <span class="step-num">3</span>
+            <p>Get 50% off instantly</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -763,7 +806,7 @@ img{max-width:100%;display:block;}
         <div class="wheel-stage">
           <div class="wheel-base"></div>
 
-          <svg class="wheel-svg" id="raffleWheel" viewBox="0 0 300 300" style="filter:drop-shadow(0 8px 24px rgba(0,0,0,.6));">
+          <svg class="wheel-svg" id="raffleWheel" viewBox="0 0 300 300" style="filter:drop-shadow(0 8px 24px rgba(0,0,0,.6));width:380px;height:380px;max-width:90vw;">
           <defs>
             <!-- Clip path for center logo circle -->
             <clipPath id="logoCenterClip">
@@ -825,12 +868,12 @@ img{max-width:100%;display:block;}
           <text transform="rotate(337.5,150,150) translate(150,150)" x="0" y="-78" text-anchor="middle" fill="#0B1628" font-family="Anton,sans-serif" font-size="9" font-weight="900">NOW</text>
 
           <!-- Center white circle with round logo -->
-          <circle cx="150" cy="150" r="58" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
-          <clipPath id="centerClip"><circle cx="150" cy="150" r="54"/></clipPath>
-          <image href="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d0a30691a_nav_logo_round.png" x="96" y="96" width="108" height="108" clip-path="url(#centerClip)" preserveAspectRatio="xMidYMid meet"/>
+          <circle cx="150" cy="150" r="60" fill="#fff" stroke="url(#goldRing)" stroke-width="4"/>
+          <clipPath id="centerClip"><circle cx="150" cy="150" r="58"/></clipPath>
+          <image href="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/adb787767_logo_hero.png" x="88" y="88" width="124" height="124" clip-path="url(#centerClip)" preserveAspectRatio="xMidYMid meet"/>
           
           <!-- Center circle accent (thin ring, no fill to not cover logo) -->
-          <circle cx="150" cy="150" r="58" fill="none" stroke="url(#goldRing)" stroke-width="3"/>
+          <circle cx="150" cy="150" r="60" fill="none" stroke="url(#goldRing)" stroke-width="3"/>
         </svg>
         <!-- Arrow pointer -->
         <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);z-index:10;">
@@ -848,7 +891,6 @@ img{max-width:100%;display:block;}
           </svg>
         </div>
         
-        <button onclick="spinWheelNow()" class="btn btn-gold" style="margin-top:16px;width:280px;font-size:.92rem;letter-spacing:2px;">🎰 SPIN THE WHEEL</button>
         <div id="spinResult" style="display:none;margin-top:12px;width:280px;"></div></div>
       </div>
       
@@ -1130,48 +1172,20 @@ img{max-width:100%;display:block;}
       <div class="bday-video" id="bdayVideo">
         <div class="bday-play-badge">BIRTHDAY MOMENTS</div>
         <div class="bday-dots" id="bdayDots">
-          <span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span class="on"></span><span></span><span></span>
         </div>
         <div class="bday-slides" id="bdaySlides">
           <div class="bday-slide active">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/429de459a_IMG_3033.jpg" alt="Together" loading="lazy">
-            <div class="bday-caption"><span>Together 💙</span></div>
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/b565ee211_IMG_3034.png" alt="Bestie" loading="lazy">
-            <div class="bday-caption"><span>Bestie ✨</span></div>
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/6884c4630_IMG_3035.png" alt="LA love" loading="lazy">
-            <div class="bday-caption"><span>LA love 🎉</span></div>
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/912413c3d_IMG_3036.png" alt="The crew" loading="lazy">
-            <div class="bday-caption"><span>The crew 🤞</span></div>
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/7682dc201_IMG_3037.png" alt="Good times" loading="lazy">
-            <div class="bday-caption"><span>Good times 🌴</span></div>
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/5433ad171_IMG_3038.jpg" alt="Birthday girl" loading="lazy">
-            <div class="bday-caption"><span>Birthday girl 🎂</span></div>
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/3e16c914c_IMG_3039.png" alt="Real ones" loading="lazy">
-            <div class="bday-caption"><span>Real ones 💛</span></div>
-          </div>
-          <div class="bday-slide">
             <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a0d98f9ce_IMG_3027.jpg" alt="Steph and Victoria" loading="lazy">
-            <div class="bday-caption"><span>The duo 🤞</span></div>
+            <div class="bday-caption"><span>Us ð</span></div>
           </div>
           <div class="bday-slide">
-            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="LA nights" loading="lazy">
-            <div class="bday-caption"><span>LA nights ✨</span></div>
+            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="Together" loading="lazy">
+            <div class="bday-caption"><span>Together â¨</span></div>
           </div>
           <div class="bday-slide">
             <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2082e54d6_IMG_3030.jpg" alt="Real ones" loading="lazy">
-            <div class="bday-caption"><span>Real ones 💙</span></div>
+            <div class="bday-caption"><span>Real ones ð¤</span></div>
           </div>
         </div>
       </div>
@@ -1381,7 +1395,7 @@ async function loadDodgersSchedule() {
     }
     
     // Show next 6 games
-    const upcoming = games.slice(0, 6);
+    const upcoming = games.slice(0, 4);
     
     const list = document.getElementById('gamesList');
     if (upcoming.length === 0) {
