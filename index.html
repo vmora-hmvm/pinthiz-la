@@ -485,6 +485,29 @@ img{max-width:100%;display:block;}
   .story-grid > div:last-child{padding:0 16px;}
 }
 
+.pay-panel{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;gap:14px;padding:24px;overflow-y:auto;
+  background:linear-gradient(180deg,#0B1628 0%,#0A1526 100%);transform:translateY(101%);
+  transition:transform .38s cubic-bezier(.2,.8,.2,1);}
+.pay-panel.show{transform:translateY(0);}
+.pay-top{display:flex;align-items:center;justify-content:space-between;}
+.pay-eyebrow{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.pay-back{background:rgba(255,255,255,.06);border:1px solid var(--glass-border);color:var(--cream);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;}
+.pay-back:hover{background:rgba(203,161,53,.12);color:var(--gold);}
+.pay-title{font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:1.5px;text-transform:uppercase;}
+.pay-total{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--glass-border);}
+.pay-total span{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.pay-total strong{font-family:'Anton',sans-serif;font-size:1.9rem;color:var(--gold);}
+.pay-lines{display:flex;flex-direction:column;gap:7px;font-size:.8rem;color:var(--cream);opacity:.85;}
+.pay-line{display:flex;justify-content:space-between;gap:12px;}
+.pay-methods{display:flex;flex-direction:column;gap:10px;margin-top:2px;}
+.pay-method{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--glass-border);border-radius:12px;padding:12px 14px;}
+.pay-method-lbl{font-size:.62rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue-bright);font-weight:700;min-width:44px;}
+.pay-method-val{flex:1;font-size:.82rem;color:var(--cream);word-break:break-all;}
+.pay-copy{background:rgba(30,144,255,.12);border:1px solid rgba(30,144,255,.3);color:var(--blue-bright);
+  font-size:.66rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:7px 12px;border-radius:8px;cursor:pointer;}
+.pay-copy:hover{background:rgba(30,144,255,.22);}
+.pay-note{font-size:.75rem;line-height:1.7;color:var(--muted);}
+.pay-note strong{color:var(--gold);}
 </style>
 </head>
 <body>
@@ -1062,10 +1085,31 @@ img{max-width:100%;display:block;}
       <span class="amt" id="cartTotal">$0.00</span>
     </div>
     <div class="cart-checkout">
-      <button class="btn" onclick="checkout('stripe')">Pay with Stripe</button>
-      <button class="btn btn-outline" onclick="checkout('venmo')">Pay with Venmo</button>
-      <button class="btn btn-outline" onclick="checkout('zelle')">Pay with Zelle</button>
+      <button class="btn btn-block" onclick="checkout()">Checkout</button>
     </div>
+  </div>
+  <div class="pay-panel" id="payPanel">
+    <div class="pay-top">
+      <span class="pay-eyebrow">Step 2 of 2</span>
+      <button class="pay-back" onclick="hidePayPanel()" aria-label="Back to cart">&#8592;</button>
+    </div>
+    <h3 class="pay-title">Send payment</h3>
+    <div class="pay-total"><span>Total due</span><strong id="payTotal">$0.00</strong></div>
+    <div class="pay-lines" id="payLines"></div>
+    <div class="pay-methods">
+      <div class="pay-method">
+        <span class="pay-method-lbl">Venmo</span>
+        <span class="pay-method-val">@Stephie33</span>
+        <button class="pay-copy" onclick="copyPay('@Stephie33', this)">Copy</button>
+      </div>
+      <div class="pay-method">
+        <span class="pay-method-lbl">Zelle</span>
+        <span class="pay-method-val">gstephanie3@yahoo.com</span>
+        <button class="pay-copy" onclick="copyPay('gstephanie3@yahoo.com', this)">Copy</button>
+      </div>
+    </div>
+    <p class="pay-note">Send the exact total, then DM <strong>@pinthiz.la</strong> with your full name, shipping address, order details and email. Orders ship within 2 business days.</p>
+    <button class="btn btn-outline btn-block" onclick="copyOrder(this)">Copy my order</button>
   </div>
 </div>
 
@@ -1538,15 +1582,49 @@ function toggleCart() {
   document.getElementById('cartDrawer').classList.toggle('open');
 }
 
-function checkout(method) {
-  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  if (method === 'venmo') {
-    alert('Redirecting to Venmo @Stephie33 — Total: $' + total.toFixed(2) + '\n\nPlease include your order in the Venmo note!');
-  } else if (method === 'zelle') {
-    alert('Send $' + total.toFixed(2) + ' to gstephanie3@yahoo.com via Zelle.\n\nInclude your order details in the memo!');
-  } else {
-    alert('Redirecting to Stripe checkout — Total: $' + total.toFixed(2) + '\n\nStripe integration coming soon!');
-  }
+function cartTotal() {
+  return cart.reduce((s, i) => s + i.price * i.qty, 0);
+}
+
+function checkout() {
+  if (!cart.length) return;
+  const total = cartTotal();
+  document.getElementById('payTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('payLines').innerHTML = cart.map(i => `
+    <div class="pay-line">
+      <span>${i.qty} &times; ${i.name}</span>
+      <span>$${(i.price * i.qty).toFixed(2)}</span>
+    </div>
+  `).join('');
+  document.getElementById('payPanel').classList.add('show');
+}
+
+function hidePayPanel() {
+  document.getElementById('payPanel').classList.remove('show');
+}
+
+function copyPay(text, btn) {
+  const done = () => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(() => btn.textContent = orig, 1500);
+  };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done).catch(done);
+  else done();
+}
+
+function copyOrder(btn) {
+  const total = cartTotal();
+  const lines = cart.map(i => `${i.qty} x ${i.name} - $${(i.price * i.qty).toFixed(2)}`);
+  const text = 'pinthiz.la order\n' + lines.join('\n') + '\nTotal: $' + total.toFixed(2) +
+               '\n\nName:\nShipping address:\nEmail:';
+  const done = () => {
+    const orig = btn.textContent;
+    btn.textContent = 'Order copied';
+    setTimeout(() => btn.textContent = orig, 1800);
+  };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done).catch(done);
+  else done();
 }
 
 // ===== PRODUCT MODAL =====
