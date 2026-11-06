@@ -1312,7 +1312,7 @@ document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
 // ===== PRODUCT DATA =====
 const PRODUCTS = [
   {id:1,name:"9X Champions Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/70f3ccb54_pin01.jpg",caption:"Nine rings, one dynasty.",desc:"A gold-ringed championship coin with the LA mark at center and every Dodgers title year running around the rim.",featured:true},
-  {id:2,name:"Hello Kitty Dodgers Frame Pin",cat:"pin",price:13,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/5ea0b0448_pin02b.jpg",caption:"Kawaii meets Chavez Ravine.",desc:"Hello Kitty in full Dodgers blue inside a ballpark frame, with the scoreboard clock up top and the World Series trophy at the base.",featured:true},
+  {id:2,name:"Hello Kitty Dodgers Frame Pin",cat:"pin",price:13,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/e09f0e121_p02white.jpg",caption:"Kawaii meets Chavez Ravine.",desc:"Hello Kitty in full Dodgers blue inside a ballpark frame, with the scoreboard clock up top and the World Series trophy at the base.",featured:true},
   {id:3,name:"LA x Nike Crossover Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/abbc7fa8e_pin03.jpg",caption:"Two LA icons, one pin.",desc:"The Swoosh slicing through the LA mark, set over a blue LA script cap. Sneakerhead and Dodger fan in one piece.",featured:true},
   {id:4,name:"Lipstick LA Pin",cat:"pin",price:10,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/c40795b5e_pin04.jpg",caption:"Glam at the ballpark.",desc:"A red lipstick tube in a blue and white case with the LA mark on the barrel. For the fans who bring the style along with the spirit.",featured:false},
   {id:5,name:"West Coast W Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/f9832638e_pin05.jpg",caption:"West Coast energy, always.",desc:"The West Coast W thrown in Dodger blue, LA across the palm, every nail done in glitter and baseball stitching.",featured:true},
@@ -1326,7 +1326,17 @@ const PRODUCTS = [
   {id:12,name:"New Era LA Cap Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/f3bab3598_pin12.jpg",caption:"The cap, in pin form.",desc:"The New Era LA mark in white on bright blue with a black outline.",featured:false},
   {id:13,name:"Midnight LA Cap Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/0cac515fa_pin13.jpg",caption:"Black and silver.",desc:"The LA cap mark in black enamel with a metallic silver border.",featured:false},
   {id:14,name:"USC Trojan Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/3b9fed877_pin14.jpg",caption:"Fight on.",desc:"A Trojan mascot pin in cardinal and gold, helmet on and football tucked in.",featured:false},
-  {id:15,name:"Not Like Us Bat Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/cbd53a865_pin15.jpg",caption:"Bat flip energy.",desc:"A bat-shaped pin in light blue with a gold edge, a baseball in motion and Not Like Us on the barrel.",featured:false}
+  {id:15,name:"Not Like Us Bat Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/cbd53a865_pin15.jpg",caption:"Bat flip energy.",desc:"A bat-shaped pin in light blue with a gold edge, a baseball in motion and Not Like Us on the barrel.",featured:false},
+  {id:16,name:"Dodgers Script Can Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/e8cc7e30c_p16.jpg",caption:"Tall can, tall order.",desc:"A tall can pin wrapped in the Dodgers script, the LA mark and scattered baseballs, with a silver straw arcing out of the top.",featured:false},
+  {id:17,name:"Purple LA Script Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/8ef3c4221_p17.jpg",caption:"Purple and gold.",desc:"The classic LA script in purple enamel with a gold border and a silver edge.",featured:false},
+  {id:18,name:"Gold LA Script Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/9872d557c_p18.jpg",caption:"Gold with blue trim.",desc:"The LA script in gold enamel with a royal blue outline and a silver edge.",featured:false},
+  {id:19,name:"Dodger Blue LA Script Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/08916eac4_p19.jpg",caption:"Blue on blue.",desc:"The LA script in Dodger blue enamel with a polished silver edge.",featured:false},
+  {id:20,name:"Brown LA Script Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/a5cf17111_p20.jpg",caption:"Espresso script.",desc:"The LA script in dark brown enamel with a cream border and a silver edge.",featured:false},
+  {id:21,name:"Jackie Robinson 42 Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/7d8074d0c_p21.jpg",caption:"Breaking barriers.",desc:"A baseball diamond pin ringed in crossed bats, 42 in gold up top, Jackie Robinson script below and a BREAKING BARRIERS banner at the base.",featured:false},
+  {id:22,name:"Dodgers Rookie Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/eb5205da6_p22.jpg",caption:"Little leaguer at heart.",desc:"A pint size player in a Dodgers cap and jersey running across the Dodgers script, glove in hand and flip flops on.",featured:false},
+  {id:23,name:"Dodgers Skull Script Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/3480c7f06_p23.jpg",caption:"Skull and crossbats.",desc:"DODGERS in bold blue block letters with a skull in a Dodgers cap sitting in the O.",featured:false},
+  {id:24,name:"Dodgers Water Cooler Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/73456f7c4_p24.jpg",caption:"Ice cold, always.",desc:"A glitter blue water cooler jug with the white LA mark and a red line across the top.",featured:false},
+  {id:25,name:"High-Five Frame Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/c1e34e6bb_p25.jpg",caption:"Good game, boy.",desc:"A gold framed pin of a player crouching at home plate to high five a gold dog, ball resting on the plate.",featured:false}
 ];
 const products = PRODUCTS;
 
@@ -1356,7 +1366,7 @@ function launchConfetti() {
 let activeFilter = 'all';
 let searchQuery = '';
 
-const PER_PAGE = 15;
+const PER_PAGE = 200;
 let currentPage = 1;
 
 // ===== CAROUSEL =====
