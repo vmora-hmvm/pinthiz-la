@@ -192,11 +192,11 @@ img{max-width:100%;display:block;}
 @media(max-width:600px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
 .product-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:20px;overflow:hidden;transition:all .4s;cursor:pointer;position:relative;}
 .product-card:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.3);box-shadow:0 20px 50px rgba(0,0,0,.4);}
-.product-img-wrap{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:12px;position:relative;overflow:hidden;background:linear-gradient(165deg,rgba(255,255,255,.055) 0%,rgba(255,255,255,.02) 55%,rgba(255,255,255,.04) 100%);}
+.product-img-wrap{aspect-ratio:1/1;display:block;padding:0;position:relative;overflow:hidden;background:#0a1526;}
 .product-img-wrap::before{content:none;}
 .product-img-wrap::after{content:none;}
-.product-img-wrap img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1;border-radius:14px;backdrop-filter:none;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
-.product-card:hover .product-img-wrap img{transform:scale(1.03);}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.product-card:hover .product-img-wrap img{transform:scale(1.04);}
 /* Placeholder for products without real images */
 .product-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,rgba(0,90,156,.08),rgba(203,161,53,.06));border:1px dashed rgba(203,161,53,.15);}
 .product-placeholder svg{width:48px;height:48px;color:rgba(203,161,53,.2);margin-bottom:8px;}
@@ -427,7 +427,7 @@ img{max-width:100%;display:block;}
 .modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.06);border:none;color:var(--muted);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .modal-close:hover{background:rgba(203,161,53,.1);color:var(--gold);}
 .modal-img{width:250px;height:250px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:radial-gradient(72% 58% at 50% 32%,rgba(30,144,255,.24) 0%,rgba(203,161,53,.08) 52%,rgba(10,22,40,0) 78%),#0a1526;}
-.modal-img img{max-width:100%;max-height:100%;object-fit:contain;border-radius:16px;}
+.modal-img img{width:100%;height:100%;object-fit:cover;border-radius:18px;}
 .modal h3{text-align:center;font-size:1.4rem;margin-bottom:8px;letter-spacing:1px;}
 .modal .modal-caption{text-align:center;color:var(--blue-bright);font-size:.88rem;font-style:italic;margin-bottom:16px;}
 .modal .modal-desc{text-align:center;color:var(--cream);opacity:.7;font-size:.88rem;line-height:1.9;margin-bottom:24px;}
@@ -443,18 +443,18 @@ img{max-width:100%;display:block;}
 
 
 /* ===== PRODUCT CAROUSEL ===== */
-.carousel{position:relative;overflow:hidden;padding:20px 0 40px;margin-bottom:20px;}
-.carousel-track{display:flex;gap:20px;animation:slideCarousel 30s linear infinite;width:max-content;}
-.carousel:hover .carousel-track{animation-play-state:paused;}
+.carousel{position:relative;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:20px 0 40px;margin-bottom:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);}.carousel::-webkit-scrollbar{display:none;}
+.carousel-track{display:flex;gap:20px;width:max-content;}
+.carousel-track{padding-right:20px;}
 .carousel-item{width:180px;flex-shrink:0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden;transition:all .3s;cursor:pointer;}
 .carousel-item:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.3);box-shadow:0 12px 30px rgba(0,0,0,.3);}
 .carousel-img{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(circle at center,rgba(30,144,255,.04),transparent 70%);}
-.carousel-img img{max-width:100%;max-height:100%;object-fit:contain;border-radius:14px;}
+.carousel-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .carousel-info{padding:12px 16px;text-align:center;}
 .carousel-info .cname{font-size:.78rem;font-weight:600;color:var(--cream);margin-bottom:4px;}
 .carousel-info .ccap{font-size:.62rem;color:var(--muted);line-height:1.4;font-style:italic;}
 .carousel-info .cprice{font-family:'Anton',sans-serif;font-size:1.2rem;color:var(--gold);margin-top:6px;letter-spacing:1px;}
-@keyframes slideCarousel{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 
 
 /* ===== REVIEWS CAROUSEL ===== */
@@ -650,7 +650,7 @@ img{max-width:100%;display:block;}
     <div class="section-title" style="margin-top:60px;">
       <span class="label">Just Landed</span>
       <h2>The New Line, Up Close</h2>
-      <p>All ten new pins, straight from the workbench. Hover to slow the reel down.</p>
+      <p>Every pin in the case, straight from the workbench. Swipe to browse.</p>
     </div>
     <div class="carousel" id="galleryCarousel">
       <div class="carousel-track" id="galleryMarquee"></div>
@@ -1313,16 +1313,22 @@ document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
 
 // ===== PRODUCT DATA =====
 const PRODUCTS = [
-  {id:1,name:"9X Champions Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/083c0e679_0ca6990a6_7E96D997-9309-4036-9335-2738858F3610.png",caption:"Nine rings, one dynasty.",desc:"A gold-ringed championship coin with the LA mark at center and every Dodgers title year running around the rim.",featured:true},
-  {id:2,name:"Hello Kitty Dodgers Frame Pin",cat:"pin",price:13,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/468c96402_13deefc55_F7082AE7-C15A-4E4A-BE38-47F2855D7B64.png",caption:"Kawaii meets Chavez Ravine.",desc:"Hello Kitty in full Dodgers blue inside a ballpark frame, with the scoreboard clock up top and the World Series trophy at the base.",featured:true},
-  {id:3,name:"LA x Nike Crossover Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/c37d32658_08a3e68b2_C2D9D52F-37F7-4478-8414-964B51CC2F41.png",caption:"Two LA icons, one pin.",desc:"The Swoosh slicing through the LA mark, set over a blue LA script cap. Sneakerhead and Dodger fan in one piece.",featured:true},
-  {id:4,name:"Lipstick LA Pin",cat:"pin",price:10,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/6905ddd5c_c4641764b_326040D8-5D6E-45FD-8B62-3B847CA4CBFB.png",caption:"Glam at the ballpark.",desc:"A red lipstick tube in a blue and white case with the LA mark on the barrel. For the fans who bring the style along with the spirit.",featured:false},
-  {id:5,name:"West Coast W Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/453d47a09_7dfae8eae_47CE9AD0-82C1-4724-AFCF-4AE802EF1FC1.png",caption:"West Coast energy, always.",desc:"The West Coast W thrown in Dodger blue, LA across the palm, every nail done in glitter and baseball stitching.",featured:true},
-  {id:6,name:"LA Kings Crown Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/d346ff297_6611401d5_4862873D-C39E-4D9B-95B9-2DF235345DBB.png",caption:"Crown jewel, Kings blue.",desc:"Silver crown on a glitter field, ringed in Kings blue with GO KINGS GO and crossed sticks on both sides.",featured:false},
-  {id:7,name:"Hoops Swoosh Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/4610fdf7d_ba56ba647_84D59B3A-DDB2-45F1-A597-4DAB5055D559.png",caption:"Hoops meets the Swoosh.",desc:"A player mid-jump in black silhouette with a glossy blue Swoosh cutting straight across the frame.",featured:false},
-  {id:8,name:"High-Top Arrow Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/aedb824b4_83fd8cdba_5BCF9A92-7EAA-457A-82A0-8020491E8678.png",caption:"Always pointing up.",desc:"High-top sneaker with an arrow shooting up and out, Los Angeles script running down the ankle.",featured:false},
-  {id:9,name:"Sneaker Pair #8 Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/0c7efebe0_52fc1faf8_22018CA2-8DD7-43F7-87D0-88CA8867B85A.png",caption:"Fresh out the box.",desc:"A pair of blue snakeskin sneakers with white Swooshes and an 8 on the heel.",featured:false},
-  {id:10,name:"Dodgers Low-Top Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/3fe05b59f_3a0d834c1_FD5F033D-75C0-4D00-AC89-3A97750C71D7.png",caption:"Clean pair, Dodger blue.",desc:"White and blue low-top with a blue Swoosh, tan sole, and metal trim around the shoe.",featured:false}
+  {id:1,name:"9X Champions Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/70f3ccb54_pin01.jpg",caption:"Nine rings, one dynasty.",desc:"A gold-ringed championship coin with the LA mark at center and every Dodgers title year running around the rim.",featured:true},
+  {id:2,name:"Hello Kitty Dodgers Frame Pin",cat:"pin",price:13,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/381a6c62f_pin02.jpg",caption:"Kawaii meets Chavez Ravine.",desc:"Hello Kitty in full Dodgers blue inside a ballpark frame, with the scoreboard clock up top and the World Series trophy at the base.",featured:true},
+  {id:3,name:"LA x Nike Crossover Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/abbc7fa8e_pin03.jpg",caption:"Two LA icons, one pin.",desc:"The Swoosh slicing through the LA mark, set over a blue LA script cap. Sneakerhead and Dodger fan in one piece.",featured:true},
+  {id:4,name:"Lipstick LA Pin",cat:"pin",price:10,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/c40795b5e_pin04.jpg",caption:"Glam at the ballpark.",desc:"A red lipstick tube in a blue and white case with the LA mark on the barrel. For the fans who bring the style along with the spirit.",featured:false},
+  {id:5,name:"West Coast W Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/f9832638e_pin05.jpg",caption:"West Coast energy, always.",desc:"The West Coast W thrown in Dodger blue, LA across the palm, every nail done in glitter and baseball stitching.",featured:true},
+  {id:6,name:"LA Kings Crown Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/6cf216407_pin06.jpg",caption:"Crown jewel, Kings blue.",desc:"Silver crown on a glitter field, ringed in Kings blue with GO KINGS GO and crossed sticks on both sides.",featured:false},
+  {id:7,name:"Hoops Swoosh Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/be035386c_pin07.jpg",caption:"Hoops meets the Swoosh.",desc:"A player mid-jump in black silhouette with a glossy blue Swoosh cutting straight across the frame.",featured:false},
+  {id:8,name:"High-Top Arrow Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/559426a34_pin08.jpg",caption:"Always pointing up.",desc:"High-top sneaker with an arrow shooting up and out, Los Angeles script running down the ankle.",featured:false},
+  {id:9,name:"Kobe 8 Sneaker Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/ce6a07b48_pin09.jpg",caption:"Fresh out the box.",desc:"A pair of blue snakeskin Kobe 8s with white Swooshes and an 8 on the heel.",featured:false},
+  {id:10,name:"Dodgers Low-Top Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/210d4e3f9_pin10.jpg",caption:"Clean pair, Dodger blue.",desc:"White and blue low-top with a blue Swoosh, tan sole, and metal trim around the shoe.",featured:false}
+,
+  {id:11,name:"Kik\u00e9 Hern\u00e1ndez Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/539196bd1_pin11.jpg",caption:"Kik\u00e9, glove up.",desc:"A Kik\u00e9 Hern\u00e1ndez figure pin in Dodgers blue, teal glove out front and his name on the base.",featured:false},
+  {id:12,name:"New Era LA Cap Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/f3bab3598_pin12.jpg",caption:"The cap, in pin form.",desc:"The New Era LA mark in white on bright blue with a black outline.",featured:false},
+  {id:13,name:"Midnight LA Cap Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/0cac515fa_pin13.jpg",caption:"Black and silver.",desc:"The LA cap mark in black enamel with a metallic silver border.",featured:false},
+  {id:14,name:"USC Trojan Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/3b9fed877_pin14.jpg",caption:"Fight on.",desc:"A Trojan mascot pin in cardinal and gold, helmet on and football tucked in.",featured:false},
+  {id:15,name:"Not Like Us Bat Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/cbd53a865_pin15.jpg",caption:"Bat flip energy.",desc:"A bat-shaped pin in light blue with a gold edge, a baseball in motion and Not Like Us on the barrel.",featured:false}
 ];
 const products = PRODUCTS;
 
@@ -1360,7 +1366,7 @@ function initCarousel() {
   const track = document.getElementById('carouselTrack');
   if (!track) return;
   const featured = products.filter(p => p.featured);
-  const items = featured.length > 0 ? [...featured, ...featured] : [...products.slice(0, 10), ...products.slice(0, 10)];
+  const items = featured.length > 0 ? featured : products.slice(0, 8);
   track.innerHTML = items.map(p => `
     <div class="carousel-item" onclick="scrollToShop()">
       <div class="carousel-img">
@@ -1376,12 +1382,36 @@ function initCarousel() {
       </div>
     </div>
   `).join('');
+  driftReel(track, 0.45);
+}
+
+function driftReel(el, speed) {
+  if (!el) return;
+  const box = el.closest('.carousel') || el.parentElement;
+  let pausedUntil = 0;
+  let pos = null;
+  const pause = () => { pausedUntil = Date.now() + 5000; pos = null; };
+  ['pointerdown','wheel','touchstart','mouseenter'].forEach(ev => box.addEventListener(ev, pause, {passive:true}));
+  const step = () => {
+    if (Date.now() > pausedUntil) {
+      const max = box.scrollWidth - box.clientWidth;
+      if (max > 8) {
+        if (pos === null) pos = box.scrollLeft;
+        if (Math.abs(box.scrollLeft - pos) > 3) pos = box.scrollLeft;   // user swiped
+        pos += speed;
+        if (pos >= max - 2) pos = 0;
+        box.scrollLeft = pos;
+      }
+    }
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
 }
 
 function buildGalleryMarquee() {
   const track = document.getElementById('galleryMarquee');
   if (!track) return;
-  const reel = [...products, ...products];
+  const reel = [...products];
   track.innerHTML = reel.map(p => `
     <div class="carousel-item" onclick="openModal(${p.id})">
       <div class="carousel-img">
@@ -1394,6 +1424,7 @@ function buildGalleryMarquee() {
       </div>
     </div>
   `).join('');
+  driftReel(track, 0.45);
 }
 
 function scrollToShop() {
