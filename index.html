@@ -474,39 +474,6 @@ img{max-width:100%;display:block;}
 @media(max-width:768px){.review-card{flex:0 0 180px;}.review-card img{aspect-ratio:4/5;}}
 
 
-/* ===== BIRTHDAY / SURPRISE SECTION ===== */
-.birthday{position:relative;background:linear-gradient(135deg,#0a1428 0%,#0d2147 40%,#0a1428 100%);overflow:hidden;padding:80px 0;}
-.birthday .wrap{max-width:860px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
-.birthday-content{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
-.birthday-text{text-align:left;}
-.birthday-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--navy);padding:6px 18px;border-radius:50px;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;}
-.birthday-title{font-family:'Anton',sans-serif;font-size:2.4rem;color:var(--cream);line-height:1.05;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px;}
-.birthday-title span{display:block;color:var(--gold);font-size:2.6rem;}
-.birthday-sub{color:var(--blue-bright);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;margin:0 0 20px;}
-.birthday-message{color:var(--cream);font-size:.88rem;line-height:1.7;margin:0 0 18px;font-weight:300;}
-.birthday-message strong{color:var(--gold);font-weight:700;}
-.birthday-sig{color:var(--blue-bright);font-size:.82rem;font-style:italic;line-height:1.6;margin:0;font-weight:500;}
-
-/* Birthday photo "video" slideshow */
-.bday-video{position:relative;width:100%;aspect-ratio:3/4;max-height:480px;border-radius:18px;overflow:hidden;border:2px solid rgba(203,161,53,.35);box-shadow:0 12px 40px rgba(0,0,0,.5);background:#0a1428;}
-.bday-slides{position:relative;width:100%;height:100%;}
-.bday-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;}
-.bday-slide.active{opacity:1;}
-.bday-slide img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
-.bday-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(10,20,40,.4));}
-.bday-throwback-label{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:.78rem;font-weight:600;letter-spacing:1px;z-index:4;text-shadow:0 2px 8px rgba(0,0,0,.7);padding:0 12px;}
-
-.bday-dots{position:absolute;top:12px;right:12px;display:flex;gap:5px;z-index:3;}
-.bday-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);transition:all .3s;}
-.bday-dots span.on{background:var(--gold);width:18px;border-radius:3px;}
-.bday-play-badge{position:absolute;top:12px;left:12px;z-index:3;background:rgba(10,20,40,.7);color:var(--gold);font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:12px;letter-spacing:1px;display:flex;align-items:center;gap:4px;}
-.bday-play-badge::before{content:'▶';font-size:.55rem;}
-
-.balloon{position:absolute;font-size:1.6rem;z-index:1;animation:float 6s ease-in-out infinite;opacity:.5;}
-.confetti-bday{position:absolute;width:8px;height:8px;border-radius:2px;top:-10px;animation:confettiFall 5s linear infinite;opacity:.6;z-index:1;}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-20px) rotate(5deg);}}
-@keyframes confettiFall{0%{transform:translateY(0) rotate(0);opacity:.6;}100%{transform:translateY(600px) rotate(360deg);opacity:0;}}
-
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto;}
 @media(max-width:768px){
   .story-grid{grid-template-columns:1fr !important;gap:32px !important;text-align:center;}
@@ -514,15 +481,6 @@ img{max-width:100%;display:block;}
   .story-grid > div:first-child img{width:100%;height:auto;object-fit:cover;display:block;border-radius:20px;}
   .est-tag{position:relative !important;bottom:auto !important;left:auto !important;display:inline-block;margin-top:12px;}
   .story-grid > div:last-child{padding:0 16px;}
-}
-@media(max-width:768px){
-  .birthday-content{grid-template-columns:1fr;gap:24px;}
-  .birthday-text{text-align:center;}
-  .birthday-message{text-align:center;}
-  .bday-video{max-height:400px;margin:0 auto;}
-  .birthday-title{font-size:2rem;}
-  .birthday-title span{font-size:2.2rem;}
-  .birthday-message{font-size:.85rem;}
 }
 
 </style>
@@ -1145,70 +1103,7 @@ img{max-width:100%;display:block;}
 
 <!-- ===== FOOTER ===== -->
 
-<!-- ===== BIRTHDAY SURPRISE ===== -->
-<section class="birthday" id="birthday">
-  <div class="balloon" style="top:10%;left:8%;animation-delay:0s;">🎈</div>
-  <div class="balloon" style="top:18%;right:8%;animation-delay:1s;">🎈</div>
-  <div class="balloon" style="top:35%;left:4%;animation-delay:2s;">🎉</div>
-  <div class="balloon" style="bottom:25%;right:4%;animation-delay:1.5s;">🎂</div>
-  <div class="confetti-bday" style="left:15%;background:var(--blue);animation-delay:0s;"></div>
-  <div class="confetti-bday" style="left:35%;background:var(--gold);animation-delay:.5s;"></div>
-  <div class="confetti-bday" style="left:55%;background:var(--blue);animation-delay:1s;"></div>
-  <div class="confetti-bday" style="left:75%;background:var(--gold);animation-delay:1.5s;"></div>
-  <div class="confetti-bday" style="left:90%;background:var(--blue);animation-delay:2s;"></div>
-  
-  <div class="wrap">
-    <div class="birthday-content">
-      <!-- Left: shoutout text -->
-      <div class="birthday-text">
-        <div class="birthday-badge">🎂 Happy Birthday, Steph mi mor</div>
-        <h2 class="birthday-title">Happy Birthday<span>Steph mi mor! 🎉</span></h2>
-        <p class="birthday-sub">The plug, the visionary, the one who put the 323 on a pin.</p>
-        
-        <p class="birthday-message">
-          <strong>Aight so here's the thing about Steph G.</strong> — shorty don't just make pins, she literally bottlenecks LA culture and puts it on your jacket. Every drop? That's her 2am genius. Every design? Got her fingerprints all over it like she left the scene of something beautiful.
-          <br><br>
-          She's the type to see Shohei do something unhinged and think "bet, that's a pin." Lowrider culture? Yeah she made that wearable. Palm trees, Dodger blue, the whole aesthetic — she ain't following the wave, she IS the wave. LA don't make 'em like this often.
-          <br><br>
-          Designer. Founder. The creative force behind every fly thing you've seen on this site. The one who made Dodger blue hit different. So here's to a real one — the kind that makes you proud to be from the city. 💙💛
-        </p>
-        
-        <p class="birthday-sig">— Your girl built you a whole website for your birthday. That's love. That's also a flex. Happy birthday, Steph mi mor! 🎂⚾</p>
-      </div>
-      
-      <!-- Right: mini "video" slideshow of us -->
-      <div class="bday-video" id="bdayVideo">
-        <div class="bday-play-badge">BIRTHDAY MOMENTS</div>
-        <div class="bday-dots" id="bdayDots">
-          <span class="on"></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="bday-slides" id="bdaySlides">
-          <div class="bday-slide active">
-            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a0d98f9ce_IMG_3027.jpg" alt="Steph and Victoria" loading="lazy">
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bb0006570_IMG_3028.jpg" alt="Together" loading="lazy">
-          </div>
-          <div class="bday-slide">
-            <img src="https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/2082e54d6_IMG_3030.jpg" alt="Real ones" loading="lazy">
-          </div>
-          <div class="bday-slide throwback">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/d4a31258a_IMG_1288.jpg" alt="Throwback with fam" loading="lazy">
-            <div class="bday-throwback-label">a lil throwback with your fam 🥹</div>
-          </div>
-          <div class="bday-slide throwback">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/5430c239c_IMG_1287.jpg" alt="Throwback with fam" loading="lazy">
-            <div class="bday-throwback-label">a lil throwback with your fam 🥹</div>
-          </div>
-          <div class="bday-slide throwback">
-            <img src="https://media.base44.com/images/public/6a4e9d6e7eff63beda95751e/4172b599c_IMG_1289.jpg" alt="Throwback with fam" loading="lazy">
-            <div class="bday-throwback-label">a lil throwback with your fam 🥹</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <footer class="footer">
   <div class="wrap">
@@ -1460,65 +1355,71 @@ document.addEventListener('DOMContentLoaded', loadDodgersSchedule);
 
 // ===== PRODUCT DATA =====
 const PRODUCTS = [
-  {id:1,name:"World Champions LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b11b91624_A_00.png",caption:"Monsters Inc LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  {id:2,name:"8X Champions Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c083e1862_A_01.png",caption:"The Sandlot LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  {id:3,name:"Hello Kitty Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b480992fc_A_02.png",caption:"Dodgers Sneaker Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  {id:4,name:"Agua Fresca Cup Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b9a78e620_A_03.png",caption:"Blue LA Monogram Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  
-  {id:6,name:"LA Dodgers Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bd4ed5c9e_A_05.png",caption:"Rainbow LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  {id:7,name:"Dodgers Funko Pop Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a11e0bc41_A_06.png",caption:"World Series Trophy Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  {id:8,name:"LA Script Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/da243b0cd_A_07.png",caption:"2020 Champs TV Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},
-  {id:9,name:"Hello Kitty Bow Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f2ca474b2_A_08.png",caption:"Christmas Wreath Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:10,name:"LA Fiesta Forever Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f390aba98_A_09.png",caption:"Nike LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:13,name:"Dodgers Horizontal Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d687c4803_B_02.png",caption:"Dodgers Bird Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:14,name:"Dodgers Wordmark Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/774b1c29e_B_03.png",caption:"Dodgers One-Piece Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:15,name:"Hello Kitty Stadium Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d9ad309f2_C_00.png",caption:"LA Monogram Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:16,name:"Blue LA Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/602d79f6a_C_01.png",caption:"8X Champions Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:17,name:"Pink LA Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/45a9c6550_C_02.png",caption:"Blue LA Emblem Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:18,name:"Dodgers Heart Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4b6cdda46_C_03.png",caption:"Player Portrait Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:19,name:"Gold Script LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/003abb44c_C_04.png",caption:"Coffee Cup Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:20,name:"Mosaic Art Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ec8c5310a_C_05.png",caption:"Bobblehead Figure Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:21,name:"42 Mosaic Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dd015dc25_C_06.png",caption:"Script LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:22,name:"42 Legacy Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e83752855_C_07.png",caption:"Classic LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:23,name:"Dodgers Bunny Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/58c34e2e6_C_08.png",caption:"Dodgers Title Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:24,name:"Vertical Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f1522859e_C_09.png",caption:"Gold Border Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:25,name:"Beauty Quote Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/933a6c030_C_10.png",caption:"Vin Scully Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:26,name:"New Era LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/81ec63f41_C_11.png",caption:"LA Skyline Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:27,name:"New Era Blue LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/51333e695_C_12.png",caption:"Bat & Ball Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:28,name:"Nike LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dabf6896c_C_13.png",caption:"Championship Ring Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:29,name:"Donut LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/30fc76872_D_00.png",caption:"Blue Cap Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:30,name:"Pink Donut Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fb11fe4d0_D_01.png",caption:"Gold Star Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:31,name:"Mickey LA Ears Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3d412e9e9_D_02.png",caption:"Hello Kitty Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:32,name:"Minnie LA Ears Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/8bd16fb11_D_03.png",caption:"LA Flag Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:33,name:"Dodgers Funko #35 Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/63e043e80_D_04.png",caption:"Mookie Betts Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  
-  {id:35,name:"California Rainbow Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d580972f8_D_06.png",caption:"Dugout Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:36,name:"Gordyn Serape Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/82eaf9da1_D_07.png",caption:"Strikeout Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:37,name:"The Sandlot Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fcc6748f5_D_08.png",caption:"Big Blue Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:39,name:"Lowrider Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/803f8c212_D_10.png",caption:"Mini Badge Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  
-  {id:41,name:"LA Sunset Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/063fbea29_D_12.png",caption:"Lowrider Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:44,name:"Sandlot Squad Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fd53f5815_E_00.png",caption:"LA Script Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:45,name:"LA Dodgers Blue Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/07ffc0594_E_01.png",caption:"Dodgers Blue Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:46,name:"Monsters Inc LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/838ec4db4_E_02.png",caption:"Tommy Lasorda Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:47,name:"Dodgers Sneaker Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/80988b50c_E_03.png",caption:"World Series Banner Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:48,name:"World Series Trophy Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0c917b0dd_E_04.png",caption:"MVP Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:49,name:"Stadium Marquee Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d9d906f2f_E_05.png",caption:"All-Star Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:51,name:"2020 Champs Etch Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e74397724_E_07.png",caption:"Dodgers Diamond Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:52,name:"Christmas Wreath Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f1af3fa4e_E_08.png",caption:"Home Plate Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:53,name:"Green Cap Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/08d277a07_E_09.png",caption:"Pitcher Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:54,name:"Blue Cap Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/6160847dc_E_10.png",caption:"Catcher Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:55,name:"Nike Swoosh LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/96b43045b_E_11.png",caption:"Batter Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:56,name:"LA Bow Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4e17e6735_E_12.png",caption:"Coach Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:57,name:"Gold Chain Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3afe01077_E_13.png",caption:"Umpire Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:58,name:"Vintage Car Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/8a21418f5_E_14.png",caption:"Fan Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:59,name:"Helmet LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4460fca79_E_15.png",caption:"Latina Foreva Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:60,name:"Pinthiz Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3f3831455_F_00.png",caption:"Stadium Wide Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:61,name:"Championship Rings Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/76bf0cb1c_F_01.png",caption:"Trophy Big Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:63,name:"Dodgers Duck Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a51bcf2a1_F_03.png",caption:"Dodgers Big Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  {id:64,name:"Latina Foreva Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/528191ff0_F_04.png",caption:"Circle Logo Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},
-  
-  {id:68,name:"Dodgers Duck II Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/954e6d577_F_08.png",caption:"Small Trophy Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false}];
+  {id:69,name:"9X Champions Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/01f2710ba_0ca6990a6.jpg",caption:"Nine rings, one dynasty.",desc:"A gold-ringed championship coin with the LA mark at center and every Dodgers title year running around the rim.",featured:false},
+  {id:70,name:"Hello Kitty Dodgers Frame Pin",cat:"pin",price:13,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/de826935f_13deefc55.jpg",caption:"Kawaii meets Chavez Ravine.",desc:"Hello Kitty in full Dodgers blue inside a ballpark frame, with the scoreboard clock up top and the World Series trophy at the base.",featured:false},
+  {id:71,name:"LA x Nike Crossover Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/1e456c4de_08a3e68b2.jpg",caption:"Two LA icons, one pin.",desc:"The Swoosh slicing through the LA mark, set over a blue LA script cap. Sneakerhead and Dodger fan in one piece.",featured:false},
+  {id:72,name:"Lipstick LA Pin",cat:"pin",price:10,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/c1ba9d582_c4641764b.jpg",caption:"Glam at the ballpark.",desc:"A red lipstick tube in a blue and white case with the LA mark on the barrel. For the fans who bring the style along with the spirit.",featured:false},
+  {id:73,name:"West Coast W Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/e9673da33_7dfae8eae.jpg",caption:"West Coast energy, always.",desc:"The West Coast W thrown in Dodger blue, LA across the palm, every nail done in glitter and baseball stitching.",featured:false},
+  {id:74,name:"LA Kings Crown Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/f35beb5b2_6611401d5.jpg",caption:"Crown jewel, Kings blue.",desc:"Silver crown on a glitter field, ringed in Kings blue with GO KINGS GO and crossed sticks on both sides.",featured:false},
+  {id:75,name:"Hoops Swoosh Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/9b0ffb8cf_ba56ba647.jpg",caption:"Hoops meets the Swoosh.",desc:"A player mid-jump in black silhouette with a glossy blue Swoosh cutting straight across the frame.",featured:false},
+  {id:76,name:"High-Top Arrow Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/ce2e30aa9_83fd8cdba.jpg",caption:"Always pointing up.",desc:"High-top sneaker with an arrow shooting up and out, Los Angeles script running down the ankle.",featured:false},
+  {id:77,name:"Sneaker Pair #8 Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/79ac34e1b_52fc1faf8.jpg",caption:"Fresh out the box.",desc:"A pair of blue snakeskin sneakers with white Swooshes and an 8 on the heel.",featured:false},
+  {id:78,name:"Dodgers Low-Top Pin",cat:"pin",price:15,img:"https://base44.app/api/apps/6a5868894add380cde2a6d66/files/mp/public/6a5868894add380cde2a6d66/c083bbf14_3a0d834c1.jpg",caption:"Clean pair, Dodger blue.",desc:"White and blue low-top with a blue Swoosh, tan sole, and metal trim around the shoe.",featured:false},
+  {id:1,name:"World Champions LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b11b91624_A_00.png",caption:"Monsters Inc LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:2,name:"8X Champions Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/c083e1862_A_01.png",caption:"The Sandlot LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:3,name:"Hello Kitty Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b480992fc_A_02.png",caption:"Dodgers Sneaker Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:4,name:"Agua Fresca Cup Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/b9a78e620_A_03.png",caption:"Blue LA Monogram Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:6,name:"LA Dodgers Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/bd4ed5c9e_A_05.png",caption:"Rainbow LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:7,name:"Dodgers Funko Pop Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a11e0bc41_A_06.png",caption:"World Series Trophy Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:8,name:"LA Script Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/da243b0cd_A_07.png",caption:"2020 Champs TV Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:true},,
+  {id:9,name:"Hello Kitty Bow Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f2ca474b2_A_08.png",caption:"Christmas Wreath Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:10,name:"LA Fiesta Forever Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f390aba98_A_09.png",caption:"Nike LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:13,name:"Dodgers Horizontal Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d687c4803_B_02.png",caption:"Dodgers Bird Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:14,name:"Dodgers Wordmark Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/774b1c29e_B_03.png",caption:"Dodgers One-Piece Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:15,name:"Hello Kitty Stadium Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d9ad309f2_C_00.png",caption:"LA Monogram Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:16,name:"Blue LA Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/602d79f6a_C_01.png",caption:"8X Champions Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:17,name:"Pink LA Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/45a9c6550_C_02.png",caption:"Blue LA Emblem Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:18,name:"Dodgers Heart Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4b6cdda46_C_03.png",caption:"Player Portrait Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:19,name:"Gold Script LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/003abb44c_C_04.png",caption:"Coffee Cup Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:20,name:"Mosaic Art Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/ec8c5310a_C_05.png",caption:"Bobblehead Figure Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:21,name:"42 Mosaic Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dd015dc25_C_06.png",caption:"Script LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:22,name:"42 Legacy Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e83752855_C_07.png",caption:"Classic LA Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:23,name:"Dodgers Bunny Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/58c34e2e6_C_08.png",caption:"Dodgers Title Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:24,name:"Vertical Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f1522859e_C_09.png",caption:"Gold Border Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:25,name:"Beauty Quote Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/933a6c030_C_10.png",caption:"Vin Scully Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:26,name:"New Era LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/81ec63f41_C_11.png",caption:"LA Skyline Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:27,name:"New Era Blue LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/51333e695_C_12.png",caption:"Bat & Ball Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:28,name:"Nike LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/dabf6896c_C_13.png",caption:"Championship Ring Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:29,name:"Donut LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/30fc76872_D_00.png",caption:"Blue Cap Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:30,name:"Pink Donut Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fb11fe4d0_D_01.png",caption:"Gold Star Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:31,name:"Mickey LA Ears Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3d412e9e9_D_02.png",caption:"Hello Kitty Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:32,name:"Minnie LA Ears Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/8bd16fb11_D_03.png",caption:"LA Flag Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:33,name:"Dodgers Funko #35 Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/63e043e80_D_04.png",caption:"Mookie Betts Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:35,name:"California Rainbow Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d580972f8_D_06.png",caption:"Dugout Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:36,name:"Gordyn Serape Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/82eaf9da1_D_07.png",caption:"Strikeout Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:37,name:"The Sandlot Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fcc6748f5_D_08.png",caption:"Big Blue Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:39,name:"Lowrider Dodgers Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/803f8c212_D_10.png",caption:"Mini Badge Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:41,name:"LA Sunset Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/063fbea29_D_12.png",caption:"Lowrider Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:44,name:"Sandlot Squad Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/fd53f5815_E_00.png",caption:"LA Script Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:45,name:"LA Dodgers Blue Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/07ffc0594_E_01.png",caption:"Dodgers Blue Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:46,name:"Monsters Inc LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/838ec4db4_E_02.png",caption:"Tommy Lasorda Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:47,name:"Dodgers Sneaker Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/80988b50c_E_03.png",caption:"World Series Banner Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:48,name:"World Series Trophy Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/0c917b0dd_E_04.png",caption:"MVP Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:49,name:"Stadium Marquee Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/d9d906f2f_E_05.png",caption:"All-Star Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:51,name:"2020 Champs Etch Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/e74397724_E_07.png",caption:"Dodgers Diamond Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:52,name:"Christmas Wreath Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/f1af3fa4e_E_08.png",caption:"Home Plate Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:53,name:"Green Cap Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/08d277a07_E_09.png",caption:"Pitcher Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:54,name:"Blue Cap Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/6160847dc_E_10.png",caption:"Catcher Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:55,name:"Nike Swoosh LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/96b43045b_E_11.png",caption:"Batter Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:56,name:"LA Bow Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4e17e6735_E_12.png",caption:"Coach Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:57,name:"Gold Chain Fan Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3afe01077_E_13.png",caption:"Umpire Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:58,name:"Vintage Car Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/8a21418f5_E_14.png",caption:"Fan Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:59,name:"Helmet LA Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/4460fca79_E_15.png",caption:"Latina Foreva Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:60,name:"Pinthiz Logo Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/3f3831455_F_00.png",caption:"Stadium Wide Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:61,name:"Championship Rings Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/76bf0cb1c_F_01.png",caption:"Trophy Big Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:63,name:"Dodgers Duck Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/a51bcf2a1_F_03.png",caption:"Dodgers Big Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:64,name:"Latina Foreva Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/528191ff0_F_04.png",caption:"Circle Logo Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},,
+  {id:68,name:"Dodgers Duck II Pin",cat:"pin",price:12,img:"https://media.base44.com/files/public/6a4e9d6e7eff63beda95751e/954e6d577_F_08.png",caption:"Small Trophy Pin",desc:"A premium Dodgers-themed enamel pin, hand-designed for true LA fans. Vivid colors, clean detail.",featured:false},];
 const products = PRODUCTS;
 
 
@@ -1821,6 +1722,7 @@ function toggleMenu() {
 // ===== RAFFLE WHEEL =====
 function buildWheelSegments() {
   const segments = document.getElementById('wheelSegments');
+  if (!segments) return;
   const prizes = ['ENTER', 'WIN', 'GIVE', 'AWAY', 'ENTER', 'WIN', 'GIVE', 'AWAY'];
   const colors = ['#CBA135', '#005A9C', '#1E90FF', '#CBA135', '#005A9C', '#1E90FF', '#CBA135', '#005A9C'];
   const total = prizes.length;
@@ -2148,21 +2050,6 @@ function toggleSound() {
   }
 }
 
-// ===== BIRTHDAY VIDEO SLIDESHOW =====
-(function(){
-  const slides = document.querySelectorAll('#bdaySlides .bday-slide');
-  const dots = document.querySelectorAll('#bdayDots span');
-  let bdayIdx = 0;
-  if (slides.length > 1) {
-    setInterval(() => {
-      slides[bdayIdx].classList.remove('active');
-      dots[bdayIdx].classList.remove('on');
-      bdayIdx = (bdayIdx + 1) % slides.length;
-      slides[bdayIdx].classList.add('active');
-      dots[bdayIdx].classList.add('on');
-    }, 3500);
-  }
-})();
 
 // ===== INIT =====
 renderProducts();
